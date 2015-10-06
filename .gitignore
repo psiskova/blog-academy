@@ -1,0 +1,19 @@
+### Laravel template
+/vendor
+/node_modules
+/bootstrap/compiled.php
+Homestead.yaml
+Homestead.json
+.env.*.php
+.env.php
+.env
+
+### PhpStorm specific
+.idea
+
+### NetBeans specific
+/nbproject
+
+### barryvdh/laravel-ide-helper
+.phpstorm.meta.php
+_ide_helper.php
