@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -11,10 +13,14 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
-{
-    use Authenticatable, Authorizable, CanResetPassword;
+    AuthorizableContract,
+    CanResetPasswordContract,
+    SluggableInterface {
+
+    use Authenticatable,
+        Authorizable,
+        CanResetPassword,
+        SluggableTrait;
 
     /**
      * The database table used by the model.
@@ -28,12 +34,34 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'name',
+        'surname',
+        'email',
+        'password'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = [
+        'password',
+        'remember_token'
+    ];
+
+    /**
+     * The attributes from which are slug created
+     *
+     * @var array
+     */
+    protected $sluggable = [
+        'build_from' => 'fullname',
+        'save_to' => 'slug',
+    ];
+
+    public function getFullnameAttribute() {
+        return $this->name . ' ' . $this->surname;
+    }
 }
