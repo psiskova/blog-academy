@@ -12,5 +12,4 @@ before_script:
   - composer install --prefer-source --no-interaction
   - php artisan key:generate
 
-script:
-    - phpunit --verbose
+script: vendor/bin/phpunit
