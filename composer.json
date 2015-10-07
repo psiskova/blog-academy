@@ -34,7 +34,8 @@
     "phpspec/phpspec": "~2.1",
     "barryvdh/laravel-ide-helper": "^2.1",
     "filp/whoops": "^1.1",
-    "laravel/socialite": "~2.0"
+    "laravel/socialite": "~2.0",
+    "lord/laroute": "2.*"
   },
   "autoload": {
     "classmap": [
