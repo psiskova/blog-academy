@@ -17,3 +17,6 @@ Homestead.json
 ### barryvdh/laravel-ide-helper
 .phpstorm.meta.php
 _ide_helper.php
+
+### coveralls specific
+/build
