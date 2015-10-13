@@ -61,6 +61,10 @@ class User extends Model implements AuthenticatableContract,
         'save_to' => 'slug',
     ];
 
+    /**
+     * Get users full name
+     * @return string
+     */
     public function getFullnameAttribute() {
         return $this->name . ' ' . $this->surname;
     }
