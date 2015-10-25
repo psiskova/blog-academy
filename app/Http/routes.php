@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/migrate/{id}', function(){
+    Artisan::call('migrate');
+})->where('id', 'lesna_jahoda');
+
+Route::get('/seed/{id}', function(){
+    Artisan::call('db:seed');
+})->where('id', 'lesna_jahoda');
+
+Route::get('/master', function () {
+    return view('layouts.master');
+});
+
+Route::get('/skuska', function () {
+    return view('layouts.skuska');
+});
+
+Route::controller('users', UserController::class);

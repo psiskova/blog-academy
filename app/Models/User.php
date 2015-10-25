@@ -42,6 +42,18 @@ class User extends Model implements AuthenticatableContract,
     ];
 
     /**
+     * The rules for model
+     *
+     * @var array
+     */
+    protected $rules = [
+        'name' => 'required',
+        'surname' => 'required',
+        'password' => 'required',
+        'email' => 'required|email|unique:users,email'
+    ];
+
+    /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
