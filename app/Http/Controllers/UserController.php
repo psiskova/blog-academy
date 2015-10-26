@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 
@@ -63,8 +63,8 @@ class UserController extends Controller {
      * @param \Request $r
      * @return \Illuminate\View\View
      */
-    public function postAdminProfile(\Request $r) {
-        $r->all();
+    public function postAdminProfile(Request $r) {
+        dd($r->all());
         return view('welcome');
     }
 
@@ -72,7 +72,7 @@ class UserController extends Controller {
      * Responds to requests to POST /users/profile
      * @param \Request $r
      */
-    public function postProfile(\Request $r) {
+    public function postProfile(Request $r) {
         //
     }
 
