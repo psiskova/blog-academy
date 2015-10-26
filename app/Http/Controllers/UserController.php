@@ -63,8 +63,8 @@ class UserController extends Controller {
      * @param \Request $r
      * @return \Illuminate\View\View
      */
-    public function postAdminProfile(Request $r) {
-        dd($r->all());
+    public function postAdminProfile() {
+        dd(\Input::all());
         return view('welcome');
     }
 
@@ -73,7 +73,7 @@ class UserController extends Controller {
      * @param \Request $r
      */
     public function postProfile(Request $r) {
-        //
+        dd($r->all());
     }
 
 }
