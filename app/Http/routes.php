@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/migrate/{id}', function(){
@@ -23,12 +23,21 @@ Route::get('/seed/{id}', function(){
     Artisan::call('db:seed');
 })->where('id', 'lesna_jahoda');
 
-Route::get('/master', function () {
-    return view('layouts.master');
+
+Route::get('/article/create', function () {
+    return view('articles.create');
 });
 
-Route::get('/skuska', function () {
-    return view('layouts.skuska');
+Route::get('/article/detail', function () {
+    return view('articles.detail');
+});
+
+Route::get('/article/management', function () {
+    return view('articles.management');
+});
+
+Route::get('/course/overview', function () {
+    return view('courses.overview');
 });
 
 Route::controller('users', UserController::class);
