@@ -15,29 +15,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/migrate/{id}', function(){
+Route::get('/migrate/{id}', function () {
     Artisan::call('migrate');
 })->where('id', 'lesna_jahoda');
 
-Route::get('/seed/{id}', function(){
+Route::get('/seed/{id}', function () {
     Artisan::call('db:seed');
 })->where('id', 'lesna_jahoda');
 
-
-Route::get('/article/create', function () {
-    return view('articles.create');
-});
-
-Route::get('/article/detail', function () {
-    return view('articles.detail');
-});
-
-Route::get('/article/management', function () {
-    return view('articles.management');
-});
-
-Route::get('/course/overview', function () {
-    return view('courses.overview');
-});
-
+Route::controller('article', ArticleController::class);
+Route::controller('auth', \Auth\AuthController::class);
+Route::controller('course', CourseController::class);
 Route::controller('users', UserController::class);
+Route::controller('password', \Auth\PasswordController::class);
