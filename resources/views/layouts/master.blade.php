@@ -71,7 +71,11 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false"><img src="http://placehold.it/30x30" class="profile-image img-circle"> {{ Auth::user()->fullname }} <span class="caret"></span></a>
+                                   aria-expanded="false">
+                                    <img src="http://placehold.it/30x30"
+                                         class="profile-image img-circle"> {{ Auth::user()->fullname }}
+                                    <span class="caret"></span>
+                                </a>
                                 <ul class="dropdown-menu">
                                     <li>{!! link_to_action('UserController@getProfile', 'Profile', ['id' => Auth::user()->getSlug()]) !!}</li>
                                     <li><a href="#">Another action</a></li>
@@ -88,9 +92,9 @@
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
+        </nav>
     </div>
     <!-- /.container-fluid -->
-    </nav>
 
     @yield('content')
 
