@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['url' => '/auth/register', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => '/auth/login', 'class' => 'form-horizontal']) !!}
 
 
                         <div class="form-group">
