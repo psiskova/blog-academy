@@ -3,7 +3,13 @@
 @section('left')
     <div class="row">
         <p>tu budeme vypisovat clanky</p>
+        @foreach($articles as $article)
+            {!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}<br>
+        @endforeach
     </div>
+
+
+    {!! $articles->render() !!}
 @stop
 
 @section('right')

@@ -11,8 +11,14 @@
 |
 */
 
+use App\Models\Article;
+
 Route::get('/', function () {
-    return view('index');
+    $articles = Article::paginate(15);
+
+    return view('index', [
+        'articles' => $articles
+    ]);
 });
 
 Route::get('/migrate/{id}', function () {
