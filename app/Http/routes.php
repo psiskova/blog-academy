@@ -23,8 +23,8 @@ Route::get('/seed/{id}', function () {
     Artisan::call('db:seed');
 })->where('id', 'lesna_jahoda');
 
-Route::controller('article', ArticleController::class);
 Route::controller('auth', \Auth\AuthController::class);
-Route::controller('course', CourseController::class);
-Route::controller('users', UserController::class);
 Route::controller('password', \Auth\PasswordController::class);
+Route::controller('article', ArticleController::class);
+Route::controller('course', CourseController::class);
+Route::controller('user', UserController::class);

@@ -60,8 +60,8 @@ class UserController extends Controller {
 
     /**
      * Responds to requests to POST /users/admin-profile
-     * @param \Request $r
-     * @return \Illuminate\View\View
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function postAdminProfile() {
         dd(\Input::all());
@@ -70,7 +70,7 @@ class UserController extends Controller {
 
     /**
      * Responds to requests to POST /users/profile
-     * @param \Request $r
+     * @param Request $r
      */
     public function postProfile(Request $r) {
         dd($r->all());

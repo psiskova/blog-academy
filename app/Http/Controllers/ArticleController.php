@@ -2,21 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Article;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller {
 
-    public function getCreate() {
+    /**
+     * Instantiate a new ArticleController instance.
+     *
+     */
+    public function __construct() {
 
-        return view('articles.create');
     }
 
-    public function getDetail() {
+    /**
+     * Responds to requests to GET /article
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getIndex() {
 
-        return view('articles.detail');
+        return view('articles.index');
+    }
+
+    public function getShow($id) {
+        $article = Article::findBySlugOrId($id);
+
+        return view('articles.show', [
+            'article' => $article
+        ]);
+    }
+
+    public function getCreate($id = null) {
+        $article = Article::findBySlugOrId($id);
+
+        return view('articles.create', [
+            'article' => $article
+        ]);
     }
 
     public function getManagement() {
