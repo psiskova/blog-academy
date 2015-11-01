@@ -10,11 +10,10 @@
           integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
           crossorigin="anonymous">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    {!! HTML::style('css/style.css') !!}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
             integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
             crossorigin="anonymous"></script>
+    {!! HTML::style('css/style.css') !!}
     <script>
         $(document).ready(function () {
             $.ajaxSetup({
@@ -72,7 +71,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">{{ Auth::user()->fullname }} <span class="caret"></span></a>
+                                   aria-expanded="false"><img src="http://placehold.it/30x30" class="profile-image img-circle"> {{ Auth::user()->fullname }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>{!! link_to_action('UserController@getProfile', 'Profile', ['id' => Auth::user()->getSlug()]) !!}</li>
                                     <li><a href="#">Another action</a></li>
