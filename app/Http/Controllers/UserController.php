@@ -14,7 +14,7 @@ class UserController extends Controller {
      */
     public function __construct() {
 
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => ['getProfile']]);
 
         //  $this->middleware('role:admin', ['only' => 'getAdminProfile']);
 
@@ -43,23 +43,29 @@ class UserController extends Controller {
     }
 
     /**
-     * Responds to requests to GET /users/profile/1 or /users/profile/name-lastname
+     * Responds to requests to GET /user/profile/1 or /user/profile/name-lastname
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getProfile($slug) {
-        return view('users.show', [
-            'user' => User::findBySlugOrIdOrFail($slug)
+    public function getProfile($id) {
+        $user = User::findBySlugOrIdOrFail($id);
+
+        return view('users.profile', [
+            'user' => $user
         ]);
     }
 
     /**
-     * Responds to requests to GET /users/admin-profile
+     * Responds to requests to GET /user/admin-profile
      */
     public function getAdminProfile() {
         return view('welcome');
     }
 
     /**
-     * Responds to requests to POST /users/admin-profile
+     * Responds to requests to POST /user/admin-profile
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -69,7 +75,7 @@ class UserController extends Controller {
     }
 
     /**
-     * Responds to requests to POST /users/profile
+     * Responds to requests to POST /user/profile
      * @param Request $r
      */
     public function postProfile(Request $r) {

@@ -30,6 +30,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">Surname</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="surname" value="{{ old('surname') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
