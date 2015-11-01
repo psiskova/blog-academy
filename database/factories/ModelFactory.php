@@ -23,7 +23,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->word,
+        'title' => $faker->sentence,
         'user_id' => App\Models\User::all()->random()->id,
         'text' => $faker->text(800)
     ];

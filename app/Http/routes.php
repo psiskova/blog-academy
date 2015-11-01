@@ -29,6 +29,10 @@ Route::get('/seed/{id}', function () {
     Artisan::call('db:seed');
 })->where('id', 'lesna_jahoda');
 
+Route::get('/refresh/{id}', function () {
+    Artisan::call('migrate:refresh');
+})->where('id', 'lesna_jahoda');
+
 Route::controller('auth', \Auth\AuthController::class);
 Route::controller('password', \Auth\PasswordController::class);
 Route::controller('article', ArticleController::class);
