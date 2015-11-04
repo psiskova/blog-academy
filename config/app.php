@@ -149,7 +149,6 @@ return [
         /*
          * Packages Service Providers
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Lord\Laroute\LarouteServiceProvider::class,
