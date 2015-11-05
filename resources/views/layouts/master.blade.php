@@ -100,20 +100,19 @@
 </div>
 <div class="tab-nav tabs hidden-lg hidden-md">
 
-    <a class="tab-item tab-item-active">
+    <a class="tab-item tab-item-active" href="{{ url('/') }}">
         <i class="icon ion-home"></i>
         <span class="tab-title">Home</span>
     </a>
 
-
-    <a class="tab-item">
+    <a class="tab-item" href="{{ URL::action('ArticleController@getCreate') }}">
         <i class="icon ion-compose"></i>
         <span class="tab-title">Pridať článok</span>
     </a>
 
     <a class="tab-item">
         <i class="icon ion-ios-star"></i>
-        <span class="tab-title">Account</span>
+        <span class="tab-title">Hodnotenie</span>
     </a>
 
     <a class="tab-item">
