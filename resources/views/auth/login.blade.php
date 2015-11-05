@@ -21,6 +21,8 @@
                         @endif
 
                         {!! Form::open(['url' => '/auth/login', 'class' => 'form-horizontal']) !!}
+
+
                         <div class="form-group">
                             <label class="col-md-4 control-label">E-Mail Address</label>
 

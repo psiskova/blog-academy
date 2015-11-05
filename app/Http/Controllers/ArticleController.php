@@ -34,11 +34,9 @@ class ArticleController extends Controller {
     }
 
     public function getCreate($id = null) {
-        $article = Article::findBySlugOrId($id);
+        //$article = Article::findBySlugOrId($id);
 
-        return view('articles.create', [
-            'article' => $article
-        ]);
+        return view('articles.create');
     }
 
     public function getManagement() {

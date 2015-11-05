@@ -87,7 +87,7 @@ class User extends Model implements
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function articles() {
-        return $this->belongsToMany(Article::class);
+    public function article() {
+        return $this->hasMany(Article::class, 'user_id', 'id');
     }
 }
