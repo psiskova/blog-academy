@@ -9,6 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
           crossorigin="anonymous">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
             integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
@@ -98,6 +99,29 @@
 
     @yield('content')
 
+</div>
+<div class="tab-nav tabs hidden-lg hidden-md">
+
+    <a class="tab-item tab-item-active">
+        <i class="icon ion-home"></i>
+        <span class="tab-title">Home</span>
+    </a>
+
+
+    <a class="tab-item">
+        <i class="icon ion-compose"></i>
+        <span class="tab-title">Pridať článok</span>
+    </a>
+
+    <a class="tab-item">
+        <i class="icon ion-ios-star"></i>
+        <span class="tab-title">Account</span>
+    </a>
+
+    <a class="tab-item">
+        <i class="icon ion-navicon-round"></i>
+        <span class="tab-title">Viac</span>
+    </a>
 </div>
 </body>
 </html>
