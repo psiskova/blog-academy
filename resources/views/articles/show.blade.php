@@ -16,7 +16,7 @@
         USER IMAGE
         <h4>{{ $article->user->fullname }}</h4>
         {{ $article->user->email }}<br>
-        {{--{!! link_to_action('**TODO presmerovanie', 'publikované články ('.**TODO pocet.')',['user_id' => $article->slug]) !!} --}}
+        {{--{!! link_to_action('**TODO presmerovanie', 'publikované články('.**TODO pocet.')',['user_id' => $article->slug]) !!} --}}
         **TODO publikované články(počet)
     </div>
 @stop
