@@ -2,17 +2,16 @@
 
 @section('content')
 
-    <div class="row">
-        
+    <div class="container-fluid row">
         <div class="col-md-8 col-md-push-2">
-    <div class="row">
-        <div class="col-md-9">
-            @yield('left')
+            <div class="container-fluid row">
+                <div class="col-md-9">
+                    @yield('left')
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs">
+                    @yield('right')
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 hidden-sm hidden-xs">
-            @yield('right')
-        </div>
-    </div>
-    </div>
     </div>
 @stop

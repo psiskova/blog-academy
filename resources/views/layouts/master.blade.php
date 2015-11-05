@@ -91,11 +91,9 @@
                         @endif
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
             </div>
         </nav>
     </div>
-    <!-- /.container-fluid -->
 
     @yield('content')
 
