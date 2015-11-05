@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('#area').remove();
-  $('#summernote').summernote({
-  height: 300,                 // set editor height
+    $('#summernote').summernote({
+        height: 300,                 // set editor height
 
-  minHeight: 300,             // set minimum height of editor
-  maxHeight: null,             // set maximum height of editor
+        minHeight: 300,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
 
-  focus: true,                 // set focus to editable area after initializing summernote
-});
+        focus: true,                 // set focus to editable area after initializing summernote
+    });
 });
