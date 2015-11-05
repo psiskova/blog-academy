@@ -9,7 +9,7 @@
         <div class="col-md-9">
             @yield('left')
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 hidden-sm hidden-xs">
             @yield('right')
         </div>
     </div>

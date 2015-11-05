@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -45,5 +46,25 @@ class Article extends Model implements SluggableInterface {
      */
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get created_at attribute in d.m.Y format
+     *
+     * @param $date
+     * @return string
+     */
+    public function getCreatedAtAttribute($date) {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
+    }
+
+    /**
+     * Get updated_at attribute in d.m.Y format
+     *
+     * @param $date
+     * @return string
+     */
+    public function getUpdatedAtAttribute($date) {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
     }
 }
