@@ -3,7 +3,7 @@
 @section('left')
     <div class="row">
         <h3>{!! $article->title !!}</h3>
-        {{ $article->updated_at->format('M j, Y') }}<br>
+        {{ $article->updated_at }}<br>
         <p>{!! $article->text !!}</p>
     </div>
 
