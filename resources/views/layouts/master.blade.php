@@ -99,32 +99,14 @@
 
 </div>
 <div class="tab-nav tabs hidden-lg hidden-md">
-    <a class="tab-item tab-item-active" href="{{ url('/') }}">
-        <i class="icon ion-home"></i>
-        <span class="tab-title">Home</span>
-    </a>
+    {!! HTML::tabItem(url('/'), 'Home', 'ion-home') !!}
     @if(Auth::check())
-        <a class="tab-item" href="{{ URL::action('ArticleController@getCreate') }}">
-            <i class="icon ion-compose"></i>
-            <span class="tab-title">Pridať článok</span>
-        </a>
-        <a class="tab-item">
-            <i class="icon ion-ios-star"></i>
-            <span class="tab-title">Hodnotenia</span>
-        </a>
-        <a class="tab-item">
-            <i class="icon ion-navicon-round"></i>
-            <span class="tab-title">Viac</span>
-        </a>
+        {!! HTML::tabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-compose') !!}
+        {!! HTML::tabItem('', 'Hodnotenia', 'ion-ios-star') !!}
+        {!! HTML::tabItem('', 'Viac', 'ion-navicon-round') !!}
     @else
-        <a class="tab-item" href="{{ URL::action('Auth\AuthController@getLogin') }}">
-            <i class="icon ion-log-in"></i>
-            <span class="tab-title">Login</span>
-        </a>
-        <a class="tab-item" href="{{ URL::action('Auth\AuthController@getRegister') }}">
-            <i class="icon ion-person-add"></i>
-            <span class="tab-title">Register</span>
-        </a>
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Login', 'ion-log-in') !!}
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Register', 'ion-person-add') !!}
     @endif
 </div>
 </body>
