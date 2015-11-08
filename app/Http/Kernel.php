@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CheckForBanUser;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RoleMiddleware;
@@ -22,6 +23,7 @@ class Kernel extends HttpKernel {
      */
     protected $middleware = [
         CheckForMaintenanceMode::class,
+        CheckForBanUser::class,
         EncryptCookies::class,
         AddQueuedCookiesToResponse::class,
         StartSession::class,

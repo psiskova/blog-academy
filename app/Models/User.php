@@ -23,6 +23,8 @@ class User extends Model implements
         CanResetPassword,
         SluggableTrait;
 
+    const BAN = 1;
+
     /**
      * The database table used by the model.
      *
@@ -87,7 +89,11 @@ class User extends Model implements
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function article() {
+    public function articles() {
         return $this->hasMany(Article::class, 'user_id', 'id');
+    }
+
+    public function isBanned() {
+        return $this->ban == $this::BAN;
     }
 }

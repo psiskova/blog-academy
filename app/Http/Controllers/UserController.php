@@ -24,21 +24,12 @@ class UserController extends Controller {
     }
 
     /**
-     * Responds to requests to GET /users
+     * Responds to requests to GET /user
      */
     public function getIndex() {
-        $u = User::create([
-            'name' => 'stefan',
-            'surname' => 'gerboc',
-            'email' => 'ahoj@gmail.com',
-            'password' => bcrypt('testik')
-        ]);
-        if ($u->save()) {
-            dd('ok');
-        }
+
         return view('users.index', [
-            'users' => User::all(),
-            'skuska' => 'ahoj'
+            'users' => User::all()
         ]);
     }
 
