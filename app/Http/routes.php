@@ -22,15 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/migrate/{id}', function () {
-    Artisan::call('migrate');
+    Artisan::call('migrate --force');
 })->where('id', 'lesna_jahoda');
 
 Route::get('/seed/{id}', function () {
-    Artisan::call('db:seed');
+    Artisan::call('db:seed --force');
 })->where('id', 'lesna_jahoda');
 
 Route::get('/refresh/{id}', function () {
-    Artisan::call('migrate:refresh');
+    Artisan::call('migrate:refresh --force');
 })->where('id', 'lesna_jahoda');
 
 Route::controller('auth', \Auth\AuthController::class);
