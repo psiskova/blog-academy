@@ -84,9 +84,8 @@
             </div>
         </nav>
     </div>
-
+    @include('flash::message')
     @yield('content')
-
 </div>
 <div class="tab-nav tabs hidden-lg hidden-md">
     {!! HTML::tabItem(url('/'), 'Home', 'ion-home') !!}

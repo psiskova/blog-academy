@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Flash;
 
 class CheckForBanUser {
 
@@ -14,17 +15,23 @@ class CheckForBanUser {
      * @return mixed
      */
     public function handle($request, Closure $next) {
+        $response = $next($request);
+
         if (\Auth::check()) {
             $user = \Auth::user();
             if ($user->isBanned()) {
                 \Auth::logout();
                 if ($request->ajax()) {
+
                     return response('Unauthorized.', 401);
                 } else {
+                    flash()->error('Ban');
+
                     return redirect('/');
                 }
             }
         }
-        return $next($request);
+
+        return $response;
     }
 }
