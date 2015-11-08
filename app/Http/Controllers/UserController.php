@@ -17,12 +17,16 @@ class UserController extends Controller {
         $this->middleware('guest', ['except' => [
             'getProfile',
             'getManagement',
-            'getBlock'
+            'getBlock',
+            'postManagement',
+            'postBlock'
         ]]);
 
         $this->middleware('role:admin', ['only' => [
             'getManagement',
-            'getBlock'
+            'getBlock',
+            'postManagement',
+            'postBlock'
         ]]);
 
         /*  $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
@@ -114,7 +118,10 @@ class UserController extends Controller {
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getBlock() {
-        $users = User::where('id', '<>', \Auth::id())->get(['name', 'surname', 'ban']);
+        $users = User::where('id', '<>', \Auth::id())
+            ->orderBy('surname')
+            ->orderBy('name')
+            ->paginate(10, ['id', 'name', 'surname', 'ban']);
 
         return view('users.block', [
             'users' => $users
@@ -130,10 +137,21 @@ class UserController extends Controller {
     public function postBlock(Request $request) {
         $input = $request->all();
 
+        $user = User::findBySlugOrId($input['id']);
+
+        $input = array_except($input, ['id']);
+
+        $user->update($input);
+
         if ($request->ajax()) {
 
+            return response()->json([
+                'id' => $user->id,
+                'ban' => $user->ban
+            ]);
         } else {
 
+            flash()->success('User updated');
             return redirect()->back();
         }
     }

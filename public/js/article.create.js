@@ -1,5 +1,8 @@
+'use strict';
+
 $(document).ready(function () {
     $('#area').remove();
+
     $('#summernote').summernote({
         height: 300,                 // set editor height
 

@@ -46,7 +46,8 @@ class User extends Model implements
         'name',
         'surname',
         'email',
-        'password'
+        'password',
+        'ban'
     ];
 
     /**
