@@ -1,20 +1,19 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration {
-    
+class UpdateUserTableAddRole extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up() {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token')->index();
-            $table->timestamp('created_at');
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('role')->default(User::STUDENT_ROLE);
         });
     }
 
@@ -24,6 +23,8 @@ class CreatePasswordResetsTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('password_resets');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 }

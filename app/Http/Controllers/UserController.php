@@ -14,9 +14,16 @@ class UserController extends Controller {
      */
     public function __construct() {
 
-        $this->middleware('guest', ['except' => ['getProfile']]);
+        $this->middleware('guest', ['except' => [
+            'getProfile',
+            'getManagement',
+            'getBlock'
+        ]]);
 
-        //  $this->middleware('role:admin', ['only' => 'getAdminProfile']);
+        $this->middleware('role:admin', ['only' => [
+            'getManagement',
+            'getBlock'
+        ]]);
 
         /*  $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
 
@@ -67,10 +74,68 @@ class UserController extends Controller {
 
     /**
      * Responds to requests to POST /user/profile
+     *
      * @param Request $r
      */
     public function postProfile(Request $r) {
         dd($r->all());
+    }
+
+    /**
+     * Responds to request GET /user/management
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getManagement() {
+
+        return view('users.management');
+    }
+
+    /**
+     * Responds to request POST /user/management
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postManagement(Request $request) {
+        $input = $request->all();
+
+        if ($request->ajax()) {
+
+        } else {
+
+            return redirect()->back();
+        }
+    }
+
+    /**
+     *Responds to request GET /user/block
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getBlock() {
+        $users = User::where('id', '<>', \Auth::id())->get(['name', 'surname', 'ban']);
+
+        return view('users.block', [
+            'users' => $users
+        ]);
+    }
+
+    /**
+     * Responds to request POST /user/block
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postBlock(Request $request) {
+        $input = $request->all();
+
+        if ($request->ajax()) {
+
+        } else {
+
+            return redirect()->back();
+        }
     }
 
 }

@@ -25,6 +25,11 @@ class User extends Model implements
 
     const BAN = 1;
 
+    const ADMIN_ROLE = 2;
+    const STUDENT_ROLE = 0;
+    const TEACHER_ROLE = 1;
+
+
     /**
      * The database table used by the model.
      *
@@ -81,6 +86,7 @@ class User extends Model implements
      * @return string
      */
     public function getFullnameAttribute() {
+
         return $this->name . ' ' . $this->surname;
     }
 
@@ -90,10 +96,22 @@ class User extends Model implements
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function articles() {
+
         return $this->hasMany(Article::class, 'user_id', 'id');
     }
 
+    /**
+     * Determine whether user is banned
+     *
+     * @return bool
+     */
     public function isBanned() {
+
         return $this->ban == $this::BAN;
+    }
+
+    public function hasRole() {
+
+        return true;
     }
 }

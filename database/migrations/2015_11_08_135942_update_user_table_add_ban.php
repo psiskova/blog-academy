@@ -4,6 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateUserTableAddBan extends Migration {
+
     /**
      * Run the migrations.
      *
