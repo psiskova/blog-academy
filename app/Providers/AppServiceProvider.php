@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider {
         if ($this->app->environment('production')) {
         } else {
             $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
-            $this->app->register('Lord\Laroute\LarouteServiceProvider');
         }
     }
 }

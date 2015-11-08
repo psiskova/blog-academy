@@ -26,6 +26,7 @@
     "laravel/framework": "5.1.*",
     "cviebrock/eloquent-sluggable": "^3.0",
     "laracasts/flash": "~1.3",
+    "lord/laroute": "2.*",
     "illuminate/html": "5.*"
   },
   "require-dev": {
@@ -35,7 +36,6 @@
     "phpspec/phpspec": "~2.1",
     "barryvdh/laravel-ide-helper": "^2.1",
     "filp/whoops": "^1.1",
-    "lord/laroute": "2.*",
     "satooshi/php-coveralls": "^0.6.1"
   },
   "autoload": {
@@ -62,7 +62,8 @@
     "post-update-cmd": [
       "php artisan ide-helper:generate",
       "php artisan ide-helper:meta",
-      "php artisan optimize"
+      "php artisan optimize",
+      "php artisan laroute:generate"
     ],
     "post-root-package-install": [
       "php -r \"copy('.env.example', '.env');\""

@@ -152,6 +152,7 @@ return [
          */
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Lord\Laroute\LarouteServiceProvider::class,
 
     ],
 
