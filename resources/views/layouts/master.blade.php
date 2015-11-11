@@ -14,8 +14,10 @@
     {!! HTML::style('css/style.css') !!}
 </head>
 
+
 <body>
-<div class="container">
+
+<div class="container main_container">
     <div class="row">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -30,7 +32,6 @@
                     </button>
                     {!! link_to('/', 'Blog', ['class'=>'navbar-brand']) !!}
                 </div>
-
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -87,6 +88,7 @@
     @include('flash::message')
     @yield('content')
 </div>
+
 <div class="tab-nav tabs hidden-lg hidden-md">
     {!! HTML::tabItem(url('/'), 'Home', 'ion-home') !!}
     @if(Auth::check())
@@ -98,6 +100,11 @@
         {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Register', 'ion-person-add') !!}
     @endif
 </div>
+
+<footer class="hidden-sm hidden-xs">
+    <p class="text-center">FMFI UK v Bratislave &copy; 2015-2016 access_denied</p>
+</footer>
+
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
         integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
