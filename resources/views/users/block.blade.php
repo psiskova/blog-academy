@@ -5,8 +5,8 @@
 @stop
 
 @section('left')
-    <h1 class="text-center">BLOKOVANIE POUŽÍVATEĽOV</h1>
     <div class="row">
+        <h1 class="text-center">BLOKOVANIE POUŽÍVATEĽOV</h1>
         <table class="center_elements table_block table-striped">
             <tr>
                 <th class="border_right">Meno a priezvisko</th>
@@ -24,7 +24,7 @@
                 {!! Form::close() !!}
             @endforeach
         </table>
-        <div class="text-center">
+        <div class="text-center fix1">
             {!! $users->render() !!}
         </div>
     </div>

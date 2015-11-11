@@ -220,6 +220,17 @@ h1 {
     margin: 30px 0;
 }
 
+.table_not_grading_student td {
+     padding: 15px 10px;
+ }
+
+.table_not_grading_teacher td {
+    padding: 8px 10px;
+}
+
+.tab-content {
+    padding-top: 20px;
+}
 
 
 

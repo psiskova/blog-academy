@@ -16,6 +16,7 @@ class UserController extends Controller {
 
         $this->middleware('guest', ['except' => [
             'getProfile',
+            'getGrading',
             'getManagement',
             'getBlock',
             'postManagement',
@@ -156,6 +157,14 @@ class UserController extends Controller {
             flash()->success('User updated');
             return redirect()->back();
         }
+    }
+
+    public function getGrading($id) {
+        $user = User::findBySlugOrIdOrFail($id);
+
+        return view('users.grading', [
+            'user' => $user
+        ]);
     }
 
 }

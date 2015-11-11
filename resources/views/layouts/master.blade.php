@@ -70,12 +70,24 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>{!! link_to_action('UserController@getProfile', 'Profile', ['id' => Auth::user()->getSlug()]) !!}</li>
-                                    <li><a href="#">Another action</a></li>
+                                    <li>{!! link_to_action('UserController@getGrading', 'Hodnotenie', ['id' => Auth::user()->getSlug()]) !!}</li>
                                     <li><a href="#">Something else here</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li>{!! link_to_action('Auth\AuthController@getLogout', 'Logout') !!}</li>
                                 </ul>
                             </li>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="sel1"></label>
+                                    <select class="form-control" id="sel1">
+                                        <option value="" style="display:none">Vyber predmet</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </form>
                         @else
                             <li>{!! link_to_action('Auth\AuthController@getRegister', 'Register') !!}</li>
                             <li>{!! link_to_action('Auth\AuthController@getLogin', 'Login') !!}</li>
