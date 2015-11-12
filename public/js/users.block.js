@@ -21,8 +21,7 @@ var updateUserRequest = function (data) {
 };
 
 $(document).ready(function () {
-
-    $('button').on('click', function () {
+    $('td button').on('click', function () {
         let tr = $(this).closest('tr'),
             userId = $('[name=id]', tr).val(),
             ban = $(this).val(),
