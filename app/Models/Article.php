@@ -11,6 +11,10 @@ class Article extends Model implements SluggableInterface {
 
     use SluggableTrait;
 
+    const DRAFT = 0;
+    const PUBLISHED = 1;
+
+
     /**
      * The database table used by the model.
      *
@@ -26,7 +30,8 @@ class Article extends Model implements SluggableInterface {
     protected $fillable = [
         'title',
         'user_id',
-        'text'
+        'text',
+        'state'
     ];
 
     /**
@@ -39,13 +44,24 @@ class Article extends Model implements SluggableInterface {
         'save_to' => 'slug',
     ];
 
+    protected $rules = [
+        'title' => 'required',
+        'text' => 'required'
+    ];
+
     /**
      * Get author of article.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
+
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function tags() {
+
+        return $this->hasManyThrough('App\Models\Tag', 'App\Models\ArticleTagMapper', 'article_id', 'id', 'id');
     }
 
     /**
