@@ -14,7 +14,7 @@
 use App\Models\Article;
 
 Route::get('/', function () {
-    $articles = Article::paginate(15);
+    $articles = Article::where('state', '=', Article::PUBLISHED)->orderBy('updated_at', 'desc')->paginate(15);
 
     return view('index', [
         'articles' => $articles

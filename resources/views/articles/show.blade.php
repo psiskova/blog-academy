@@ -15,7 +15,7 @@
         USER IMAGE
         <h4>{{ $article->user->fullname }}</h4>
         <p>{{ $article->user->email }}</p>
-        <p>{!! link_to_action('UserController@getProfile', 'publikované články ('.$article->user->articles->count().')', ['user_id' => $article->user->slug]) !!}</p>
+        <p>{!! link_to_action('UserController@getProfile', 'publikované články ('.$article->user->articles()->published()->count().')', ['user_id' => $article->user->slug]) !!}</p>
 
         --> po kliknutí zobraziť user profile
 

@@ -3,7 +3,7 @@
 @section('left')
     <p>*TODO - asi všetky vlastné články</p>
     <div class="row">
-        @foreach($user->articles as $article)
+        @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                 {{ $article->updated_at }}<br>

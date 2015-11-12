@@ -83,4 +83,12 @@ class Article extends Model implements SluggableInterface {
     public function getUpdatedAtAttribute($date) {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
     }
+
+    public function scopePublished($query) {
+        return $query->where('state', '=', Article::PUBLISHED);
+    }
+
+    public function scopeDraft($query) {
+        return $query->where('state', '=', Article::DRAFT);
+    }
 }

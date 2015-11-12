@@ -54,7 +54,7 @@ class UserController extends Controller {
      */
     public function getProfile($id) {
         $user = User::findBySlugOrIdOrFail($id);
-        $articles = $user->articles();
+        $articles = $user->articles()->published()->get();
 
         return view('users.profile', [
             'user' => $user,
