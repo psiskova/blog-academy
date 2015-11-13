@@ -24,10 +24,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="tagy" class="col-md-2 control-label">Tagy</label>
+            <label for="tags" class="col-md-2 control-label">Tagy</label>
 
             <div class="col-md-10">
-                <input type="text" id="tagy" class="form-control" data-role="tagsinput" value="{!! $tags or '' !!}">
+                <input type="text" id="tags" class="form-control" data-role="tagsinput" value="{!! $tags or '' !!}">
             </div>
         </div>
         <div class="form-group">
@@ -45,7 +45,6 @@
             </div>
             <div class="col-md-2">
                 {!! Form::submit('Odoslať', ['class'=>'btn btn-default', 'name' => 'action']) !!}
-                {{--<button type="button" class="btn btn-default" id="send">Odoslať</button>--}}
             </div>
             <div class="col-md-1">
                 <button type="button" class="btn btn-default" id="trash">
