@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Http\Requests;
+use App\Models\ArticleTagMapper;
+use App\Models\Tag;
 use Auth;
 use Illuminate\Http\Request;
 use URL;
@@ -45,6 +47,7 @@ class ArticleController extends Controller {
         $input = $request->all();
         //dd($input);
         $input['user_id'] = Auth::id();
+        $input['tags'] = array_map('trim', explode(',', $input['tags']));
 
         if ($input['action'] == "Odoslať") {
             $input['state'] = Article::PUBLISHED;
@@ -57,7 +60,18 @@ class ArticleController extends Controller {
         } else {
             $article = Article::create($input);
         }
-        // TODO tags, text
+        ArticleTagMapper::where('article_id', '=', $article->id)->delete();
+        foreach ($input['tags'] as $tagName) {
+            if (!($tag = Tag::where('name', $tagName)->first())) {
+                $tag = Tag::create([
+                    'name' => $tagName
+                ]);
+            }
+            ArticleTagMapper::create([
+                'article_id' => $article->id,
+                'tag_id' => $tag->id
+            ]);
+        }
 
         if ($request->ajax()) {
 
