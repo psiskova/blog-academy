@@ -46,7 +46,8 @@
                                 <li>{!! link_to_action('UserController@getBlock', 'Block users') !!}</li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li>{!! link_to_action('CourseController@getOverview', 'All courses') !!}</li>
+                                <li>{!! link_to_action('CourseController@getCreate', 'Create course') !!}</li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">One more separated link</a></li>
                             </ul>

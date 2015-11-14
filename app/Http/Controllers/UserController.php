@@ -66,6 +66,7 @@ class UserController extends Controller {
      * Responds to requests to GET /user/admin-profile
      */
     public function getAdminProfile() {
+
         return view('welcome');
     }
 

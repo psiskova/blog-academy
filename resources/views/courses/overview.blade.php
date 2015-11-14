@@ -2,7 +2,10 @@
 
 @section('left')
     <div class="row">
-        <p>tu budeme prehlad kurzov</p>
+        @foreach($courses as $course)
+            {{ $course->teacher->fullname }}
+            {{ $course->name }}
+        @endforeach
     </div>
 @stop
 

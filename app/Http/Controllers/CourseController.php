@@ -2,15 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Course;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller {
 
-    public function getOverview() {
+    /**
+     * Instantiate a new CourseController instance.
+     *
+     */
+    public function __construct() {
 
-        return view('courses.overview');
     }
+
+    public function getOverview() {
+        $courses = Course::with('teacher')->get();
+
+        return view('courses.overview', [
+            'courses' => $courses
+        ]);
+    }
+
+    public function getCreate() {
+
+        return view('courses.create');
+
+    }
+
+    public function postCreate(Request $request) {
+
+        return redirect()->back();
+    }
+
 }

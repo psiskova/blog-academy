@@ -38,11 +38,22 @@ class ArticleController extends Controller {
         ]);
     }
 
+    /**
+     * Responds to requests to GET /article/create
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getCreate() {
 
         return view('articles.create');
     }
 
+    /**
+     * Responds to requests to POST /article/create
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function postCreate(Request $request) {
         $input = $request->all();
         //dd($input);
@@ -95,6 +106,12 @@ class ArticleController extends Controller {
 
     }
 
+    /**
+     * Responds to requests to GET /article/draft/{id}
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getDraft($id) {
         $article = Article::findBySlugOrId($id);
         $tags = $article->tags;
@@ -113,7 +130,7 @@ class ArticleController extends Controller {
     }
 
     public function getMyDrafts() {
-        $drafts = Article::where('user_id', '=', Auth::id())->where('state', '=', Article::DRAFT)->get();
+        $drafts = Auth::user()->articles()->draft()->get();
 
         return view('articles.mydrafts', [
             'drafts' => $drafts
@@ -121,7 +138,7 @@ class ArticleController extends Controller {
     }
 
     public function getMyArticles() {
-        $articles = Article::where('user_id', '=', Auth::id())->where('state', '=', Article::PUBLISHED)->get();
+        $articles = Auth::user()->articles()->published()->get();
 
         return view('articles.myarticles', [
             'articles' => $articles
