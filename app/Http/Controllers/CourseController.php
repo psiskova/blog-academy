@@ -27,7 +27,6 @@ class CourseController extends Controller {
     public function getCreate() {
 
         return view('courses.create');
-
     }
 
     public function postCreate(Request $request) {
