@@ -9,7 +9,7 @@
                 {{ str_limit($article->text, 200) }}
             </div>
         @endforeach
-    {!! $articles->render() !!}
+        {!! $articles->render() !!}
     </div>
 @stop
 
@@ -22,10 +22,15 @@
         <div class="tab-content ">
             <div id="tab1" class="tab-pane fade in active">
                 <h3>Tab 1</h3>
+
                 <p>3 užívatelia s najvyšším počtom článkov</p>
+                @foreach($topUsers as $topUser)
+                    {{ $topUser->user->fullname }}<br>
+                @endforeach
             </div>
             <div id="tab2" class="tab-pane fade">
                 <h3>Tab 2</h3>
+
                 <p>3 užívatelia s najlepším hodnotením</p>
             </div>
         </div>

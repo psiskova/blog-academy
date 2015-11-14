@@ -12,12 +12,24 @@
 */
 
 use App\Models\Article;
+use App\Models\User;
 
 Route::get('/', function () {
     $articles = Article::published()->orderBy('updated_at', 'desc')->paginate(15);
 
+    $topUsers = Article::
+    published()
+        ->limit(3)
+        ->groupBy('user_id')
+        ->orderByRaw('count(user_id) DESC')
+        ->get();
+
+    $bestUsers = [];
+
     return view('index', [
-        'articles' => $articles
+        'articles' => $articles,
+        'topUsers' => $topUsers,
+        'bestUsers' => $bestUsers
     ]);
 });
 
