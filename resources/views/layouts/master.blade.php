@@ -37,17 +37,20 @@
                     {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
                 @endif
             </div>
-            <a href="{!! url('/') !!}"><div id="ba-logo">BlogAcademy</div> </a>
-                <form class="navbar-form navbar-right search-form-header" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control search-input-mod" placeholder="Hľadaný výraz">
-                    </div>
-                    <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
-                </form>
-                <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
-                    <a href="{!! URL::action('UserController@getProfile') !!}">
-                        <i class="icon icon-resizer ion-android-person"></i>
-                    </a>
+            <a href="{!! url('/') !!}">
+                <div id="ba-logo">BlogAcademy</div>
+            </a>
+
+            <form class="navbar-form navbar-right search-form-header" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control search-input-mod" placeholder="Hľadaný výraz">
+                </div>
+                <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
+            </form>
+            <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
+                <a href="{!! URL::action('UserController@getProfile') !!}">
+                    <i class="icon icon-resizer ion-android-person"></i>
+                </a>
             </div>
         </div>
     </div>
