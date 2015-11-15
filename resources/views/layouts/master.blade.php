@@ -37,7 +37,7 @@
                     {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
                 @endif
             </div>
-            <a href="{!! url('/') !!}"><div id="ba-logo">BlogAcademy</div></a>
+            <a href="{!! url('/') !!}"><div id="ba-logo">BlogAcademy</div> </a>
                 <form class="navbar-form navbar-right search-form-header" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control search-input-mod" placeholder="Hľadaný výraz">
