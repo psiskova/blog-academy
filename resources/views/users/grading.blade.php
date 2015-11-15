@@ -13,18 +13,23 @@
                     <p>*žiak</p>
                     <tr>
                         <td>Článok 1</td>
+                        <td>1.5</td>
                     </tr>
                 </table>
 
-                <table class="center_elements table_not_grading_teacher table-striped">
+                <table class="center_elements table_not_grading_teacher table-striped col-xs-12">
                     {{--                    <tr>
                                             <th class="border_right">Názov článku</th>
                                             <th>Ohodnotiť</th>
                                         </tr>--}}
                     <p>*učiteľ</p>
                     <tr>
-                        <td class="border_right"></td>
+                        <td class="border_right">Názov článku</td>
                         <td><button type="button" class="btn btn-default">Ohodnotiť</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border_right">Názov článku</td>
+                        <td><button type="button" class="btn btn-default btn-ba-style">Ohodnotiť</button></td>
                     </tr>
                 </table>
 

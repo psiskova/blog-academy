@@ -14,7 +14,7 @@
 @stop
 
 @section('right')
-    <div class="side_tabs">
+    <div class="side_tabs side_tabs_top">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Tab 1</a></li>
             <li><a data-toggle="tab" href="#tab2">Tab 2</a></li>
@@ -25,7 +25,11 @@
 
                 <p>3 užívatelia s najvyšším počtom článkov</p>
                 @foreach($topUsers as $topUser)
-                    {{ $topUser->user->fullname }}<br>
+                    <div class="top-user">
+                        <!-- <img src="..." alt=" top user fullname "> -->
+                        <span class="top-user-name">{{ $topUser->user->fullname }}</span>
+                        <span class="top-user-count"> <!-- COUNTER OF ARTICLES --> článkov</span>
+                    </div><br>
                 @endforeach
             </div>
             <div id="tab2" class="tab-pane fade">
