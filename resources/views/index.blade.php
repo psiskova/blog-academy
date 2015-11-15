@@ -28,7 +28,7 @@
                     <div class="top-user">
                         <!-- <img src="..." alt=" top user fullname "> -->
                         <span class="top-user-name">{{ $topUser->user->fullname }}</span>
-                        <span class="top-user-count"> <!-- COUNTER OF ARTICLES --> článkov</span>
+                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
                     </div><br>
                 @endforeach
             </div>

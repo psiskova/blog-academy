@@ -116,4 +116,9 @@ class User extends Model implements
 
         return $this->role >= $role;
     }
+
+    public function countPublishedArticles() {
+
+        return $this->articles()->published()->count();
+    }
 }
