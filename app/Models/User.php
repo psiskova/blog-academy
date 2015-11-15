@@ -47,7 +47,8 @@ class User extends Model implements
         'surname',
         'email',
         'password',
-        'ban'
+        'ban',
+        'role'
     ];
 
     /**
@@ -111,8 +112,8 @@ class User extends Model implements
         return $this->ban == $this::BAN;
     }
 
-    public function hasRole() {
+    public function hasRole($role) {
 
-        return true;
+        return $this->role >= $role;
     }
 }

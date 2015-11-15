@@ -23,7 +23,7 @@ class UserController extends Controller {
             'postBlock'
         ]]);
 
-        $this->middleware('role:admin', ['only' => [
+        $this->middleware('role:' . User::ADMIN_ROLE, ['only' => [
             'getManagement',
             'getBlock',
             'postManagement',
@@ -95,8 +95,14 @@ class UserController extends Controller {
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getManagement() {
+        $users = User::where('id', '<>', \Auth::id())
+            ->orderBy('surname')
+            ->orderBy('name')
+            ->paginate(10, ['id', 'name', 'surname', 'role']);
 
-        return view('users.management');
+        return view('users.management', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -107,13 +113,14 @@ class UserController extends Controller {
      */
     public function postManagement(Request $request) {
         $input = $request->all();
+        $user = User::find($input['id'])->update([
+            'role' => $input['role']
+        ]);
 
-        if ($request->ajax()) {
-
-        } else {
-
-            return redirect()->back();
-        }
+        return response()->json([
+            'id' => $input['id'],
+            'role' => $input['role']
+        ]);
     }
 
     /**

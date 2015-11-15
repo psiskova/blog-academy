@@ -12,7 +12,6 @@
 */
 
 use App\Models\Article;
-use App\Models\User;
 
 Route::get('/', function () {
     $articles = Article::published()->orderBy('updated_at', 'desc')->paginate(15);

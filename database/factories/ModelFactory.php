@@ -28,3 +28,11 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
         'text' => $faker->text(800)
     ];
 });
+
+$factory->defineAs(App\Models\Article::class, 'published', function (Faker\Generator $faker) use ($factory) {
+    $article = $factory->raw(App\Models\Article::class);
+
+    return array_merge($article, [
+        'state' => \App\Models\Article::PUBLISHED
+    ]);
+});
