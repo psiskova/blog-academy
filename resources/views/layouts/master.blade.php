@@ -47,17 +47,19 @@
                 </div>
                 <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
             </form>
-            <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
-                <a href="{!! URL::action('UserController@getProfile') !!}">
-                    <i class="icon icon-resizer ion-android-person"></i>
-                </a>
-            </div>
+            @if(Auth::check())
+                <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
+                    <a href="{!! URL::action('UserController@getProfile', Auth::user()->slug) !!}">
+                        <i class="icon icon-resizer ion-android-person"></i>
+                    </a>
+                </div>
+            @endif
         </div>
     </div>
-    <div class="row">
+    <div class="row hidden-xs hidden-sm">
         <nav class="navbar navbar-default">
             <!-- Collect the nav links, forms, and other content for toggling  **dektop -->
-            <div class="container-fluid full-nav-width hidden-xs hidden-sm">
+            <div class="container-fluid full-nav-width">
                 @if(Auth::check())
                     <ul class="nav navbar-nav row col-md-12">
                         <li class="col-md-2 color-nav-home">
@@ -96,7 +98,7 @@
                             {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
                         </li>
                         <li class="col-md-2 color-nav-profile">
-                            <!-- TO DO: about us, change link -->
+                            <!-- TODO: about us, change link -->
                             {!! HTML::navTabItem(url('/'), 'O nás', 'ion-android-person') !!}
                         </li>
                         <li class="col-md-2 color-nav-addarticle">
