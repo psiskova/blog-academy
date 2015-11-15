@@ -61,13 +61,13 @@
                             {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
                         </li>
                         <li class="col-md-2 color-nav-profile">
-                            {!! HTML::navTabItem(URL::action('UserController@getProfile', Auth::user()->id), 'Profil', 'ion-android-person') !!}
+                            {!! HTML::navTabItem(URL::action('UserController@getProfile', Auth::user()->slug), 'Profil', 'ion-android-person') !!}
                         </li>
                         <li class="col-md-2 color-nav-addarticle">
                             {!! HTML::navTabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-edit') !!}
                         </li>
                         <li class="col-md-2 color-nav-grading">
-                            {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->id), 'Hodnotenie', 'ion-star') !!}
+                            {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenie', 'ion-star') !!}
                         </li>
                         <li class="col-md-2 color-nav-course">
                             {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}

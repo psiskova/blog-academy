@@ -113,7 +113,7 @@ class UserController extends Controller {
      */
     public function postManagement(Request $request) {
         $input = $request->all();
-        $user = User::find($input['id'])->update([
+        User::find($input['id'])->update([
             'role' => $input['role']
         ]);
 

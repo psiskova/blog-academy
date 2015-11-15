@@ -9,25 +9,23 @@
         </ul>
         <div class="tab-content">
             <div id="tab1" class="tab-pane fade in active">
-                <table class="center_elements table-striped table_not_grading_student">
-                    <p>*žiak</p>
-                    <tr>
-                        <td>Článok 1</td>
-                    </tr>
-                </table>
 
-                <table class="center_elements table_not_grading_teacher table-striped">
-                    {{--                    <tr>
-                                            <th class="border_right">Názov článku</th>
-                                            <th>Ohodnotiť</th>
-                                        </tr>--}}
-                    <p>*učiteľ</p>
-                    <tr>
-                        <td class="border_right"></td>
-                        <td><button type="button" class="btn btn-default">Ohodnotiť</button></td>
-                    </tr>
-                </table>
-
+                @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                    <table class="center_elements table_not_grading_teacher table-striped">
+                        <tr>
+                            <td class="border_right">Názov</td>
+                            <td>
+                                <button type="button" class="btn btn-default">Ohodnotiť</button>
+                            </td>
+                        </tr>
+                    </table>
+                @else
+                    <table class="center_elements table-striped table_not_grading_student">
+                        <tr>
+                            <td>Článok 1</td>
+                        </tr>
+                    </table>
+                @endif
             </div>
             <div id="tab2" class="tab-pane fade">
                 <p>bbb</p>
