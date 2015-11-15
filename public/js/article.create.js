@@ -31,7 +31,7 @@ $(document).ready(function () {
         minHeight: 300,             // set minimum height of editor
         maxHeight: null,             // set maximum height of editor
 
-        focus: true,                 // set focus to editable area after initializing summernote
+        focus: false,                 // set focus to editable area after initializing summernote
     });
 
     $('input[type=submit][value=Uložiť]').on('click', function () {

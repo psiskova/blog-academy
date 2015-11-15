@@ -14,13 +14,14 @@
     {!! HTML::style('css/bootstrap-tagsinput-typeahead.css') !!}
 
     <div class="row">
+        <h1> Pridať článok </h1>
         {!! Form::open(['url' => action('ArticleController@postCreate'), 'method' => 'post', 'class'=>'form-horizontal clearfix']) !!}
         {!! Form::hidden('id', isset($article) ? $article->slug : '') !!}
         <div class="form-group">
             <label for="title" class="col-md-2 control-label">Nadpis</label>
 
             <div class="col-md-10">
-                <input type="text" id="title" name="title" class="form-control" value="{{ $article->title or ''}}">
+                <input type="text" id="title" name="title" class="form-control" value="{{ $article->title or ''}}" autofocus>
             </div>
         </div>
         <div class="form-group">
@@ -31,7 +32,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label">Text</label>
+            <label for="summernote" class="col-md-2 control-label">Text</label>
 
             <div class="col-md-10">
                 <textarea id="area" name="text">{{ $article->text or ''}}</textarea>

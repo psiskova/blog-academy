@@ -149,4 +149,12 @@ class ArticleController extends Controller {
 
         return view('articles.management');
     }
+
+    public function getRateArticle($slug) {
+
+        $article = Article::findBySlugOrId($slug);
+        return view('articles.ratearticle', [
+            'article' => $article
+        ]);
+    }
 }

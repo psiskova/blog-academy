@@ -19,68 +19,64 @@
 
 <div class="container main_container">
     <div class="row">
+        <div class="jumbotron main-header">
+            <div id="nav-top-right" class="hidden-xs hidden-sm">
+                @if(Auth::check())
+                    <span class="login-information">Prihlásený ako </span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        {{ Auth::user()->fullname }}
+                        <img src="http://placehold.it/30x30"
+                             class="profile-image img-circle">
+                        <span class="caret"></span>
+                    </a>
+                    <a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a>
+                @else
+                    {!! link_to_action('Auth\AuthController@getLogin', 'Prihlásenie') !!} &#124;
+                    {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
+                @endif
+            </div>
+            <div id="ba-logo">BlogAcademy</div>
+                <form class="navbar-form navbar-right search-form-header" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control search-input-mod" placeholder="Hľadaný výraz">
+                    </div>
+                    <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
+                </form>
+                <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
+                    <a href="{!! URL::action('UserController@getProfile') !!}">
+                        <i class="icon icon-resizer ion-android-person"></i>
+                    </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    {!! link_to('/', 'Blog', ['class'=>'navbar-brand']) !!}
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li> {!! link_to_action('ArticleController@getCreate', 'Pridať článok') !!}</li>
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Management <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>{!! link_to_action('UserController@getManagement', 'User') !!}</li>
-                                <li>{!! link_to_action('UserController@getBlock', 'Block users') !!}</li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li>{!! link_to_action('CourseController@getOverview', 'All courses') !!}</li>
-                                <li>{!! link_to_action('CourseController@getCreate', 'Create course') !!}</li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
+            <!-- Collect the nav links, forms, and other content for toggling  **dektop -->
+            <div class="container-fluid full-nav-width hidden-xs hidden-sm">
+                @if(Auth::check())
+                    <ul class="nav navbar-nav row col-md-12">
+                        <li class="col-md-2 color-nav-home">
+                            {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
                         </li>
-                    </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        @if(Auth::check())
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">
-                                    <img src="http://placehold.it/30x30"
-                                         class="profile-image img-circle"> {{ Auth::user()->fullname }}
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>{!! link_to_action('UserController@getProfile', 'Profile', ['id' => Auth::user()->getSlug()]) !!}</li>
-                                    <li>{!! link_to_action('UserController@getGrading', 'Hodnotenie', ['id' => Auth::user()->getSlug()]) !!}</li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>{!! link_to_action('Auth\AuthController@getLogout', 'Logout') !!}</li>
-                                </ul>
-                            </li>
-                            <form role="form">
+                        <li class="col-md-2 color-nav-profile">
+                            {!! HTML::navTabItem(URL::action('UserController@getProfile', Auth::user()->id), 'Profil', 'ion-android-person') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-addarticle">
+                            {!! HTML::navTabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-edit') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-grading">
+                            {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->id), 'Hodnotenie', 'ion-star') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-course">
+                            {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-select">
+                            <form role="form" class="course-select-form">
                                 <div class="form-group">
-                                    <label for="sel1"></label>
-                                    <select class="form-control" id="sel1">
+                                    <label for="sel1">Výber predmetu:</label>
+                                    <select class="form-control course-option" id="sel1">
                                         <option value="" style="display:none">Vyber predmet</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -89,12 +85,25 @@
                                     </select>
                                 </div>
                             </form>
-                        @else
-                            <li>{!! link_to_action('Auth\AuthController@getRegister', 'Register') !!}</li>
-                            <li>{!! link_to_action('Auth\AuthController@getLogin', 'Login') !!}</li>
-                        @endif
+                        </li>
                     </ul>
-                </div>
+                @else
+                    <ul class="nav navbar-nav row col-md-12">
+                        <li class="col-md-2 color-nav-home">
+                            {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-profile">
+                            <!-- TO DO: about us, change link -->
+                            {!! HTML::navTabItem(url('/'), 'O nás', 'ion-android-person') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-addarticle">
+                            {!! HTML::navTabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-edit') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-grading">
+                            {!! HTML::navTabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-star') !!}
+                        </li>
+                    </ul>
+                @endif
             </div>
         </nav>
     </div>
@@ -102,15 +111,16 @@
     @yield('content')
 </div>
 
+
 <div class="tab-nav tabs hidden-lg hidden-md">
-    {!! HTML::tabItem(url('/'), 'Home', 'ion-home') !!}
+    {!! HTML::tabItem(url('/'), 'Home', 'ion-home', 'color-nav-home') !!}
     @if(Auth::check())
-        {!! HTML::tabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-compose') !!}
-        {!! HTML::tabItem('', 'Hodnotenia', 'ion-ios-star') !!}
-        {!! HTML::tabItem('', 'Viac', 'ion-navicon-round') !!}
+        {!! HTML::tabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-compose', 'color-nav-addarticle') !!}
+        {!! HTML::tabItem('', 'Hodnotenia', 'ion-ios-star', 'color-nav-grading') !!}
+        {!! HTML::tabItem('', 'Viac', 'ion-navicon-round', 'color-nav-course') !!}
     @else
-        {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Login', 'ion-log-in') !!}
-        {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Register', 'ion-person-add') !!}
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Login', 'ion-log-in', 'color-nav-grading') !!}
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Register', 'ion-person-add', 'color-nav-course') !!}
     @endif
 </div>
 

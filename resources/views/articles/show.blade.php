@@ -6,7 +6,20 @@
         {{ $article->updated_at }}<br>
         <p>{!! $article->text !!}</p>
     </div>
-    <p>DISKUSIA K ČLÁNKU</p>
+    <div class="row">
+        <h3>Diskusia k článku</h3>
+        <div class="discussion-main col-xs-12">
+            <div class="discussion-commentary">
+                <div class="col-xs-3">
+                    <img class="discussion-profile col-xs-3" src="http://blogdailyherald.com/wp-content/uploads/2014/10/wallpaper-for-facebook-profile-photo.jpg">
+                </div>
+                <div class="col-xs-9 discussion-right">
+                    <span class="discussion-author-info">Discussion->Author name</span>
+                    <p>Discussion text...</p>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('right')

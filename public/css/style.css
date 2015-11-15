@@ -95,6 +95,7 @@
     .tab-item.tab-item-active,a.tab-item.tab-item-active {
         color:#337ab7
     }
+
 }
 @media only screen and (max-width:991px) and (min--moz-device-pixel-ratio:1.5),only screen and (max-width:991px) and (-webkit-min-device-pixel-ratio:1.5),only screen and (max-width:991px) and (min-device-pixel-ratio:1.5),only screen and (max-width:991px) and (min-resolution:144dpi),only screen and (max-width:991px) and (min-resolution:1.5dppx) {
 
@@ -234,6 +235,167 @@ h1 {
 
 .bootstrap-tagsinput{
     width: 100%;
+}
+
+#nav-top-right {
+    position: absolute;
+    right: 15%;
+    top: 0.5em;
+}
+
+#nav-top-right a {
+    font-weight: bold;
+    font-style: italic;
+    color: #ff1149;
+}
+
+.main-header {
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.full-nav-width, .full-nav-width ul, .full-nav-width ul li{
+    padding-left:0;
+    padding-right:0;
+}
+
+.full-nav-width ul li a {
+    width: 80%;
+    height: 100%;
+    padding: 0;
+    padding-top: 1em;
+    margin:0 auto;
+    color: white;
+}
+
+.nav-tab-item-active {
+    border-bottom: 8px solid white;
+}
+
+nav.navbar.navbar-default {
+    border: none;
+}
+
+ul.nav.navbar-nav.row.col-md-12 li {
+    height: 92px;
+    text-align: center;
+}
+
+ul.nav.navbar-nav.row.col-md-12 li, ul.nav.navbar-nav.row.col-md-12 li a {
+    color: white;
+}
+
+.course-option {
+    border: none;
+}
+
+/*  COLOR NAVIGATION  */
+
+.color-nav-home {
+    background-color: #2eb0b0;
+}
+
+.color-nav-profile {
+    background-color: #803a76;
+}
+
+.color-nav-addarticle {
+    background-color: #bbd126;
+}
+
+.color-nav-grading {
+    background-color: #faa429;
+}
+
+.color-nav-course {
+    background-color: #e2199d;
+}
+
+.color-nav-select {
+    background-color: #20b7c9;
+}
+
+.tab-nav.tabs a {
+    color: white;
+}
+
+li.col-md-2.color-nav-select {
+    padding: 0 1em;
+}
+
+.icon-resizer {
+    font-size: 32px;
+    display: inline-block;
+    width:100%;
+}
+
+.btn-search {
+    border: none;
+    background-color: #18222c;
+    color: white;
+}
+
+.btn-search:hover {
+    background-color: #243648;
+    color: white;
+}
+
+.btn-search > i {
+    font-size: 16px;
+}
+
+.search-input-mod {
+    border: 1px solid #18222c;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    margin-right:-0.5em;
+}
+
+form.course-select-form {
+    padding-top: 1em;
+    text-align: right;
+}
+
+.search-form-header {
+    margin-top: -2em;
+}
+
+img.discussion-profile {
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+}
+
+.discussion-main {
+    border: 1px solid rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.05);
+    padding: 0.5em;
+}
+.discussion-author-info {
+    font-weight:bold;
+}
+
+@media(max-width:767px){
+    #ba-logo {
+        height: 63px;
+        width: 72px;
+        background: url("../blog-academy-logotyp.png");
+        text-indent: -99999px;
+        overflow: hidden;
+        margin-top: -20px;
+    }
+}
+
+@media(min-width:768px){
+    #ba-logo {
+        height: 63px;
+        width: 281px;
+        background: url("../blog-academy-logo.png");
+        overflow: hidden;
+        text-indent: -99999px;
+    }
 }
 
 
