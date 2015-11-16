@@ -5,7 +5,7 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                {{ $article->user->fullname }}, {{ $article->updated_at }}<br>
+                <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
                 {{ str_limit($article->text, 200) }}
             </div>
         @endforeach

@@ -380,7 +380,7 @@ form.course-select-form {
 }
 
 .search-form-header {
-    margin-top: -2em;
+    margin-top: -3em;
 }
 
 img.discussion-profile {
@@ -472,17 +472,37 @@ img.discussion-profile {
     padding-top: 3em;
 }
 
-.btn-ba-style {
+.btn-ba-style, .btn-primary {
     background-color: #20b7c9;
     color: white;
     border: none;
 }
 
-.btn-ba-style:hover {
+.btn-ba-style:hover, .btn-primary:hover {
     background-color: #208c8c;
     color: white;
 }
 
 .article-info {
     color: #2eafaf;
+}
+
+a {
+    color: #208c8c;
+}
+
+a:hover {
+    color: #20b7c9;
+}
+
+footer {
+    background-color: #2eafaf;
+}
+
+h3 a{
+    color: #081d32;
+}
+
+h3 a:hover {
+    color: #0b3558;
 }
