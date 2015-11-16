@@ -9,7 +9,9 @@
                 {{ str_limit($article->text, 200) }}
             </div>
         @endforeach
-        {!! $articles->render() !!}
+        <div class="text-center fix1">
+            {!! $articles->render() !!}
+        </div>
     </div>
 @stop
 
