@@ -126,14 +126,16 @@ class ArticleController extends Controller {
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getArticleText(Request $request) {
-        if ($request->ajax()) {
-            $article = Article::findBySlugOrId($request->only(['id']));
+        $article = Article::findBySlugOrId($request->only(['id']));
 
-            return response()->json([
-                'text' => $article->text
-            ]);
-        }
+        return response()->json([
+            'text' => $article->text
+        ]);
     }
 
     public function getMyDrafts() {

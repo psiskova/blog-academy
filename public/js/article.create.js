@@ -39,12 +39,9 @@ var getArticleTextCallback = function (response) {
 
 var getArticleTextRequest = function (id) {
     $.ajax({
-        url: laroute.action('ArticleController@getArticleText'),
+        url: laroute.action('ArticleController@getArticleText') + '?id=' + id,
         method: 'GET',
         dataType: 'json',
-        data: {
-            id: id
-        },
         success: function (response) {
             getArticleTextCallback(response);
         }
