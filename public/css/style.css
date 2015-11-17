@@ -466,6 +466,8 @@ img.discussion-profile {
     border: 1px solid rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.05);
     padding: 0.5em;
+    margin-bottom: 2em;
+    margin-top: 1em;
 }
 
 .discussion-author-info {
@@ -526,4 +528,10 @@ h3 a{
 
 h3 a:hover {
     color: #0b3558;
+}
+
+textarea#comment-area {
+    resize: none;
+    overflow: auto;
+    min-height: 4em;
 }

@@ -11,6 +11,17 @@
     </div>
     <div class="row">
         <h3>Diskusia k článku</h3>
+        @if(Auth::check())
+                <!-- Form::open Form::hidden for discussion -->
+
+        <div class="form-group">
+            <label for="comment-area">Komentár:</label>
+            <textarea class="form-control" rows="4" id="comment-area"></textarea>
+            <!-- Form::submit('Pridať komentár', ['class'=>'btn btn-ba-style', 'name' => 'action']) -->
+
+        </div>
+        <!-- FORM::submit & FORM::close -->
+        @endif
         <div class="discussion-main col-xs-12">
             <div class="discussion-commentary">
                 <div class="col-xs-3">
