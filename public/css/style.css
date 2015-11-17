@@ -427,6 +427,13 @@ li.col-md-2.color-nav-select {
     border: none;
     background-color: #18222c;
     color: white;
+    overflow: hidden;
+    width: 36px;
+    height: 36px;
+}
+
+input.form-control.search-input-mod {
+    height: 36px;
 }
 
 .btn-search:hover {
