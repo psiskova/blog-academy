@@ -90,17 +90,17 @@
                     </ul>
                 @else
                     <ul class="nav navbar-nav row col-md-12">
-                        <li class="col-md-2 color-nav-home">
+                        <li class="col-md-3 color-nav-home">
                             {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
                         </li>
-                        <li class="col-md-2 color-nav-profile">
+                        <li class="col-md-3 color-nav-profile">
                             <!-- TODO: about us, change link -->
                             {!! HTML::navTabItem(url('/'), 'O nás', 'ion-android-person') !!}
                         </li>
-                        <li class="col-md-2 color-nav-addarticle">
+                        <li class="col-md-3 color-nav-addarticle">
                             {!! HTML::navTabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-edit') !!}
                         </li>
-                        <li class="col-md-2 color-nav-grading">
+                        <li class="col-md-3 color-nav-grading">
                             {!! HTML::navTabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-star') !!}
                         </li>
                     </ul>

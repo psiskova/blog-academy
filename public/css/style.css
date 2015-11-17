@@ -545,14 +545,14 @@ textarea#comment-area {
 
 input:focus {
     outline: none !important;
-    border:1px solid #803a76;
-    box-shadow: 0 0 10px #803a76;
+    border:1px solid grey;
+    box-shadow: 0 0 2px grey;
 }
 
 input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus {
     outline: none !important;
-    border:1px solid #803a76;
-    box-shadow: 0 0 10px #803a76;
+    border:1px solid grey;
+    box-shadow: 0 0 2px grey;
 }
 
 .addarticle-form-row  form{
