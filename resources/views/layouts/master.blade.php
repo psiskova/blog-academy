@@ -12,13 +12,6 @@
           crossorigin="anonymous">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     {!! HTML::style('css/style.css') !!}
-    <script>
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="container main_container">
@@ -142,6 +135,13 @@
         integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
         crossorigin="anonymous"></script>
 {!! HTML::script('js/laroute.js') !!}
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}
+        });
+    });
+</script>
 @yield('scripts')
 </body>
 </html>
