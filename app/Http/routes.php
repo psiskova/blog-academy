@@ -19,10 +19,12 @@ Route::get('/', function () {
     if ($search = Request::get('search')) {
         $articles
             ->join('users', 'users.id', '=', 'articles.user_id')
-            ->where('title', 'like', '%' . $search . '%')
-            ->orWhere(function ($query) use ($search) {
-                $query->where('users.name', 'like', '%' . $search . '%')
-                    ->orWhere('users.surname', 'like', '%' . $search . '%');
+            ->where(function ($q) use ($search) {
+                $q->where('title', 'like', '%' . $search . '%')
+                    ->orWhere(function ($query) use ($search) {
+                        $query->where('users.name', 'like', '%' . $search . '%')
+                            ->orWhere('users.surname', 'like', '%' . $search . '%');
+                    });
             });
     }
     $articles = $articles->orderBy('articles.updated_at', 'desc')->paginate(5);

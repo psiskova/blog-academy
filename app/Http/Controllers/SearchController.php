@@ -13,10 +13,12 @@ class SearchController extends Controller {
         $search = $request->get('query');
         $articles = Article::published()
             ->join('users', 'users.id', '=', 'articles.user_id')
-            ->where('title', 'like', '%' . $search . '%')
-            ->orWhere(function ($query) use ($search) {
-                $query->where('users.name', 'like', '%' . $search . '%')
-                    ->orWhere('users.surname', 'like', '%' . $search . '%');
+            ->where(function ($q) use ($search) {
+                $q->where('title', 'like', '%' . $search . '%')
+                    ->orWhere(function ($query) use ($search) {
+                        $query->where('users.name', 'like', '%' . $search . '%')
+                            ->orWhere('users.surname', 'like', '%' . $search . '%');
+                    });
             })->get(['articles.id', 'articles.title']);
 
         return response()->json($articles);
