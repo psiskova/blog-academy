@@ -558,3 +558,10 @@ input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.sea
 .addarticle-form-row  form{
     padding-right: 40px;
 }
+
+.panel {
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
