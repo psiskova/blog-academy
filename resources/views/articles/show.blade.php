@@ -3,10 +3,8 @@
 @section('left')
     <div class="row">
         <h3>{!! $article->title !!}</h3>
-        <span class="article-info">
-            Napísal {{ $article->user->getFullnameAttribute() }} ,{{ $article->updated_at }}
-        </span>
-        <br>
+        <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
+        <span class="article-info">{!! HTML::tags($article) !!}</span><br>
         <p>{!! $article->text !!}</p>
     </div>
     <div class="row">
