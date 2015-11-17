@@ -25,6 +25,7 @@
         <div class="tab-content ">
             <div id="tab1" class="tab-pane fade in active">
                 <h3></h3>
+                {{--*/ $i = 1 /*--}}
                 @foreach($topUsers as $topUser)
                     @if($i == 1)
                         <div class="top_user">
@@ -33,6 +34,8 @@
                                     @else
                                         <div class="top_user_3">
                                             @endif
+                                            {{--*/ $i++ /*--}}
+                                                    <!-- <img src="..." alt=" top user fullname "> -->
                                             <span class="top-user-name">{{ $topUser->user->fullname }}</span>
                                             <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
                                         </div><br>
