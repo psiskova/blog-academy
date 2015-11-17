@@ -12,11 +12,15 @@
           crossorigin="anonymous">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     {!! HTML::style('css/style.css') !!}
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}
+            });
+        });
+    </script>
 </head>
-
-
 <body>
-
 <div class="container main_container">
     <div class="row">
         <div class="jumbotron main-header">
@@ -139,13 +143,6 @@
         crossorigin="anonymous"></script>
 {!! HTML::script('js/laroute.js') !!}
 @yield('scripts')
-<script>
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {'X-CSRF-Token': $('meta[name="_token"]').attr('content')}
-        });
-    });
-</script>
 </body>
 </html>
 

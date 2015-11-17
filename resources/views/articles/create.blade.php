@@ -37,7 +37,7 @@
             <div class="col-md-10">
                 <textarea id="area" name="text">{{ $article->text or ''}}</textarea>
 
-                <div id="summernote">Hello Summernote</div>
+                <div id="summernote"></div>
             </div>
         </div>
         <div class="form-group">

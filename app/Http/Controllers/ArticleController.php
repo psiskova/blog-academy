@@ -100,10 +100,7 @@ class ArticleController extends Controller {
                 flash()->success('Článok bol uložený');
                 return redirect(URL::action('ArticleController@getDraft', ['id' => $article->slug]));
             }
-
-
         }
-
     }
 
     /**
@@ -127,6 +124,16 @@ class ArticleController extends Controller {
             'article' => $article,
             'tags' => $tags_name
         ]);
+    }
+
+    public function getArticleText(Request $request) {
+        if ($request->ajax()) {
+            $article = Article::findBySlugOrId($request->only(['id']));
+
+            return response()->json([
+                'text' => $article->text
+            ]);
+        }
     }
 
     public function getMyDrafts() {
