@@ -14,7 +14,18 @@
 use App\Models\Article;
 
 Route::get('/', function () {
-    $articles = Article::published()->orderBy('updated_at', 'desc')->paginate(5);
+    $articles = Article::published();
+    $search = false;
+    if ($search = Request::get('search')) {
+        $articles
+            ->join('users', 'users.id', '=', 'articles.user_id')
+            ->where('title', 'like', '%' . $search . '%')
+            ->orWhere(function ($query) use ($search) {
+                $query->where('users.name', 'like', '%' . $search . '%')
+                    ->orWhere('users.surname', 'like', '%' . $search . '%');
+            });
+    }
+    $articles = $articles->orderBy('articles.updated_at', 'desc')->paginate(5);
 
     $topUsers = Article::
     published()
@@ -28,7 +39,8 @@ Route::get('/', function () {
     return view('index', [
         'articles' => $articles,
         'topUsers' => $topUsers,
-        'bestUsers' => $bestUsers
+        'bestUsers' => $bestUsers,
+        'search' => $search
     ]);
 });
 
@@ -55,3 +67,4 @@ Route::controller('password', \Auth\PasswordController::class);
 Route::controller('article', ArticleController::class);
 Route::controller('course', CourseController::class);
 Route::controller('user', UserController::class);
+Route::controller('search', SearchController::class);

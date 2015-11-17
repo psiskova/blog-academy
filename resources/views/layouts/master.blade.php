@@ -37,13 +37,12 @@
             <a href="{!! url('/') !!}">
                 <div id="ba-logo">BlogAcademy</div>
             </a>
-
-            <form class="navbar-form navbar-right search-form-header" role="search">
+            {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
                 <div class="form-group">
-                    <input type="text" class="form-control search-input-mod" placeholder="Hľadaný výraz">
+                    <input type="text" name="search" class="form-control search-input-mod typeahead" placeholder="Hľadaný výraz" value="{{ $search or '' }}" autocomplete="off">
                 </div>
                 <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
-            </form>
+            {!! Form::close() !!}
             @if(Auth::check())
                 <div class="mobile-icon-profile col-sm-3 hidden-md hidden-lg">
                     <a href="{!! URL::action('UserController@getProfile', Auth::user()->slug) !!}">
@@ -135,6 +134,7 @@
         integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
         crossorigin="anonymous"></script>
 {!! HTML::script('js/laroute.js') !!}
+{!! HTML::script('js/bootstrap-typeahead.min.js') !!}
 <script>
     $(document).ready(function () {
         $.ajaxSetup({
@@ -142,6 +142,7 @@
         });
     });
 </script>
+{!! HTML::script('js/index.js') !!}
 @yield('scripts')
 </body>
 </html>

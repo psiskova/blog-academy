@@ -11,7 +11,11 @@
             </div>
         @endforeach
         <div class="text-center fix1">
-            {!! $articles->render() !!}
+            @if($search)
+                {!! $articles->appends(['search'=>$search])->render() !!}
+            @else
+                {!! $articles->render() !!}
+            @endif
         </div>
     </div>
 @stop
