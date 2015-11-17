@@ -28,7 +28,21 @@
                 @endif
             </div>
             <div id="tab2" class="tab-pane fade">
-                <p>bbb</p>
+                @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                    <table class="center_elements table-striped table_grades">
+                        <tr>
+                            <td class="border_right">Meno študenta</td>
+                            <td>Celkové hodnotenie študenta v danom predmete</td>
+                        </tr>
+                    </table>
+                @else
+                    <table class="center_elements table-striped table_grades">
+                        <tr>
+                            <td class="border_right">Článok 1</td>
+                            <td>Hodnotenie</td>
+                        </tr>
+                    </table>
+                @endif
             </div>
         </div>
     </div>
@@ -36,5 +50,5 @@
 @stop
 
 @section('right')
-    <p>*TODO čo sem?</p>
+    <p>profil prihláseného používateľa</p>
 @stop
