@@ -1,17 +1,14 @@
 @extends('layouts.9-3')
 
 @section('left')
-    <p>*TODO - asi všetky vlastné články</p>
+    {{--TODO: asi všetky vlastné články--}}
     <div class="row">
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <span class="article-info">
-                     Napísal {{ $article->user->getFullnameAttribute() }} ,{{ $article->updated_at }}
-                </span>
-                <p>
-                    {{ str_limit($article->text, 200) }}
-                </p>
+                <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
+                <span class="article-info">{!! HTML::tags($article) !!}</span><br>
+                {{ str_limit(strip_tags($article->text), 200) }}
             </div>
         @endforeach
     </div>
@@ -22,6 +19,7 @@
         {{--<img src="{{ url($user->image) }}">--}}
         USER IMAGE
         <h4>{{ $user->fullname }}</h4>
+
         <p>{{ $user->email }}</p>
         **TODO - aké možnosti bude mať (upraviť profil ???)
     </div>
