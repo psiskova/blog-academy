@@ -10,7 +10,7 @@
 
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <strong>Ooops!</strong> Jeden zo vstupov nie je správny.<br><br>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -22,7 +22,7 @@
                         {!! Form::open(['url' => '/auth/register', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Name</label>
+                            <label class="col-md-4 control-label">Meno</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Surname</label>
+                            <label class="col-md-4 control-label">Priezvisko</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="surname" value="{{ old('surname') }}">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <label class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Password</label>
+                            <label class="col-md-4 control-label">Heslo</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Confirm Password</label>
+                            <label class="col-md-4 control-label">Zopakujte heslo</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password_confirmation">
@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Zaregistrovať
                                 </button>
                             </div>
 

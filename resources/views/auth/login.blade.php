@@ -6,7 +6,7 @@
 
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel">
-                    <div class="panel-heading"><h1>Login</h1></div>
+                    <div class="panel-heading"><h1>Prihlásenie</h1></div>
                     <div class="panel-body">
 
                         @if (count($errors) > 0)

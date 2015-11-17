@@ -496,13 +496,13 @@ img.discussion-profile {
 }
 
 .btn-ba-style, .btn-primary {
-    background-color: #20b7c9;
+    background-color: #803a76;
     color: white;
     border: none;
 }
 
 .btn-ba-style:hover, .btn-primary:hover {
-    background-color: #208c8c;
+    background-color: #68435e;
     color: white;
 }
 
@@ -534,4 +534,16 @@ textarea#comment-area {
     resize: none;
     overflow: auto;
     min-height: 4em;
+}
+
+input:focus {
+    outline: none !important;
+    border:1px solid #803a76;
+    box-shadow: 0 0 10px #803a76;
+}
+
+input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus {
+    outline: none !important;
+    border:1px solid #803a76;
+    box-shadow: 0 0 10px #803a76;
 }

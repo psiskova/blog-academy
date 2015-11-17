@@ -11,7 +11,7 @@
 
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <strong>Ooops!</strong> Jeden zo vstupov nie je správny.<br><br>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -24,7 +24,7 @@
                         {!! Form::hidden('token', $token) !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <label class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
                                 {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Password</label>
+                            <label class="col-md-4 control-label">Heslo</label>
 
                             <div class="col-md-6">
                                 {!! Form::password('password', ['class' => 'form-control']) !!}
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Confirm Password</label>
+                            <label class="col-md-4 control-label">Zopakujte heslo</label>
 
                             <div class="col-md-6">
                                 {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                    Obnoviť heslo
                                 </button>
                             </div>
                         </div>
