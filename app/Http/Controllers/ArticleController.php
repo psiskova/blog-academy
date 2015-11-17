@@ -67,6 +67,7 @@ class ArticleController extends Controller {
 
         if ($article = Article::findBySlugOrId($input['id'])) {
             $article->update($input);
+            $article->resluggify()->save();
         } else {
             $article = Article::create($input);
         }
@@ -110,7 +111,7 @@ class ArticleController extends Controller {
      */
     public function getDraft($id) {
         $article = Article::findBySlugOrId($id);
-        $tags = implode(',',array_flatten($article->tags()->get(['name'])->toArray()));
+        $tags = implode(',', array_flatten($article->tags()->get(['name'])->toArray()));
 
         return view('articles.create', [
             'article' => $article,
