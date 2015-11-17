@@ -61,7 +61,10 @@ class Article extends Model implements SluggableInterface {
 
     public function tags() {
 
-        return $this->hasManyThrough('App\Models\Tag', 'App\Models\ArticleTagMapper', 'article_id', 'id', 'id');
+        $articleMapper = array_flatten(ArticleTagMapper::where('article_id', '=', $this->id)->get(['tag_id'])->toArray());
+        $tags = Tag::whereIn('id', $articleMapper);
+
+        return $tags;
     }
 
     /**

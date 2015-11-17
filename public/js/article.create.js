@@ -33,26 +33,7 @@ var saveArticleRequest = function () {
     });
 };
 
-var getArticleTextCallback = function (response) {
-    initSummernote(response.text);
-};
-
-var getArticleTextRequest = function (id) {
-    $.ajax({
-        url: laroute.action('ArticleController@postArticleText'),
-        method: 'POST',
-        dataType: 'JSON',
-        data: {
-            'id': id
-        },
-        success: function (response) {
-            getArticleTextCallback(response);
-        }
-    });
-};
-
 $(document).ready(function () {
-    $('#area').remove();
 
     $('input[type=submit][value=Uložiť]').on('click', function () {
         saveArticleRequest();
@@ -61,8 +42,9 @@ $(document).ready(function () {
     });
 
     if ($('[name=id]').val()) {
-        getArticleTextRequest($('[name=id]').val());
+        initSummernote($('#area').val());
     } else {
         initSummernote('');
     }
+    $('#area').remove();
 });

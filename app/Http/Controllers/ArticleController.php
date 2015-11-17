@@ -56,7 +56,6 @@ class ArticleController extends Controller {
      */
     public function postCreate(Request $request) {
         $input = $request->all();
-        //dd($input);
         $input['user_id'] = Auth::id();
         $input['tags'] = array_map('trim', explode(',', $input['tags']));
 
@@ -73,7 +72,7 @@ class ArticleController extends Controller {
         }
         ArticleTagMapper::where('article_id', '=', $article->id)->delete();
         foreach ($input['tags'] as $tagName) {
-            if (!($tag = Tag::where('name', $tagName)->first())) {
+            if (!($tag = Tag::where('name', '=', $tagName)->first())) {
                 $tag = Tag::create([
                     'name' => $tagName
                 ]);
@@ -111,30 +110,11 @@ class ArticleController extends Controller {
      */
     public function getDraft($id) {
         $article = Article::findBySlugOrId($id);
-        $tags = $article->tags;
-        $tags_name = '';
-        foreach ($tags as $tag) {
-            if ($tags_name !== '') {
-                $tags_name .= ', ';
-            }
-            $tags_name .= $tag->name;
-        }
+        $tags = implode(',',array_flatten($article->tags()->get(['name'])->toArray()));
 
         return view('articles.create', [
             'article' => $article,
-            'tags' => $tags_name
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function postArticleText(Request $request) {
-        $article = Article::findBySlugOrId($request->only(['id'])['id']);
-
-        return response()->json([
-            'text' => $article->text
+            'tags' => $tags
         ]);
     }
 

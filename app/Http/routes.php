@@ -14,7 +14,7 @@
 use App\Models\Article;
 
 Route::get('/', function () {
-    $articles = Article::published()->orderBy('updated_at', 'desc')->paginate(15);
+    $articles = Article::published()->orderBy('updated_at', 'desc')->paginate(5);
 
     $topUsers = Article::
     published()
