@@ -130,8 +130,8 @@ class ArticleController extends Controller {
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getArticleText(Request $request) {
-        $article = Article::findBySlugOrId($request->only(['id']));
+    public function postArticleText(Request $request) {
+        $article = Article::findBySlugOrId($request->only(['id'])['id']);
 
         return response()->json([
             'text' => $article->text

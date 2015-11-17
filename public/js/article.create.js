@@ -19,7 +19,7 @@ var saveArticleRequest = function () {
     $.ajax({
         url: laroute.action('ArticleController@postCreate'),
         method: 'POST',
-        dataType: 'json',
+        dataType: 'JSON',
         data: {
             text: $('#summernote').code(),
             title: $('#title').val(),
@@ -39,9 +39,9 @@ var getArticleTextCallback = function (response) {
 
 var getArticleTextRequest = function (id) {
     $.ajax({
-        url: laroute.action('ArticleController@getArticleText'),
-        method: 'GET',
-        dataType: 'json',
+        url: laroute.action('ArticleController@postArticleText'),
+        method: 'POST',
+        dataType: 'JSON',
         data: {
             'id': id
         },
