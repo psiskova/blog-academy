@@ -1,7 +1,7 @@
 @extends('layouts/9-3')
 
 @section('left')
-    <h1 class="text-center">HODNOTENIE</h1>
+    <h1>Hodnotenie</h1>
     <div class="side_tabs">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Neohodnotené</a></li>

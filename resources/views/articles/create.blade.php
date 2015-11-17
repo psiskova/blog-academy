@@ -13,7 +13,7 @@
     {!! HTML::style('css/bootstrap-tagsinput.css') !!}
     {!! HTML::style('css/bootstrap-tagsinput-typeahead.css') !!}
 
-    <div class="row">
+    <div class="row addarticle-form-row">
         <h1> Pridať článok </h1>
         {!! Form::open(['url' => action('ArticleController@postCreate'), 'method' => 'post', 'class'=>'form-horizontal clearfix']) !!}
         {!! Form::hidden('id', isset($article) ? $article->slug : '') !!}
@@ -40,20 +40,20 @@
                 <div id="summernote"></div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-2 col-md-offset-5">
-                {!! Form::submit('Uložiť', ['class'=>'btn btn-default', 'name' => 'action']) !!}
+        <div class="form-group addarticle-form-group-btns">
+            <div class="col-md-2 col-md-offset-2">
+                {!! Form::submit('Uložiť', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
             </div>
             <div class="col-md-2">
-                {!! Form::submit('Odoslať', ['class'=>'btn btn-default', 'name' => 'action']) !!}
+                {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-default" id="trash">
+                <button type="button" class="btn btn-primary" id="trash">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-default" id="insight">
+                <button type="button" class="btn btn-primary" id="insight">
                     <span class="glyphicon glyphicon-zoom-in"></span>
                 </button>
             </div>
