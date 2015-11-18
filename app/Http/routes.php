@@ -36,7 +36,7 @@ Route::get('/', function () {
                     });
             });
     }
-    $articles = $articles->orderBy('articles.updated_at', 'desc')->select(DB::raw('articles.id, articles.title, articles.slug, articles.user_id, articles.updated_at'))->paginate(5);
+    $articles = $articles->orderBy('articles.updated_at', 'desc')->select(DB::raw('articles.id, articles.text, articles.title, articles.slug, articles.user_id, articles.updated_at'))->paginate(5);
 
     $topUsers = Article::published()
         ->limit(3)
