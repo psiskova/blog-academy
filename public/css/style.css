@@ -565,3 +565,7 @@ input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.sea
     -moz-box-shadow: none;
     box-shadow: none;
 }
+
+.side_tabs_grading {
+    padding: 0 15px;
+}
