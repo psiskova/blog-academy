@@ -508,7 +508,7 @@ img.discussion-profile {
     border: none;
 }
 
-.btn-ba-style:hover, .btn-primary:hover {
+.btn-ba-style:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus, .btn-ba-style:focus, .btn-ba-style:active:focus {
     background-color: #68435e;
     color: white;
 }
