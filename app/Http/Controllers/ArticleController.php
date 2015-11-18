@@ -120,7 +120,7 @@ class ArticleController extends Controller {
     }
 
     public function getMyDrafts() {
-        $drafts = Auth::user()->articles()->draft()->get();
+        $drafts = Auth::user()->articles()->draft()->orderBy('updated_at', 'DESC')->get();
 
         return view('articles.mydrafts', [
             'drafts' => $drafts

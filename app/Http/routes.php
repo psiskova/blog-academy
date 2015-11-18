@@ -12,6 +12,8 @@
 */
 
 use App\Models\Article;
+use App\Models\ArticleTagMapper;
+use App\Models\Tag;
 
 Route::get('/', function () {
     $articles = Article::published();
@@ -20,17 +22,23 @@ Route::get('/', function () {
         $articles
             ->join('users', 'users.id', '=', 'articles.user_id')
             ->where(function ($q) use ($search) {
-                $q->where('title', 'like', '%' . $search . '%')
+                $q
+                    ->where('title', 'like', '%' . $search . '%')
                     ->orWhere(function ($query) use ($search) {
                         $query->where('users.name', 'like', '%' . $search . '%')
                             ->orWhere('users.surname', 'like', '%' . $search . '%');
+                    })
+                    ->orWhere(function ($query) use ($search) {
+                        $tag = array_flatten(Tag::where('name', 'like', '%' . $search . '%')->get(['id'])->toArray());
+                        $articleTagMapper = array_flatten(ArticleTagMapper::whereIn('tag_id', $tag)->distinct()->get(['article_id'])->toArray());
+
+                        $query->whereIn('articles.id', $articleTagMapper);
                     });
             });
     }
-    $articles = $articles->orderBy('articles.updated_at', 'desc')->paginate(5);
+    $articles = $articles->orderBy('articles.updated_at', 'desc')->select(DB::raw('articles.id, articles.title, articles.slug, articles.user_id, articles.updated_at'))->paginate(5);
 
-    $topUsers = Article::
-    published()
+    $topUsers = Article::published()
         ->limit(3)
         ->groupBy('user_id')
         ->orderByRaw('count(user_id) DESC')

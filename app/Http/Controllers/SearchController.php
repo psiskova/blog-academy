@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleTagMapper;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class SearchController extends Controller {
     public function getSearch(Request $request) {
@@ -18,6 +19,12 @@ class SearchController extends Controller {
                     ->orWhere(function ($query) use ($search) {
                         $query->where('users.name', 'like', '%' . $search . '%')
                             ->orWhere('users.surname', 'like', '%' . $search . '%');
+                    })
+                    ->orWhere(function ($query) use ($search) {
+                        $tag = array_flatten(Tag::where('name', 'like', '%' . $search . '%')->get(['id'])->toArray());
+                        $articleTagMapper = array_flatten(ArticleTagMapper::whereIn('tag_id', $tag)->distinct()->get(['article_id'])->toArray());
+
+                        $query->whereIn('id', $articleTagMapper);
                     });
             })->get(['articles.id', 'articles.title']);
 
