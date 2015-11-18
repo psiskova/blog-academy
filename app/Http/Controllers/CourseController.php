@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller {
 
@@ -30,6 +31,10 @@ class CourseController extends Controller {
     }
 
     public function postCreate(Request $request) {
+        $input = $request->only(['year', 'name']);
+        $input['user_id'] = Auth::id();
+        Course::create($input);
+        flash()->message('Kurz bol vytvorený');
 
         return redirect()->back();
     }
