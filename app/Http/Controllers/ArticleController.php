@@ -103,6 +103,19 @@ class ArticleController extends Controller {
         }
     }
 
+    public function postDelete(Request $request) {
+        if ($request->ajax()) {
+            $input = $request->only(['id']);
+            $article = Article::findBySlugOrId($input['id']);
+            ArticleTagMapper::where('article_id', '=', $article->id)->delete();
+            $article->delete();
+
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }
+    }
+
     /**
      * Responds to requests to GET /article/draft/{id}
      *
@@ -141,8 +154,8 @@ class ArticleController extends Controller {
     }
 
     public function getRateArticle($slug) {
-
         $article = Article::findBySlugOrId($slug);
+
         return view('articles.ratearticle', [
             'article' => $article
         ]);

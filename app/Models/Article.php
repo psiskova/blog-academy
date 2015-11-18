@@ -31,7 +31,8 @@ class Article extends Model implements SluggableInterface {
         'title',
         'user_id',
         'text',
-        'state'
+        'state',
+        'task_id'
     ];
 
     /**

@@ -25,6 +25,7 @@ var saveArticleRequest = function () {
             title: $('#title').val(),
             tags: $('#tags').val(),
             action: 'Uložiť',
+            'task_id': $('#task_id').val(),
             id: $('[name=id]').val()
         },
         success: function (response) {
@@ -33,10 +34,38 @@ var saveArticleRequest = function () {
     });
 };
 
+var deleteArticleCallback = function (response) {
+
+    $('[name=id]').val('');
+    $('#title').val('');
+    $('#tags').val('');
+    initSummernote();
+};
+
+var deleteArticleRequest = function () {
+    $.ajax({
+        url: laroute.action('ArticleController@postDelete'),
+        method: 'POST',
+        dataType: 'JSON',
+        data: {
+            id: $('[name=id]').val()
+        },
+        success: function (response) {
+            deleteArticleCallback(response);
+        }
+    });
+};
+
 $(document).ready(function () {
 
     $('input[type=submit][value=Uložiť]').on('click', function () {
         saveArticleRequest();
+
+        return false;
+    });
+
+    $('#trash').on('click', function () {
+        deleteArticleRequest();
 
         return false;
     });

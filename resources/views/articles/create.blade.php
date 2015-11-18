@@ -25,6 +25,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="task_id" class="col-md-2 control-label">Zadanie</label>
+
+            <div class="col-md-10">
+                <input type="text" id="task_id" name="task_id" class="form-control" value="{{ $article->title or ''}}">
+            </div>
+        </div>
+        <div class="form-group">
             <label for="tags" class="col-md-2 control-label">Tagy</label>
 
             <div class="col-md-10">
