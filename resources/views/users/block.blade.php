@@ -7,18 +7,18 @@
 @section('left')
     <div class="row">
         <h1 class="text-center">BLOKOVANIE POUŽÍVATEĽOV</h1>
-        <table class="center_elements table_block table-striped">
-            <tr>
-                <th class="border_right">Meno a priezvisko</th>
-                <th class="border_right">Zablokovať</th>
-                <th>Odblokovať</th>
+        <table class="center_elements table_block table-striped col-xs-12">
+            <tr class="row">
+                <th class="border_right col-xs-4">Meno a priezvisko</th>
+                <th class="border_right col-xs-4">Zablokovať</th>
+                <th class="col-xs-4">Odblokovať</th>
             </tr>
             @foreach($users as $user)
                 {!! Form::open(['url' => action('UserController@postBlock'), 'method' => 'post']) !!}
-                <tr>
-                    <td class="border_right">{{ $user->fullname }}</td>
-                    <td class="border_right">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok') !!}</td>
-                    <td>{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove') !!}</td>
+                <tr class="row">
+                    <td class="border_right col-xs-4">{{ $user->fullname }}</td>
+                    <td class="border_right col-xs-4">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok') !!}</td>
+                    <td class="col-xs-4">{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove') !!}</td>
                     {!! Form::hidden('id', $user->id) !!}
                 </tr>
                 {!! Form::close() !!}
