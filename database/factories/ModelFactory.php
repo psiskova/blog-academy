@@ -25,7 +25,8 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'user_id' => App\Models\User::all()->random()->id,
-        'text' => $faker->text(800)
+        'text' => $faker->text(800),
+        'task_id' => App\Models\Task::all()->random()->id
     ];
 });
 
@@ -35,4 +36,32 @@ $factory->defineAs(App\Models\Article::class, 'published', function (Faker\Gener
     return array_merge($article, [
         'state' => \App\Models\Article::PUBLISHED
     ]);
+});
+
+$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word
+    ];
+});
+
+$factory->define(App\Models\ArticleTagMapper::class, function (Faker\Generator $faker) {
+    return [
+        'article_id' => App\Models\Article::all()->random()->id,
+        'tag_id' => App\Models\Tag::all()->random()->id
+    ];
+});
+
+$factory->define(App\Models\Course::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'year' => $faker->year,
+        'user_id' => App\Models\User::all()->random()->id
+    ];
+});
+
+$factory->define(App\Models\Task::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'course_id' => App\Models\Course::all()->random()->id
+    ];
 });

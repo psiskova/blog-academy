@@ -3,15 +3,14 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleTagMappersTable extends Migration
-{
+class CreateArticleTagMappersTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('article_tag_mappers', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('article_id')->unsigned();
@@ -27,8 +26,7 @@ class CreateArticleTagMappersTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::drop('article_tag_mappers');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnState extends Migration {
+class UpdateArticlesTableAddTask extends Migration {
 
     /**
      * Run the migrations.
@@ -12,7 +12,8 @@ class AddColumnState extends Migration {
      */
     public function up() {
         Schema::table('articles', function (Blueprint $table) {
-            $table->integer('state')->default(0);
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks');
         });
     }
 
@@ -23,7 +24,8 @@ class AddColumnState extends Migration {
      */
     public function down() {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('state');
+            $table->dropForeign('articles_task_id_foreign');
+            $table->dropColumn('task_id');
         });
     }
 }

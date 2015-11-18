@@ -13,5 +13,9 @@ class ArticleTableSeeder extends Seeder {
         factory(App\Models\Article::class, 20)->create();
 
         factory(App\Models\Article::class, 'published', 20)->create();
+
+        factory(App\Models\Tag::class, 10)->create();
+
+        factory(App\Models\ArticleTagMapper::class, 30)->create();
     }
 }
