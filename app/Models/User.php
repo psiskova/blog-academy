@@ -114,7 +114,7 @@ class User extends Model implements
 
     public function hasRole($role) {
 
-        return $this->role >= $role;
+        return $this->role == $role;
     }
 
     public function countPublishedArticles() {

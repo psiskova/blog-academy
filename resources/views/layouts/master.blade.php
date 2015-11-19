@@ -35,9 +35,7 @@
                         {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
                     @endif
                 </div>
-                <a href="{!! url('/') !!}">
-                    <div id="ba-logo">BlogAcademy</div>
-                </a>
+                <a href="{!! url('/') !!}" id="ba-logo"></a>
                 {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
                 <div class="form-group">
                     <input type="text" name="search" class="form-control search-input-mod typeahead"
@@ -73,7 +71,11 @@
                                 {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenie', 'ion-star') !!}
                             </li>
                             <li class="col-md-2 color-nav-course">
-                                {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
+                                @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
+                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
+                                @else
+                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Moje predmety', 'ion-university') !!}
+                                @endif
                             </li>
                             <li class="col-md-2 color-nav-select">
                                 <form role="form" class="course-select-form">
@@ -81,10 +83,9 @@
                                         <label for="sel1">Výber predmetu:</label>
                                         <select class="form-control course-option" id="sel1">
                                             <option value="" style="display:none">Vyber predmet</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                            @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
+                                                <option>{{ $course->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </form>

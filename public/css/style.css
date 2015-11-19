@@ -46,6 +46,12 @@ footer {
     .right-column {
         padding-left: 79px;
     }
+
+    .search-form-header {
+        margin-top: -3em;
+        padding: 0;
+        margin-right: 0;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -465,12 +471,6 @@ form.course-select-form {
     text-align: right;
 }
 
-.search-form-header {
-    margin-top: -3em;
-    padding: 0;
-    margin-right: 0;
-}
-
 img.discussion-profile {
     border: 1px solid black;
     width: 70px;
@@ -492,9 +492,10 @@ img.discussion-profile {
 
 @media (max-width: 767px) {
     #ba-logo {
+        display: block;
         height: 63px;
         width: 72px;
-        background: url("/img/blog-academy-logotyp.png");
+        background: url("/img/blog-academy-logotyp.png") no-repeat;
         text-indent: -99999px;
         overflow: hidden;
         margin-top: -20px;
@@ -503,9 +504,10 @@ img.discussion-profile {
 
 @media (min-width: 768px) {
     #ba-logo {
+        display: block;
         height: 63px;
         width: 281px;
-        background: url("/img/blog-academy-logo.png");
+        background: url("/img/blog-academy-logo.png") no-repeat;
         overflow: hidden;
         text-indent: -99999px;
     }
