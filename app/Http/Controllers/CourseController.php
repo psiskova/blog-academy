@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Http\Requests;
 use App\Models\Participant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,21 +20,36 @@ class CourseController extends Controller {
     }
 
     public function getOverview() {
-        $courses = Course::with([
-            'teacher',
-            'participants' => function ($query) {
-                $query->where('user_id', '=', Auth::id());
-            }
-        ])->orderBy('name')->get();
+        if (Auth::user()->hasRole(User::STUDENT_ROLE)) {
+            $courses = Course::with([
+                'teacher',
+                'participants' => function ($query) {
+                    $query->where('user_id', '=', Auth::id());
+                }
+            ])->orderBy('name')->get();
 
-        return view('courses.overview', [
-            'courses' => $courses
-        ]);
+            return view('courses.student.overview', [
+                'courses' => $courses
+            ]);
+        } else {
+            if ($course = Auth::user()->course) {
+                $participants = $course->participants;
+
+                return view('courses.teacher.overview', [
+                    'participants' => $participants
+                ]);
+            } else {
+
+                return view('courses.teacher.overview', [
+                    'course' => false
+                ]);
+            }
+        }
     }
 
     public function getCreate() {
 
-        return view('courses.create');
+        return view('courses.teacher.create');
     }
 
     public function postCreate(Request $request) {

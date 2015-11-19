@@ -1,7 +1,7 @@
 @extends('layouts.9-3')
 
 @section('scripts')
-    {!! HTML::script('js/courses.overview.js') !!}
+    {!! HTML::script('js/courses.student.overview.js') !!}
 @stop
 
 @section('left')

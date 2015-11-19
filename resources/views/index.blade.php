@@ -38,7 +38,7 @@
                                         <div class="top_user_3">
                                             @endif
                                             {{--*/ $i++ /*--}}
-                                            <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+                                            <img src="http://lorempixel.com/120/120/people?{{ $i }}" alt=" top user fullname ">
                                             <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
                                             <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
                                         </div><br>
