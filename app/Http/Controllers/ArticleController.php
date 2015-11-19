@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests;
 use App\Models\ArticleTagMapper;
+use App\Models\Rating;
 use App\Models\Tag;
 use Auth;
 use Illuminate\Http\Request;
@@ -156,12 +157,23 @@ class ArticleController extends Controller {
     public function getRate($slug) {
         $article = Article::findBySlugOrId($slug);
 
-        return view('articles.ratearticle', [
+        return view('articles.rate', [
             'article' => $article
         ]);
     }
 
     public function postRate(Request $request) {
-        $input = $request->all();
+        $input = $request->only(['text', 'rating', 'article_id']);
+        $input['user_id'] = Auth::id();
+
+        if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
+            $rating->update($input);
+        } else {
+            Rating::create($input);
+        }
+
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 }
