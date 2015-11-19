@@ -48,7 +48,8 @@ class User extends Model implements
         'email',
         'password',
         'ban',
-        'role'
+        'role',
+        'course_id'
     ];
 
     /**
@@ -120,5 +121,10 @@ class User extends Model implements
     public function countPublishedArticles() {
 
         return $this->articles()->published()->count();
+    }
+
+    public function course() {
+
+        return $this->hasOne(Course::class, 'id', 'course_id');
     }
 }

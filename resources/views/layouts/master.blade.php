@@ -78,17 +78,23 @@
                                 @endif
                             </li>
                             <li class="col-md-2 color-nav-select">
-                                <form role="form" class="course-select-form">
-                                    <div class="form-group">
-                                        <label for="sel1">Výber predmetu:</label>
-                                        <select class="form-control course-option" id="sel1">
-                                            <option value="" style="display:none">Vyber predmet</option>
+                                {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
+                                <div class="form-group">
+                                    <label for="chooseCourse">Výber predmetu:</label>
+                                    <select class="form-control course-option" id="chooseCourse" name="course_id">
+                                        <option value="" style="display:none">Vyber predmet</option>
+                                        @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                                             @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
-                                                <option>{{ $course->name }}</option>
+                                                <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
                                             @endforeach
-                                        </select>
-                                    </div>
-                                </form>
+                                        @else
+                                            @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->with('course')->get() as $course)
+                                                <option value="{{ $course->course->id }}" {{ Auth::user()->course && $course->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $course->course->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {!! Form::close() !!}
                             </li>
                         </ul>
                     @else

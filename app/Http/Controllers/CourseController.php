@@ -58,4 +58,10 @@ class CourseController extends Controller {
             ]);
         }
     }
+
+    public function postChangeSelectedCourse(Request $request) {
+        Auth::user()->update($request->only(['course_id']));
+
+        return redirect()->back();
+    }
 }
