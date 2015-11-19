@@ -224,11 +224,15 @@ footer {
     background: #fff;
 }
 
-.top-user-name {
+.top-user-name, .top-user-name a {
     font-weight: bold;
     width: 100%;
     display: inline-block;
     text-align: center;
+}
+
+.top-user-name a, .top-user-name a:hover {
+    color: #081d32;
 }
 
 .top-user-count {

@@ -7,7 +7,7 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
+                <span class="article-info">{{ $article->user->fullname }} | {{ $article->updated_at }}</span><br>
                 <span class="article-info">{!! HTML::tags($article) !!}</span><br>
                 {{ str_limit(strip_tags($article->text), 200) }}
             </div>
@@ -17,13 +17,14 @@
 
 @section('right')
     <div class="row">
-        {{--<img src="{{ url($user->image) }}">--}}
-        USER IMAGE
-        <h4>{{ $user->fullname }}</h4>
+        <div class="top_user text-center">
+            <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+            <h4>{{ $user->fullname }}</h4>
 
-        <p>{{ $user->email }}</p>
-        @if($user->id == Auth::id())
-            <p>Upravit profil</p>
-        @endif
+            <p>{{ $user->email }}</p>
+            @if($user->id == Auth::id())
+                <p>Upravit profil</p>
+            @endif
+        </div>
     </div>
 @stop
