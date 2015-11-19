@@ -3,7 +3,7 @@
 @section('left')
     {{--TODO: asi všetky vlastné články--}}
     <div class="row">
-    <h1>Publikované články</h1>
+        <h1>Publikované články</h1>
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
@@ -22,6 +22,8 @@
         <h4>{{ $user->fullname }}</h4>
 
         <p>{{ $user->email }}</p>
-        **TODO - aké možnosti bude mať (upraviť profil ???)
+        @if($user->id == Auth::id())
+            <p>Upravit profil</p>
+        @endif
     </div>
 @stop

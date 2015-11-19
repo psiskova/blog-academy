@@ -8,7 +8,7 @@
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h3>{!! $article->title !!}</h3>
-        <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
+        <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}, {{ $article->updated_at }}</span><br>
         <span class="article-info">{!! HTML::tags($article) !!}</span><br>
         <p>{!! $article->text !!}</p>
     </div>
@@ -45,7 +45,7 @@
     <div class="row">
         {{--<img src="{{ url($user->image) }}">--}}
         USER IMAGE
-        <h4>{{ $article->user->fullname }}</h4>
+        <h4>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}  </h4>
         <p>{{ $article->user->email }}</p>
         <p>{!! link_to_action('UserController@getProfile', 'publikované články ('.$article->user->articles()->published()->count().')', ['user_id' => $article->user->slug]) !!}</p>
 
