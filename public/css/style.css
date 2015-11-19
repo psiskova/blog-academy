@@ -463,6 +463,8 @@ form.course-select-form {
 
 .search-form-header {
     margin-top: -3em;
+    padding: 0;
+    margin-right: 0;
 }
 
 img.discussion-profile {
@@ -572,4 +574,18 @@ input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.sea
 .jumbotron {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+ul.pagination li.active span {
+    background-color: #803a76;
+    border: 1px solid #803a76;
+}
+
+ul.pagination li.active span:hover {
+    background-color: #662e5e;
+    border: 1px solid #803a76;
+}
+
+ul.pagination li a, ul.pagination li a:hover {
+    color: #803a76;
 }
