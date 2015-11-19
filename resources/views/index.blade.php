@@ -45,9 +45,21 @@
                                         @endforeach
                                 </div>
                                 <div id="tab2" class="tab-pane fade">
-                                    <h3>Tab 2</h3>
-
-                                    <p>3 užívatelia s najlepším hodnotením</p>
+                                    {{--*/ $i = 1 /*--}}
+                                    @foreach($topUsers as $topUser)
+                                        @if($i == 1)
+                                            <div class="top_user">
+                                                @elseif ($i == 2)
+                                                    <div class="top_user_2">
+                                                        @else
+                                                            <div class="top_user_3">
+                                                                @endif
+                                                                {{--*/ $i++ /*--}}
+                                                                <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+                                                                <span class="top-user-name">{{ $topUser->user->fullname }}</span>
+                                                                <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                                                            </div><br>
+                                                            @endforeach
                                 </div>
                         </div>
             </div>
