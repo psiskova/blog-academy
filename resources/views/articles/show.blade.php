@@ -1,6 +1,11 @@
 @extends('layouts.9-3')
 
+@section('scripts')
+{!! HTML::script('js/star-rating.min.js') !!}
+@stop
+
 @section('left')
+    {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h3>{!! $article->title !!}</h3>
         <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
@@ -8,6 +13,8 @@
         <p>{!! $article->text !!}</p>
     </div>
     <div class="row">
+        <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
+               data-show-Caption="false" data-show-Clear="false">
         <h3>Diskusia k článku</h3>
         @if(Auth::check())
                 <!-- Form::open Form::hidden for discussion -->
