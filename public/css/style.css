@@ -249,17 +249,17 @@ footer {
 }
 
 .top_user {
-    background-image: url('../topuser_background.png');
+    background-image: url('/img/topuser_background.png');
 }
 
 .top_user_2 {
-    background-image: url('../topuser_background2.png');
+    background-image: url('/img/topuser_background2.png');
     width: 90%;
     margin: auto;
 }
 
 .top_user_3 {
-    background-image: url('../topuser_background3.png');
+    background-image: url('/img/topuser_background3.png');
 }
 
 /*footer {
@@ -488,7 +488,7 @@ img.discussion-profile {
     #ba-logo {
         height: 63px;
         width: 72px;
-        background: url("../blog-academy-logotyp.png");
+        background: url("/img/blog-academy-logotyp.png");
         text-indent: -99999px;
         overflow: hidden;
         margin-top: -20px;
@@ -499,7 +499,7 @@ img.discussion-profile {
     #ba-logo {
         height: 63px;
         width: 281px;
-        background: url("../blog-academy-logo.png");
+        background: url("/img/blog-academy-logo.png");
         overflow: hidden;
         text-indent: -99999px;
     }
