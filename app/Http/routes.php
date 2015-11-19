@@ -54,6 +54,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/about-us', function() {
+    return view('aboutus');
+});
+
 Route::get('/migrate/{id}', function () {
     Artisan::call('migrate', [
         '--force' => true,

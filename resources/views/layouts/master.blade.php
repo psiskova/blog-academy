@@ -104,7 +104,7 @@
                             </li>
                             <li class="col-md-3 color-nav-profile">
                                 <!-- TODO: about us, change link -->
-                                {!! HTML::navTabItem(url('/'), 'O nás', 'ion-android-person') !!}
+                                {!! HTML::navTabItem(url('/about-us'), 'O nás', 'ion-android-person') !!}
                             </li>
                             <li class="col-md-3 color-nav-addarticle">
                                 {!! HTML::navTabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-edit') !!}
