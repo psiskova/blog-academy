@@ -153,11 +153,15 @@ class ArticleController extends Controller {
         return view('articles.management');
     }
 
-    public function getRateArticle($slug) {
+    public function getRate($slug) {
         $article = Article::findBySlugOrId($slug);
 
         return view('articles.ratearticle', [
             'article' => $article
         ]);
+    }
+
+    public function postRate(Request $request) {
+        $input = $request->all();
     }
 }
