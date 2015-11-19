@@ -13,7 +13,7 @@ class Participant extends Model {
     /**
      * User sent invitation into course
      */
-    const JOINED = 1;
+    const PENDING = 1;
     /**
      * User is accepted in course
      */

@@ -19,10 +19,7 @@
                         @if($participant->state == \App\Models\Participant::REJECTED)
                             Odmietnutý
                         @endif
-                        @if($participant->state == \App\Models\Participant::JOINED)
-                            Čaká na schválenie
-                        @endif
-                        @if($participant->state == \App\Models\Participant::NOTHING)
+                        @if($participant->state == \App\Models\Participant::PENDING)
                             Buttony
                         @endif
                     </td>

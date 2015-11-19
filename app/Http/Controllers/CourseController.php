@@ -64,7 +64,7 @@ class CourseController extends Controller {
     public function postJoinCourse(Request $request) {
         if ($request->ajax()) {
             $input = $request->only(['course_id']);
-            $input['state'] = Participant::JOINED;
+            $input['state'] = Participant::PENDING;
             $input['user_id'] = Auth::id();
 
             Participant::create($input);

@@ -19,7 +19,7 @@
                             @if($course->participants->first()->state == \App\Models\Participant::REJECTED)
                                 Odmietnutý
                             @endif
-                            @if($course->participants->first()->state == \App\Models\Participant::JOINED)
+                            @if($course->participants->first()->state == \App\Models\Participant::PENDING)
                                 Čaká na schválenie
                             @endif
                         @else
