@@ -7,6 +7,10 @@ php:
   - 7.0
   - hhvm
 
+matrix:
+  exclude:
+    - php: 7.0
+
 before_script:
   - composer self-update
   - composer install --dev --prefer-source --no-interaction
