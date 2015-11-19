@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Http\Requests;
+use App\Models\Participant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,12 @@ class CourseController extends Controller {
     }
 
     public function getOverview() {
-        $courses = Course::with('teacher')->get();
+        $courses = Course::with([
+            'teacher',
+            'participants' => function ($query) {
+                $query->where('user_id', '=', Auth::id());
+            }
+        ])->orderBy('name')->get();
 
         return view('courses.overview', [
             'courses' => $courses
@@ -39,4 +45,17 @@ class CourseController extends Controller {
         return redirect()->back();
     }
 
+    public function postJoinCourse(Request $request) {
+        if ($request->ajax()) {
+            $input = $request->only(['course_id']);
+            $input['state'] = Participant::JOINED;
+            $input['user_id'] = Auth::id();
+
+            Participant::create($input);
+
+            return response()->json([
+                'id' => $input['course_id']
+            ]);
+        }
+    }
 }

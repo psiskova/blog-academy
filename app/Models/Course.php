@@ -24,7 +24,18 @@ class Course extends Model implements SluggableInterface {
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function teacher() {
+
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all participants
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function participants() {
+
+        return $this->hasMany(Participant::class, 'course_id', 'id');
     }
 
 }

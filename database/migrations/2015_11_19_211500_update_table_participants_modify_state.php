@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateRatingsTableAddRating extends Migration {
+class UpdateTableParticipantsModifyState extends Migration {
 
     /**
      * Run the migrations.
@@ -11,8 +11,8 @@ class UpdateRatingsTableAddRating extends Migration {
      * @return void
      */
     public function up() {
-        Schema::table('ratings', function (Blueprint $table) {
-            $table->integer('rating');
+        Schema::table('participants', function (Blueprint $table) {
+            $table->integer('state')->default(null)->change();
         });
     }
 
@@ -22,8 +22,8 @@ class UpdateRatingsTableAddRating extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('ratings', function (Blueprint $table) {
-            $table->dropColumn('rating');
+        Schema::table('participants', function (Blueprint $table) {
+            //
         });
     }
 }
