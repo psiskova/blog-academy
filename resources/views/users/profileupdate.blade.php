@@ -23,28 +23,40 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['url' => URL::action('UserController@postUpdateProfile'), 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => URL::action('UserController@postUpdateProfile'), 'class' => 'form-horizontal', 'files' => true]) !!}
 
-                            <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-push-5">
+                                <img src="{{ action('UserController@getProfileImage', ['id' => $user->profileimage]) }}"
+                                     id="profile_picture" width="120px" height="120px">
+                                {!! Form::file('image', ['style' => 'display:none']) !!}
+                            </div>
+                        </div>
 
-                                <div class="col-md-6 col-md-push-5">
-                                    <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+                        <div class="form-group image-error hidden" style="margin-bottom: 0">
+                            <div class="col-md-offset-4 col-md-6">
+                                <div class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Error:</span>File too big. Max size 2048kB.
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Meno</label>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Meno</label>
 
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') ? old('name')  : $user->name  }}">
-                                </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name"
+                                       value="{{ old('name') ? old('name')  : $user->name  }}">
                             </div>
+                        </div>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Priezvisko</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="surname" value="{{ old('surname') ? old('surname') : $user->surname }}">
+                                <input type="text" class="form-control" name="surname"
+                                       value="{{ old('surname') ? old('surname') : $user->surname }}">
                             </div>
                         </div>
 
@@ -52,7 +64,8 @@
                             <label class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') ? old('email') : $user->email }}">
+                                <input type="email" class="form-control" name="email"
+                                       value="{{ old('email') ? old('email') : $user->email }}">
                             </div>
                         </div>
 

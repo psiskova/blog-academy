@@ -49,7 +49,8 @@ class User extends Model implements
         'password',
         'ban',
         'role',
-        'course_id'
+        'course_id',
+        'profileimage'
     ];
 
     /**

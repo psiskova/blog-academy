@@ -18,7 +18,8 @@
 @section('right')
     <div class="row">
         <div class="top_user text-center">
-            <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+            <img src="{{ action('UserController@getProfileImage', ['id' => $user->profileimage]) }}"
+                 style="height: 120px; width: 120px">
             <h4>{{ $user->fullname }}</h4>
 
             <p>{{ $user->email }}</p>

@@ -23,6 +23,7 @@ class UserController extends Controller {
             'postBlock',
             'getUpdateProfile',
             'postUpdateProfile',
+            'getProfileImage',
         ]]);
 
         $this->middleware('role:' . User::ADMIN_ROLE, ['only' => [
@@ -69,16 +70,6 @@ class UserController extends Controller {
      */
     public function getAdminProfile() {
 
-        return view('welcome');
-    }
-
-    /**
-     * Responds to requests to POST /user/admin-profile
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function postAdminProfile() {
-        dd(\Input::all());
         return view('welcome');
     }
 
@@ -184,15 +175,30 @@ class UserController extends Controller {
             'user' => $user
         ]);
     }
+
     public function postUpdateProfile(Request $request) {
         $input = $request->all();
 
         $user = Auth::user();
 
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $photoName = uniqid() . '.' . $file->guessClientExtension();
+            $file->move(storage_path(), $photoName);
+            $user->profileimage = $photoName;
+            $user->save();
+        }
+
         $user->update($input);
 
         flash()->success('User updated');
         return redirect()->back();
+    }
+
+    public function getProfileImage($id) {
+        $filePath = storage_path() . '/' . $id;
+
+        return response()->download($filePath);
     }
 
 }

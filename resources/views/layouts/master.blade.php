@@ -25,8 +25,8 @@
                            aria-haspopup="true"
                            aria-expanded="false">
                             {{ Auth::user()->fullname }}
-                            <img src="http://placehold.it/30x30"
-                                 class="profile-image img-circle">
+                            <img src="{{ action('UserController@getProfileImage', ['id' => Auth::user()->profileimage]) }}"
+                                 class="profile-image img-circle" style="width: 30px; height: 30px">
                             <span class="caret"></span>
                         </a>
                         <a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a>
