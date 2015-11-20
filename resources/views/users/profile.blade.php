@@ -18,8 +18,7 @@
 @section('right')
     <div class="row">
         <div class="top_user text-center">
-            <img src="{{ action('UserController@getProfileImage', ['id' => $user->profileimage]) }}"
-                 style="height: 120px; width: 120px">
+            {!! HTML::profilePicture($user, 120, 120) !!}
             <h4>{{ $user->fullname }}</h4>
 
             <p>{{ $user->email }}</p>
