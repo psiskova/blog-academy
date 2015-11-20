@@ -13,8 +13,7 @@ html, body {
     position: relative;
     top: -5px;
     float: left;
-    left: -5px
-    color: #803a76;
+    left: -5px;
 }
 
 .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
@@ -22,7 +21,7 @@ html, body {
     margin-top: 15px;
 }
 
-.ion-android-person:before {
+.mobile-icon-profile .ion-android-person:before {
     color: #803a76;
 }
 
