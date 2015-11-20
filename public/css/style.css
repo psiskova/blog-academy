@@ -14,6 +14,16 @@ html, body {
     top: -5px;
     float: left;
     left: -5px
+    color: #803a76;
+}
+
+.mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.ion-android-person:before {
+    color: #803a76;
 }
 
 .wrapper {
@@ -526,6 +536,7 @@ img.discussion-profile {
     .jumbotron.main-header {
         padding-top: 60px;
     }
+
 }
 
 @media(min-width:1200px){
@@ -557,6 +568,10 @@ img.discussion-profile {
    .main-header {
        padding-top: 0;
    }
+
+    .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
+        margin-top: 30px;
+    }
 }
 
 .btn-ba-style, .btn-primary {
