@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('scripts')
+    {!! HTML::script('js/user.profileupdate.js') !!}
+@stop
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -19,7 +23,7 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['url' => '/auth/register', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => URL::action('UserController@postUpdateProfile'), 'class' => 'form-horizontal']) !!}
 
                             <div class="form-group">
 

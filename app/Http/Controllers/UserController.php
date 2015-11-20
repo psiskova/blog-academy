@@ -22,6 +22,7 @@ class UserController extends Controller {
             'postManagement',
             'postBlock',
             'getUpdateProfile',
+            'postUpdateProfile',
         ]]);
 
         $this->middleware('role:' . User::ADMIN_ROLE, ['only' => [
@@ -182,6 +183,16 @@ class UserController extends Controller {
         return view('users.profileupdate', [
             'user' => $user
         ]);
+    }
+    public function postUpdateProfile(Request $request) {
+        $input = $request->all();
+
+        $user = Auth::user();
+
+        $user->update($input);
+
+        flash()->success('User updated');
+        return redirect()->back();
     }
 
 }
