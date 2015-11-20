@@ -23,7 +23,7 @@
 
             <p>{{ $user->email }}</p>
             @if($user->id == Auth::id())
-                <p>Upravit profil</p>
+                <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
             @endif
         </div>
     </div>

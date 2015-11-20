@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-
 
 class UserController extends Controller {
 
@@ -20,7 +20,8 @@ class UserController extends Controller {
             'getManagement',
             'getBlock',
             'postManagement',
-            'postBlock'
+            'postBlock',
+            'getUpdateProfile',
         ]]);
 
         $this->middleware('role:' . User::ADMIN_ROLE, ['only' => [
@@ -171,6 +172,14 @@ class UserController extends Controller {
         $user = User::findBySlugOrIdOrFail($id);
 
         return view('users.grading', [
+            'user' => $user
+        ]);
+    }
+
+    public function getUpdateProfile() {
+        $user = Auth::user();
+
+        return view('users.profileupdate', [
             'user' => $user
         ]);
     }
