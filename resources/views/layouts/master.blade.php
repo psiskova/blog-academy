@@ -88,8 +88,8 @@
                                                 <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
                                             @endforeach
                                         @else
-                                            @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->with('course')->get() as $course)
-                                                <option value="{{ $course->course->id }}" {{ Auth::user()->course && $course->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $course->course->name }}</option>
+                                            @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
+                                                <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $participant->course->name }}</option>
                                             @endforeach
                                         @endif
                                     </select>

@@ -23,6 +23,7 @@ class UpdateUsersTableAddSelectedSubject extends Migration {
      */
     public function down() {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_course_id_foreign');
             $table->dropColumn('course_id');
         });
     }
