@@ -9,6 +9,7 @@ Homestead.json
 .env
 /public/js/laroute.js
 /public/build
+/storage/*.*
 
 ### PhpStorm specific
 .idea
