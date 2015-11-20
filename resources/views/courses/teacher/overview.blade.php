@@ -20,7 +20,14 @@
                             Odmietnutý
                         @endif
                         @if($participant->state == \App\Models\Participant::PENDING)
-                            Buttony
+                            <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                    data-value="{{  \App\Models\Participant::ACCEPTED }}">
+                                Prihlásiť
+                            </button>
+                            <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                    data-value="{{  \App\Models\Participant::REJECTED }}">
+                                Odmietnuť
+                            </button>
                         @endif
                     </td>
                 </tr>

@@ -75,6 +75,20 @@ class CourseController extends Controller {
         }
     }
 
+    public function postUpdateParticipant(Request $request) {
+        if ($request->ajax()) {
+            $input = $request->only(['user_id', 'state']);
+            $input['course_id'] = Auth::user()->course->id;
+
+            Participant::where('course_id', '=', $input['course_id'])->where('user_id', '=', $input['user_id'])->update($input);
+
+            return response()->json([
+                'id' => $input['user_id'],
+                'value' => $input['state'] == Participant::REJECTED ? 'Odmietnutý' : 'Prihlásený'
+            ]);
+        }
+    }
+
     public function postChangeSelectedCourse(Request $request) {
         Auth::user()->update($request->only(['course_id']));
 

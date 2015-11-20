@@ -103,7 +103,6 @@
                                 {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
                             </li>
                             <li class="col-md-3 color-nav-profile">
-                                <!-- TODO: about us, change link -->
                                 {!! HTML::navTabItem(url('/about-us'), 'O nás', 'ion-android-person') !!}
                             </li>
                             <li class="col-md-3 color-nav-addarticle">
