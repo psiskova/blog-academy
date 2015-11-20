@@ -27,8 +27,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-push-5">
-                                <img src="{{ action('UserController@getProfileImage', ['id' => $user->profileimage]) }}"
-                                     id="profile_picture" width="120px" height="120px">
+                                {!! HTML::profilePicture($user, 120, 120, ['id' => 'profile_picture']) !!}
                                 {!! Form::file('image', ['style' => 'display:none']) !!}
                             </div>
                         </div>

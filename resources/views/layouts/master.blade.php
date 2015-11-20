@@ -25,8 +25,7 @@
                            aria-haspopup="true"
                            aria-expanded="false">
                             {{ Auth::user()->fullname }}
-                            <img src="{{ action('UserController@getProfileImage', ['id' => Auth::user()->profileimage]) }}"
-                                 class="profile-image img-circle" style="width: 30px; height: 30px">
+                            {!! HTML::profilePicture(Auth::user(), 30, 30, ['class' => 'profile-image img-circle']) !!}
                             <span class="caret"></span>
                         </a>
                         <a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a>
@@ -38,22 +37,20 @@
                 <div class="col-xs-3 col-sm-4 col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
                 </div>
-                @if(Auth::check())
-                    <div class="col-xs-7 col-sm-6 col-md-6">
-                @else
-                    <div class="col-xs-9 col-sm-8 col-md-6">
-                @endif
-                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
+                <div class="{{ Auth::check() ? 'col-xs-7 col-sm-6 col-md-6' : 'col-xs-9 col-sm-8 col-md-6' }}">
+                    {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
                     <div class="form-group search-form-group row">
                         <div class="input-group">
                             <input type="text" name="search" class="form-control search-input-mod typeahead"
-                               placeholder="Hľadaný výraz" value="{{ $search or '' }}" autocomplete="off">
+                                   placeholder="Hľadaný výraz" value="{{ $search or '' }}"
+                                   autocomplete="off">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i></button>
+                                <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i>
+                                </button>
                             </span>
                         </div>
                     </div>
-                {!! Form::close() !!}
+                    {!! Form::close() !!}
                 </div>
                 @if(Auth::check())
                     <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg">
@@ -169,4 +166,3 @@
 @yield('scripts')
 </body>
 </html>
-

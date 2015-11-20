@@ -50,7 +50,7 @@
     <div class="row">
         <div class="top_user text-center">
             {{--<img src="{{ url($user->image) }}">--}}
-            <img src="http://lorempixel.com/120/120/" alt=" top user fullname ">
+            {!! HTML::profilePicture($article->user, 120, 120) !!}
             <h4>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}  </h4>
 
             <p>{{ $article->user->email }}</p>

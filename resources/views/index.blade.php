@@ -5,7 +5,8 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug])!!} | {{$article->updated_at}}</span><br>
+                <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug])!!}
+                    | {{$article->updated_at}}</span><br>
                 <span class="article-info">{!! HTML::tags($article) !!}</span><br>
                 {{ str_limit(strip_tags($article->text), 200) }}
             </div>
@@ -30,39 +31,25 @@
             <div id="tab1" class="tab-pane fade in active">
                 {{--*/ $i = 1 /*--}}
                 @foreach($topUsers as $topUser)
-                    @if($i == 1)
-                        <div class="top_user">
-                            @elseif ($i == 2)
-                                <div class="top_user_2">
-                                    @else
-                                        <div class="top_user_3">
-                                            @endif
-                                            {{--*/ $i++ /*--}}
-                                            <img src="{{ action('UserController@getProfileImage', ['id' => $topUser->user->profileimage]) }}"
-                                                 style="height: 120px; width: 120px">
-                                            <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
-                                            <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
-                                        </div><br>
-                                        @endforeach
-                                </div>
-                                <div id="tab2" class="tab-pane fade">
-                                    {{--*/ $i = 1 /*--}}
-                                    @foreach($topUsers as $topUser)
-                                        @if($i == 1)
-                                            <div class="top_user">
-                                                @elseif ($i == 2)
-                                                    <div class="top_user_2">
-                                                        @else
-                                                            <div class="top_user_3">
-                                                                @endif
-                                                                {{--*/ $i++ /*--}}
-                                                                <img src="{{ action('UserController@getProfileImage', ['id' => $topUser->user->profileimage]) }}"
-                                                                     style="height: 120px; width: 120px">
-                                                                <span class="top-user-name">{{ $topUser->user->fullname }}</span>
-                                                                <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
-                                                            </div><br>
-                                                            @endforeach
-                                </div>
-                        </div>
+                    <div class="top_user_{{ $i }}">
+                        {{--*/ $i++ /*--}}
+                        {!! HTML::profilePicture($topUser->user, 120, 120) !!}
+                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
+                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                    </div><br>
+                @endforeach
             </div>
+            <div id="tab2" class="tab-pane fade">
+                {{--*/ $i = 1 /*--}}
+                @foreach($topUsers as $topUser)
+                    <div class="top_user_{{ $i }}">
+                        {{--*/ $i++ /*--}}
+                        {!! HTML::profilePicture($topUser->user, 120, 120) !!}
+                        <span class="top-user-name">{{ $topUser->user->fullname }}</span>
+                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                    </div><br>
+                @endforeach
+            </div>
+        </div>
+    </div>
 @stop

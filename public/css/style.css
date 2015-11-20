@@ -254,7 +254,7 @@ footer {
     font-style: italic;
 }
 
-.top_user, .top_user_2, .top_user_3 {
+.top_user_1, .top_user_2, .top_user_3 {
     -webkit-background-size: cover;
     background-size: cover;
     width: 100%;
@@ -262,12 +262,12 @@ footer {
     padding-top: 3em;
 }
 
-.top_user img, .top_user_2 img, .top_user_3 img {
+.top_user_1 img, .top_user_2 img, .top_user_3 img {
     margin-top: 15px;
     margin-bottom: 7px;
 }
 
-.top_user {
+.top_user_1 {
     background-image: url('/img/topuser_background.png');
 }
 
