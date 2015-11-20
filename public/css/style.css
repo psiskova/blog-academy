@@ -490,6 +490,11 @@ img.discussion-profile {
     font-weight: bold;
 }
 
+.mobile-icon-profile {
+    margin-top: 10px;
+    text-align: right;
+}
+
 @media (max-width: 767px) {
     #ba-logo {
         display: block;
@@ -498,11 +503,42 @@ img.discussion-profile {
         background: url("/img/blog-academy-logotyp.png") no-repeat;
         text-indent: -99999px;
         overflow: hidden;
-        margin-top: -20px;
+        margin-top: 10px;
+    }
+
+
+    input.form-control.search-input-mod {
+        margin: 0;
+    }
+
+    .main-header {
+        margin-bottom: 0;
+        padding: 0;
+        background-color: white;
+    }
+}
+
+@media(min-width: 992px) {
+    .form-group.search-form-group.row {
+        margin-top: -25px;
+    }
+
+    .jumbotron.main-header {
+        padding-top: 60px;
+    }
+}
+
+@media(min-width:1200px){
+    .form-group.search-form-group.row {
+        margin-top: 40px;
     }
 }
 
 @media (min-width: 768px) {
+
+    .navbar-form .form-group {
+        vertical-align: inherit;
+    }
     #ba-logo {
         display: block;
         height: 63px;
@@ -510,7 +546,17 @@ img.discussion-profile {
         background: url("/img/blog-academy-logo.png") no-repeat;
         overflow: hidden;
         text-indent: -99999px;
+        margin-bottom: 20px;
+        margin-top: 10px;
     }
+
+   .search-form-group {
+        margin-top: 25px;
+    }
+
+   .main-header {
+       padding-top: 0;
+   }
 }
 
 .btn-ba-style, .btn-primary {
@@ -594,4 +640,8 @@ ul.pagination li.active span:hover {
 
 ul.pagination li a, ul.pagination li a:hover {
     color: #803a76;
+}
+
+span.tag a{
+    color: white;
 }
