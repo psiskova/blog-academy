@@ -511,7 +511,6 @@ img.discussion-profile {
         margin-top: 10px;
     }
 
-
     input.form-control.search-input-mod {
         margin: 0;
     }
@@ -523,7 +522,7 @@ img.discussion-profile {
     }
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
     .form-group.search-form-group.row {
         margin-top: -25px;
     }
@@ -534,7 +533,7 @@ img.discussion-profile {
 
 }
 
-@media(min-width:1200px){
+@media (min-width: 1200px) {
     .form-group.search-form-group.row {
         margin-top: 40px;
     }
@@ -545,6 +544,7 @@ img.discussion-profile {
     .navbar-form .form-group {
         vertical-align: inherit;
     }
+
     #ba-logo {
         display: block;
         height: 63px;
@@ -556,13 +556,13 @@ img.discussion-profile {
         margin-top: 10px;
     }
 
-   .search-form-group {
+    .search-form-group {
         margin-top: 25px;
     }
 
-   .main-header {
-       padding-top: 0;
-   }
+    .main-header {
+        padding-top: 0;
+    }
 
     .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
         margin-top: 30px;
@@ -652,6 +652,6 @@ ul.pagination li a, ul.pagination li a:hover {
     color: #803a76;
 }
 
-span.tag a{
+span.tag a {
     color: white;
 }
