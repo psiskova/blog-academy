@@ -68,6 +68,10 @@ footer {
         padding-bottom: 50px
     }
 
+    .row-header {
+        padding-right: 15px;
+    }
+
     .tabs {
         display: -webkit-box;
         display: -webkit-flex;
@@ -162,9 +166,8 @@ footer {
         padding-top: 2px;
         border-top: none !important;
         border-bottom: 0;
-        background-position: top;
         background-size: 100% 1px;
-        background-repeat: no-repeat
+        background: no-repeat top;
     }
 }
 

@@ -16,7 +16,7 @@
 <body>
 <div class="wrapper">
     <div class="container main_container">
-        <div class="row">
+        <div class="row {{ Auth::check() ? '' : 'row-header' }}">
             <div class="jumbotron main-header">
                 <div id="nav-top-right" class="hidden-xs hidden-sm pull-right">
                     @if(Auth::check())
