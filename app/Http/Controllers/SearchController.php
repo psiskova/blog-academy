@@ -19,7 +19,7 @@ class SearchController extends Controller {
                     ->orWhere(function ($query) use ($search) {
                         $query->where('users.name', 'like', '%' . $search . '%')
                             ->orWhere('users.surname', 'like', '%' . $search . '%')
-                            ->orWhere(DB::raw('concat(users.name, \' \', users.surname)'), 'like', '%' . $search . '%');
+                            ->orWhere(\DB::raw('concat(users.name, \' \', users.surname)'), 'like', '%' . $search . '%');
                     })
                     ->orWhere(function ($query) use ($search) {
                         $tag = array_flatten(Tag::where('name', 'like', '%' . $search . '%')->get(['id'])->toArray());
