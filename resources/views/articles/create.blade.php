@@ -68,6 +68,9 @@
         {!! Form::close() !!}
 
     </div>
+    <div class="right-article-menu hidden-md hidden-lg">
+        @include('articles.rightmenu')
+    </div>
 @stop
 
 @section('right')
