@@ -20,7 +20,6 @@
             <div class="jumbotron main-header">
                 <div id="nav-top-right" class="hidden-xs hidden-sm pull-right">
                     @if(Auth::check())
-                        <span class="login-information">Prihlásený ako </span>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true"
                            aria-expanded="false">
@@ -36,6 +35,7 @@
                 </div>
                 <div class="col-xs-3 col-sm-4 col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
+
                 </div>
                 <div class="{{ Auth::check() ? 'col-xs-7 col-sm-6 col-md-6' : 'col-xs-9 col-sm-8 col-md-6' }}">
                     {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
@@ -89,7 +89,7 @@
                             <li class="col-md-2 color-nav-select">
                                 {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
                                 <div class="form-group">
-                                    <label for="chooseCourse">Výber predmetu:</label>
+                                    <label for="chooseCourse" class="course-select-label">Výber predmetu:</label>
                                     <select class="form-control course-option" id="chooseCourse" name="course_id">
                                         <option value="" style="display:none">Vyber predmet</option>
                                         @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
@@ -133,7 +133,17 @@
 <div class="container main_container">
     <div class="row">
         <footer class="hidden-sm hidden-xs">
-            <p class="text-center">FMFI UK v Bratislave &copy; 2015-2016 access_denied</p>
+            <div class="row footer-top-row">
+                <ul class="footer-top-menu">
+                    <li> <a href="{!! url('/about-us') !!}">O nás</a> </li>
+                    <li> <a href="{!! url('/about-us') !!}">FAQ</a> </li>
+                    <li> <a href="{!! url('/about-us') !!}">Pravidlá</a> </li>
+                </ul>
+            </div>
+            <div class="row footer-bottom-row">
+                <p class="text-center">FMFI UK v Bratislave &copy; 2015-2016 access_denied</p>
+            </div>
+
         </footer>
     </div>
 </div>
