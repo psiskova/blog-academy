@@ -16,7 +16,7 @@
 <body>
 <div class="wrapper">
     <div class="container main_container">
-        <div class="row {{ Auth::check() ? '' : 'row-header' }}">
+        <div class="row {{ Auth::check() ? '' : 'row-header' }} header-separator">
             <div class="jumbotron main-header">
                 <div id="nav-top-right" class="hidden-xs hidden-sm pull-right">
                     @if(Auth::check())
@@ -33,10 +33,10 @@
                         {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
                     @endif
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-6">
+                <div class="{{ Auth::check() ? 'col-xs-3 col-sm-3' : 'col-xs-10 col-sm-10' }} col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
                 </div>
-                <div class="{{ Auth::check() ? 'col-xs-7 col-sm-7 col-md-6' : 'col-xs-9 col-sm-9 col-md-6' }}">
+                <div class="col-md-6 hidden-xs hidden-sm">
                     {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
                     <div class="form-group search-form-group row">
                         <div class="input-group">
@@ -44,12 +44,41 @@
                                    placeholder="Hľadaný výraz" value="{{ $search or '' }}"
                                    autocomplete="off">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default btn-search"><i class="icon ion-search"></i>
+                                <button type="submit" class="btn btn-default btn-search">
+                                    <i class="icon ion-search"></i>
                                 </button>
                             </span>
                         </div>
                     </div>
                     {!! Form::close() !!}
+                </div>
+                @if(Auth::check())
+                    <div class="col-xs-5 col-sm-5 hidden-md hidden-lg">
+                        {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
+                        <div class="form-group search-form-group row">
+                            <div class="input-group">
+
+                                <select class="form-control course-option course-option-mobile" id="chooseCourse" name="course_id">
+                                    <option value="" style="display:none">Vyber predmet</option>
+                                    @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                                        @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
+                                            <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
+                                        @endforeach
+                                    @else
+                                        @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
+                                            <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $participant->course->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                @endif
+                <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg">
+                    <a href="#" class="">
+                        <i class="icon icon-resizer ion-search"></i>
+                    </a>
                 </div>
                 @if(Auth::check())
                     <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg">

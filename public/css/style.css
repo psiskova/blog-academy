@@ -21,7 +21,7 @@ html, body {
     margin-top: 15px;
 }
 
-.mobile-icon-profile .ion-android-person:before {
+.mobile-icon-profile .ion-android-person:before, .mobile-icon-profile .ion-search {
     color: #803a76;
 }
 
@@ -67,6 +67,15 @@ html, body {
 }
 
 @media only screen and (max-width: 991px) {
+
+    select#chooseCourse.form-control.course-option.course-option-mobile {
+        margin-top: -10px;
+    }
+
+    .header-separator {
+        border-bottom: 5px solid rgba(51, 51, 51, 0.06);
+    }
+
     form.navbar-form.navbar-right.search-form-header {
         width: 100%;
     }
@@ -420,6 +429,10 @@ ul.nav.navbar-nav.row.col-md-12 li, ul.nav.navbar-nav.row.col-md-12 li a {
     border: none;
 }
 
+.course-option-mobile {
+    border: 1px solid #18222c;
+}
+
 /*  COLOR NAVIGATION  */
 
 .color-nav-home {
@@ -540,6 +553,13 @@ img.discussion-profile {
 }
 
 @media (max-width: 767px) {
+    .main-header i.icon.icon-resizer{
+        margin-top: 8px;
+    }
+
+    select#chooseCourse.form-control.course-option.course-option-mobile {
+        margin-top: 15px;
+    }
 
     input.form-control.search-input-mod {
         margin: 0;
@@ -585,6 +605,10 @@ img.discussion-profile {
 }
 
 @media (min-width: 768px) {
+
+    .main-header i.icon.icon-resizer {
+        margin-top: -7px;
+    }
 
     .navbar-form .form-group {
         vertical-align: inherit;
@@ -670,7 +694,7 @@ input:focus {
     box-shadow: 0 0 2px grey;
 }
 
-input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus {
+input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus, select.form-control.course-option:focus, select.form-control.course-option:active:focus, select.form-control.course-option:active {
     outline: none !important;
     border: 1px solid grey;
     box-shadow: 0 0 2px grey;
