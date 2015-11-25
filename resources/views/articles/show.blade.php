@@ -15,8 +15,10 @@
         <p>{!! $article->text !!}</p>
     </div>
     <div class="row">
+        @if(Auth::check())
         <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
                data-show-Caption="false" data-show-Clear="false">
+        @endif
 
         <h3>Diskusia k článku</h3>
         @if(Auth::check())
