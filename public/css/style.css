@@ -560,8 +560,8 @@ img.discussion-profile {
         background: url("/img/blog-academy-logo.png") no-repeat;
         overflow: hidden;
         text-indent: -99999px;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
+        margin-bottom: 50px;
+        margin-top: -30px;
     }
 
 }
@@ -632,6 +632,7 @@ h1 {
 footer {
     background-color: #2eafaf;
     height: 90px;
+    margin-top: -4px;
     overflow: hidden;
 }
 
