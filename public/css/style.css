@@ -32,17 +32,8 @@ html, body {
     margin: 0 auto -60px;
 }
 
-footer {
-    height: 80px;
-}
-
 .push {
     height: 100px;
-}
-
-footer {
-    padding: 0 0 20px 0;
-    color: #ffffff;
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
@@ -69,7 +60,28 @@ footer {
     }
 }
 
+@media (min-width: 768px){
+    .navbar-form .input-group {
+        margin-top:-14px;
+    }
+}
+
 @media only screen and (max-width: 991px) {
+    form.navbar-form.navbar-right.search-form-header {
+        width: 100%;
+    }
+
+    .form-group.search-form-group.row {
+        width: 100%;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+    .btn {
+        height: 48px;
+    }
+
     body {
         padding-bottom: 50px;
     }
@@ -612,7 +624,7 @@ img.discussion-profile {
     color: #2eafaf;
     font-size: medium;
     display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: 12px;
 }
 
 a {
@@ -632,8 +644,10 @@ h1 {
 footer {
     background-color: #2eafaf;
     height: 90px;
-    margin-top: -4px;
     overflow: hidden;
+    margin-top: -4px;
+    padding: 0 0 20px 0;
+    color: #ffffff;
 }
 
 h3 a {
