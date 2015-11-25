@@ -274,6 +274,10 @@ html, body {
 .side_tabs_top {
     position: relative;
     padding-top: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 .side_tabs_top:before, .side_tabs:after {
@@ -788,3 +792,56 @@ ul.typeahead.dropdown-menu {
 span.tag.label.label-info {
     font-size: small;
 }
+
+.side_tabs_top:before {
+         top: 0px;
+         left: -1px;
+         bottom: -1px;
+         right: -1px;
+         background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
+         background-image: -webkit-linear-gradient(transparent, #9a9a9a);
+         background-image: -moz-linear-gradient(transparent, #9a9a9a);
+         background-image: -o-linear-gradient(transparent, #9a9a9a);
+         z-index: -2;
+}
+
+.right_col_profile:before {
+    top: 0px;
+    left: -1px;
+    bottom: 0px;
+    right: 0px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
+    background-image: -webkit-linear-gradient(transparent, #9a9a9a);
+    background-image: -moz-linear-gradient(transparent, #9a9a9a);
+    background-image: -o-linear-gradient(transparent, #9a9a9a);
+    z-index: -2;
+}
+
+.right_col_profile {
+    position: relative;
+    padding-top: 2em;
+    margin-left: -10px;
+    padding-bottom: 50px;
+}
+
+.right_col_profile:before, .right_col_profile:after {
+    content: '';
+    position: absolute;
+}
+
+.right_col_profile:after {
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    background-position: left bottom;
+    background-image: url('/img/ceruzka.png');
+    background-repeat: no-repeat;
+
+}
+
+
+
+

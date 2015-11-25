@@ -16,15 +16,5 @@
 @stop
 
 @section('right')
-    <div class="row">
-        <div class="top_user text-center">
-            {!! HTML::profilePicture($user, 120, 120) !!}
-            <h4>{{ $user->fullname }}</h4>
-
-            <p>{{ $user->email }}</p>
-            @if($user->id == Auth::id())
-                <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
-            @endif
-        </div>
-    </div>
+    @include('users.rightmenu')
 @stop

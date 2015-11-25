@@ -50,7 +50,7 @@
 
 @section('right')
     <div class="row">
-        <div class="top_user text-center">
+        <div class="right_col_profile text-center">
             {{--<img src="{{ url($user->image) }}">--}}
             {!! HTML::profilePicture($article->user, 120, 120) !!}
             <h4>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}  </h4>

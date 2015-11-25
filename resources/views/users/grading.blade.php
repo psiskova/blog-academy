@@ -53,5 +53,5 @@
 @stop
 
 @section('right')
-    <p>profil prihláseného používateľa</p>
+    @include('users.rightmenu')
 @stop

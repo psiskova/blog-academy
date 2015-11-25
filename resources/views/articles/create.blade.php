@@ -74,5 +74,5 @@
 @stop
 
 @section('right')
-    @include('articles.rightmenu')
+    @include('users.rightmenu')
 @stop
