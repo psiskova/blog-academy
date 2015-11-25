@@ -33,9 +33,8 @@
                         {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
                     @endif
                 </div>
-                <div class="col-xs-3 col-sm-4 col-md-6">
+                <div class="col-xs-3 col-sm-3 col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
-
                 </div>
                 <div class="{{ Auth::check() ? 'col-xs-7 col-sm-6 col-md-6' : 'col-xs-9 col-sm-8 col-md-6' }}">
                     {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}

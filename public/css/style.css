@@ -84,6 +84,16 @@ footer {
         font-size: 23px;
     }
 
+    #ba-logo {
+        display: block;
+        height: 63px;
+        width: 72px;
+        background: url("/img/blog-academy-logotyp.png") no-repeat;
+        text-indent: -99999px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
     .h3, h3 {
         font-size: 18px;
         font-weight: bold;
@@ -518,15 +528,6 @@ img.discussion-profile {
 }
 
 @media (max-width: 767px) {
-    #ba-logo {
-        display: block;
-        height: 63px;
-        width: 72px;
-        background: url("/img/blog-academy-logotyp.png") no-repeat;
-        text-indent: -99999px;
-        overflow: hidden;
-        margin-top: 10px;
-    }
 
     input.form-control.search-input-mod {
         margin: 0;
@@ -552,6 +553,17 @@ img.discussion-profile {
         margin-bottom: 50px;
     }
 
+    #ba-logo {
+        display: block;
+        height: 63px;
+        width: 281px;
+        background: url("/img/blog-academy-logo.png") no-repeat;
+        overflow: hidden;
+        text-indent: -99999px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -570,18 +582,6 @@ img.discussion-profile {
         font-size: 24px;
         font-weight: normal;
 
-    }
-
-    #ba-logo {
-
-        display: block;
-        height: 63px;
-        width: 281px;
-        background: url("/img/blog-academy-logo.png") no-repeat;
-        overflow: hidden;
-        text-indent: -99999px;
-        margin-bottom: 20px;
-        margin-top: 10px;
     }
 
     .search-form-group {
@@ -610,6 +610,9 @@ img.discussion-profile {
 
 .article-info {
     color: #2eafaf;
+    font-size: medium;
+    display: inline-block;
+    margin-bottom: 1em;
 }
 
 a {
@@ -628,6 +631,8 @@ h1 {
 
 footer {
     background-color: #2eafaf;
+    height: 90px;
+    overflow: hidden;
 }
 
 h3 a {
@@ -698,17 +703,19 @@ span.tag a {
     margin-right: 0;
     margin-left: 0;
     background-color: rgba(0,0,0,0.1);
+    height: 50px;
 }
 
 ul.footer-top-menu {
     display: block;
-    line-height: 30px;
+    height: 100%;
 }
 
 ul.footer-top-menu li {
     display: inline-block;
     list-style: none;
     height: 100%;
+    line-height: 40px;
 }
 
 ul.footer-top-menu li + li {
@@ -730,9 +737,15 @@ ul.footer-top-menu li a:hover {
 }
 
 .footer-bottom-row {
-    padding-top: 1ex;
+    height: 40px;
+    line-height: 40px;
 }
 
 ul.typeahead.dropdown-menu {
     overflow: hidden;
+}
+
+
+span.tag.label.label-info {
+    font-size: small;
 }
