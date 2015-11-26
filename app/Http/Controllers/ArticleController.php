@@ -96,7 +96,7 @@ class ArticleController extends Controller {
 
             if ($input['action'] == "Odoslať") {
                 flash()->success('Článok bol publikovaný');
-                return redirect('/');
+                return redirect()->action('UserController@getProfile', ['id' => Auth::user()->slug]);
             } else {
 
                 flash()->success('Článok bol uložený');
