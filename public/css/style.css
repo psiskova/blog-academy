@@ -146,7 +146,7 @@ html, body {
         justify-content: center;
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
-        background: #f8f8f8 linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+        background: #f8f8f8 linear-gradient(0deg, #b2b2b2, #b2b2b2 50%);
         color: #777;
         position: fixed;
         bottom: 0;
