@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ elixir('css/style.css') }}">
 </head>
 <body>
-<div class="wrapper">
+
     <div class="container main_container">
         <div class="row {{ Auth::check() ? '' : 'row-header' }} header-separator">
             <div class="jumbotron main-header">
@@ -153,13 +153,12 @@
                 </div>
             </nav>
         </div>
+
+
         @include('flash::message')
         @yield('content')
-    </div>
-    <div class="push"></div>
-</div>
-<div class="container main_container">
-    <div class="row">
+
+
         <footer class="hidden-sm hidden-xs">
             <div class="row footer-top-row">
                 <ul class="footer-top-menu">
@@ -173,8 +172,16 @@
             </div>
 
         </footer>
-    </div>
+
+
+
 </div>
+
+
+
+
+
+
 
 <div class="tab-nav tabs hidden-lg hidden-md">
     {!! HTML::tabItem(url('/'), 'Home', 'ion-home', 'color-nav-home') !!}

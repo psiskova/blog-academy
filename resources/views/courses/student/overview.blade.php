@@ -38,4 +38,5 @@
     <div class="row">
         {!! link_to_action('CourseController@getCreate', 'Pridať predmet') !!}
     </div>
+    @include('users.rightmenu', ['user' => Auth::user()])
 @stop
