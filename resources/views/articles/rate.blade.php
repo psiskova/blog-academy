@@ -16,8 +16,8 @@
     <div class="row">
 
         <h3>{!! $article->title !!}</h3>
-        <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }}</span><br>
-        <span class="article-info">{!! HTML::tags($article) !!}</span><br>
+        <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }} | {{ $article->average_rating }}</span><br>
+        {!! HTML::tags($article) !!}
 
         <p>{!! $article->text !!}</p>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Rating;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -163,8 +165,20 @@ class UserController extends Controller {
     public function getGrading($id) {
         $user = User::findBySlugOrIdOrFail($id);
 
+        if ($user->hasRole(User::STUDENT_ROLE)) {
+            $course_id = null;
+            $course = $user->course;
+
+            if ($course) {
+                $course_id = $course->id;
+            }
+
+            $unratedArticles = $user->articles()->published()->unrated($course_id);
+        }
+
         return view('users.grading', [
-            'user' => $user
+            'user' => $user,
+            'unratedArticles' => $unratedArticles
         ]);
     }
 

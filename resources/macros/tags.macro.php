@@ -5,5 +5,9 @@ HTML::macro('tags', function ($article) {
         return '<span class="tag label label-info"><a href="' . url('/?search=' . $tag) . '">' . $tag . '</a></span>';
     })->all();
 
-    return implode(' ', $collection);
+    $result = implode(' ', $collection);
+    if ($result != '') {
+        $result = '<span class="article-info">' . $result . '</span><br>';
+    }
+    return $result;
 });

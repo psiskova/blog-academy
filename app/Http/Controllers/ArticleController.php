@@ -126,6 +126,7 @@ class ArticleController extends Controller {
      */
     public function getDraft($id) {
         if (!$article = Article::findBySlugOrId($id)) {
+
             return redirect()->action('ArticleController@getCreate');
         }
         $tags = implode(',', array_flatten($article->tags()->get(['name'])->toArray()));

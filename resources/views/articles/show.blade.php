@@ -9,8 +9,8 @@
     <div class="row">
         <h3>{!! $article->title !!}</h3>
         <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}
-            | {{ $article->updated_at }}</span><br>
-        <span class="article-info">{!! HTML::tags($article) !!}</span><br>
+            | {{ $article->updated_at }} | {{ $article->average_rating }}</span><br>
+        {!! HTML::tags($article) !!}
 
         <p>{!! $article->text !!}</p>
     </div>

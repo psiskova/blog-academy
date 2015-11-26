@@ -23,7 +23,9 @@
                 @else
                     <table class="center_elements table-striped table_not_grading_student col-xs-12">
                         <tr class="row">
-                            <td class="col-xs-12">Článok 1</td>
+                            @foreach($unratedArticles->get() as $unratedArticle)
+                                <td class="col-xs-12">{!! link_to_action('ArticleController@getShow', $unratedArticle->title, ['id' => $unratedArticle->slug]) !!}</td>
+                            @endforeach
                         </tr>
                     </table>
                 @endif
@@ -53,5 +55,5 @@
 @stop
 
 @section('right')
-    @include('users.rightmenu', ['user' => Auth::user()])
+    @include('users.rightmenu', ['user' => $user])
 @stop
