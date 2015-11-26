@@ -608,8 +608,8 @@ img.discussion-profile {
     .container.main_container {
         padding-left: 0;
         padding-right: 0;
-
     }
+
     .col-md-7.right-column.left_col .row {
         padding-left: 15px;
         padding-right: 15px;
@@ -652,6 +652,7 @@ img.discussion-profile {
         left: -1px;
         bottom: 0px;
         right: 0px;
+        background-color: black;
         background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
         background-image: -webkit-linear-gradient(transparent, #9a9a9a);
         background-image: -moz-linear-gradient(transparent, #9a9a9a);
@@ -664,6 +665,9 @@ img.discussion-profile {
         padding-top: 2em;
         margin-left: -10px;
         padding-bottom: 50px;
+
+    border-width: 1px; border-style: solid; -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%; -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; -o-border-image: -o-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; border-image: linear-gradient(to top, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+
     }
 
     .right_col_profile:before, .right_col_profile:after {
@@ -759,8 +763,6 @@ footer {
     background-color: #2eafaf;
     height: 90px;
     overflow: hidden;
-    /*margin-top: -4px;*/
-    /*padding: 0 0 20px 0;*/
     color: #ffffff;
     position: absolute;
     bottom: 0;
@@ -905,6 +907,7 @@ span.tag.label.label-info {
          margin-bottom: 60px;
      }*/
 
+/
 .container_content{
     position:relative;
 }
@@ -912,6 +915,11 @@ span.nav-tab-item-caption, .course-select-label  {
     font-size: 18px;
 }
 
-.col-md-3.col-md-offset-1.right_col {
 
+.container {
+    padding-left: 0;
 }
+
+
+
+
