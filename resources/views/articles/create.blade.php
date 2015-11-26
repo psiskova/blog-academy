@@ -61,16 +61,13 @@
             <div class="col-sm-2 col-xs-4">
                 {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
             </div>
-            <div class="col-sm-1 col-xs-2">
-                <button type="button" class="btn btn-primary" id="trash">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </button>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-                <button type="button" class="btn btn-primary" id="insight">
-                    <span class="glyphicon glyphicon-zoom-in"></span>
-                </button>
-            </div>
+            <button type="button" class="btn btn-primary" id="trash">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+
+            <button type="button" class="btn btn-primary" id="insight">
+                <span class="glyphicon glyphicon-zoom-in"></span>
+            </button>
         </div>
         {!! Form::close() !!}
 

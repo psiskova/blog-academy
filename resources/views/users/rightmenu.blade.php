@@ -1,5 +1,4 @@
 <div class="right_col_profile">
-    <div class="row">
         <div class="pencil"></div>
         <div class="text-center">
             {!! HTML::profilePicture($user, 120, 120) !!}
@@ -15,5 +14,4 @@
                 <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : '')) !!}</p>
             @endif
         </div>
-    </div>
 </div>

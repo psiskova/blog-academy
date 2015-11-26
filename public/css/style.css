@@ -76,6 +76,11 @@ html{
 
 @media only screen and (max-width: 991px) {
 
+    .alert {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
     select#chooseCourse.form-control.course-option.course-option-mobile {
         margin-top: -10px;
     }
@@ -466,11 +471,11 @@ ul.nav.navbar-nav.row.col-md-12 li, ul.nav.navbar-nav.row.col-md-12 li a {
 }
 
 .color-nav-addarticle {
-    background-color: #bbd126;
+    background-color: #a3b925;
 }
 
 .color-nav-addarticle:hover {
-    background-color: #a3b925;
+    background-color: #839721;
 }
 
 .color-nav-grading {
@@ -593,9 +598,30 @@ img.discussion-profile {
         border-top: 1px solid #20b7c9;
         margin-top: 50px;
         padding-top: 20px;
+        margin-bottom: -50px;
+        padding-bottom: 50px;
     }
     .wrapper {
         padding-bottom: 60px;
+    }
+
+    .container.main_container {
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+    .col-md-7.right-column.left_col .row {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-md-3.col-md-offset-1.right_col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container.main_container {
+        width: 100%;
     }
 
 }
@@ -608,10 +634,6 @@ img.discussion-profile {
 
     .jumbotron.main-header {
         padding-top: 60px;
-    }
-
-    h1 {
-        margin-bottom: 50px;
     }
 
     #ba-logo {
@@ -858,7 +880,7 @@ ul.typeahead.dropdown-menu {
 
 
 span.tag.label.label-info {
-    font-size: small;
+    font-size: medium;
 }
 
 .side_tabs_top:before {
@@ -883,9 +905,13 @@ span.tag.label.label-info {
          margin-bottom: 60px;
      }*/
 
-/
 .container_content{
     position:relative;
 }
+span.nav-tab-item-caption, .course-select-label  {
+    font-size: 18px;
+}
 
+.col-md-3.col-md-offset-1.right_col {
 
+}
