@@ -94,6 +94,20 @@ class User extends Model implements
         return $this->name . ' ' . $this->surname;
     }
 
+    public function getAverageRatingAttribute() {
+        $articles = $this->publishedArticles;
+
+        $sumRating = 0;
+        foreach ($articles as $article) {
+            $sumRating += $article->average_rating;
+        }
+        $count = $articles->count();
+        if ($count == 0) {
+            return 0;
+        }
+        return $sumRating / $count;
+    }
+
     /**
      * Declare IoC for articles.
      *
@@ -102,6 +116,11 @@ class User extends Model implements
     public function articles() {
 
         return $this->hasMany(Article::class, 'user_id', 'id');
+    }
+
+    public function publishedArticles(){
+
+        return $this->hasMany(Article::class, 'user_id', 'id')->published();
     }
 
     /**

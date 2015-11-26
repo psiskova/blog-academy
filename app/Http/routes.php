@@ -14,6 +14,7 @@
 use App\Models\Article;
 use App\Models\ArticleTagMapper;
 use App\Models\Tag;
+use App\Models\User;
 
 Route::get('/', function () {
     $articles = Article::published();
@@ -45,8 +46,12 @@ Route::get('/', function () {
         ->orderByRaw('count(user_id) DESC')
         ->get();
 
-    $bestUsers = [];
+    $bestUsers = User::all();
+    $bestUsers = collect($bestUsers->sortByDesc(function($user){
+        return $user->average_rating;
+    }));
 
+    $bestUsers = $bestUsers->slice(0, 3);
     return view('index', [
         'articles' => $articles,
         'topUsers' => $topUsers,

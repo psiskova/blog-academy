@@ -17,7 +17,10 @@
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{{ $unratedArticle->title }}</td>
                                     <td class="col-xs-6">
-                                        <button type="button" class="btn btn-default center-block">Ohodnotiť</button>
+                                        <a href="{{ action('ArticleController@getRate', ['id' => $unratedArticle->slug]) }}">
+                                            <button type="button" class="btn btn-default center-block">Ohodnotiť
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

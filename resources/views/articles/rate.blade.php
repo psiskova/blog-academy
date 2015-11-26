@@ -15,8 +15,9 @@
 
     <div class="row">
 
-        <h3>{!! $article->title !!}</h3>
-        <span class="article-info">{{ $article->user->fullname }}, {{ $article->updated_at }} | {{ $article->average_rating }}</span><br>
+        <h3>{{ $article->title }}</h3>
+        <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}
+            | {{$article->updated_at}} | {{ $article->average_rating }}</span><br>
         {!! HTML::tags($article) !!}
 
         <p>{!! $article->text !!}</p>
@@ -24,7 +25,7 @@
         <h1> Ohodnotiť článok </h1>
         <!-- Grading controller -->
         {!! Form::open(['url' => action('ArticleController@postRate'), 'method' => 'post', 'class'=>'form-horizontal clearfix']) !!}
-        {!! Form::hidden('id', isset($article) ? $article->id : '') !!}
+        {!! Form::hidden('id', $article->id) !!}
         <div class="form-group">
             <label for="grades">Hodnotenie:</label>
             <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
@@ -50,5 +51,5 @@
 @stop
 
 @section('right')
-    @include('articles.rightmenu')
+    @include('users.rightmenu', ['user' => $article->user])
 @stop

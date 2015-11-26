@@ -40,12 +40,12 @@
             </div>
             <div id="tab2" class="tab-pane fade">
                 {{--*/ $i = 1 /*--}}
-                @foreach($topUsers as $topUser)
+                @foreach($bestUsers as $bestUser)
                     <div class="top_user_{{ $i }}">
                         {{--*/ $i++ /*--}}
-                        {!! HTML::profilePicture($topUser->user, 120, 120) !!}
-                        <span class="top-user-name">{{ $topUser->user->fullname }}</span>
-                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                        {!! HTML::profilePicture($bestUser, 120, 120) !!}
+                        <span class="top-user-name">{{ $bestUser->fullname }}</span>
+                        <span class="top-user-count">{{ $bestUser->average_rating }}</span>
                     </div><br>
                 @endforeach
             </div>
