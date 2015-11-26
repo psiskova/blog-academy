@@ -47,9 +47,13 @@ Route::get('/', function () {
         ->get();
 
     $bestUsers = User::all();
-    $bestUsers = collect($bestUsers->sortByDesc(function($user){
+    $bestUsers = collect($bestUsers->sortByDesc(function ($user) {
+
         return $user->average_rating;
-    }));
+    }))->reject(function ($user) {
+
+        return $user->average_rating == 0;
+    });
 
     $bestUsers = $bestUsers->slice(0, 3);
     return view('index', [
@@ -60,7 +64,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/about-us', function() {
+Route::get('/about-us', function () {
     return view('aboutus');
 });
 

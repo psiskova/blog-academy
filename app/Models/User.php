@@ -97,15 +97,7 @@ class User extends Model implements
     public function getAverageRatingAttribute() {
         $articles = $this->publishedArticles;
 
-        $sumRating = 0;
-        foreach ($articles as $article) {
-            $sumRating += $article->average_rating;
-        }
-        $count = $articles->count();
-        if ($count == 0) {
-            return 0;
-        }
-        return $sumRating / $count;
+        return collect($articles)->avg('average_rating');
     }
 
     /**
@@ -118,7 +110,7 @@ class User extends Model implements
         return $this->hasMany(Article::class, 'user_id', 'id');
     }
 
-    public function publishedArticles(){
+    public function publishedArticles() {
 
         return $this->hasMany(Article::class, 'user_id', 'id')->published();
     }
