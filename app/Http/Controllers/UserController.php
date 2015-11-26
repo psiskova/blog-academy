@@ -210,8 +210,8 @@ class UserController extends Controller {
 
         $user->update($input);
 
-        flash()->success('User updated');
-        return redirect()->back();
+        flash()->success('Profil úspešne uložený');
+        return redirect()->action('UserController@getProfile', ['id' => $user->slug]);
     }
 
     public function getProfileImage($id) {
