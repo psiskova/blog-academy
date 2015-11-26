@@ -22,7 +22,7 @@
 @stop
 
 @section('right')
-    <div class="side_tabs side_tabs_top">
+    <div class="side_tabs side_tabs_top hidden-sm hidden-xs">
         <ul class="nav nav-tabs side_nav">
             <li class="active"><a data-toggle="tab" href="#tab1">Kecálek</a></li>
             <li><a data-toggle="tab" href="#tab2">Hviezda</a></li>
@@ -34,8 +34,7 @@
                     <div class="top_user_{{ $i }}">
                         {{--*/ $i++ /*--}}
                         {!! HTML::profilePicture($topUser->user, 120, 120) !!}
-                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
-                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span><span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
                     </div><br>
                 @endforeach
             </div>

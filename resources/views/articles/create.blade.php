@@ -68,9 +68,9 @@
         {!! Form::close() !!}
 
     </div>
-    <div class="right-article-menu hidden-md hidden-lg">
+{{--    <div class="right-article-menu hidden-md hidden-lg">
         @include('articles.rightmenu')
-    </div>
+    </div--}}>
 @stop
 
 @section('right')

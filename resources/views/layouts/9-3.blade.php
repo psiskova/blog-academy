@@ -5,7 +5,7 @@
         <div class="col-md-7 right-column">
                 @yield('left')
             </div>
-            <div class="col-md-3 col-md-offset-1 hidden-sm hidden-xs right_col">
+            <div class="col-md-3 col-md-offset-1 right_col">
                 @yield('right')
             </div>
         </div>
