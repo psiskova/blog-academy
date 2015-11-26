@@ -593,14 +593,8 @@ img.discussion-profile {
 }
 
 @media (max-width: 991px) {
-    .right_col_profile {
-        width: 100%;
-        border-top: 1px solid #20b7c9;
-        margin-top: 50px;
-        padding-top: 20px;
-        margin-bottom: -50px;
-        padding-bottom: 50px;
-    }
+
+
     .wrapper {
         padding-bottom: 60px;
     }
@@ -624,6 +618,24 @@ img.discussion-profile {
         width: 100%;
     }
 
+    .mobile_profile{
+        width: 100%;
+        background-color: rgba(185, 185, 185, 0.3);
+        margin-top: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .right_col_profile_top {
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        margin-bottom: 30px;
+    }
+
+    .right_col_profile_bottom {
+        border-top: 1px solid gray;
+        margin-bottom: -50px;
+    }
 }
 
 
@@ -919,6 +931,7 @@ span.nav-tab-item-caption, .course-select-label  {
 .container {
     padding-left: 0;
 }
+
 
 
 

@@ -1,4 +1,4 @@
-<div class="right_col_profile">
+<div class="right_col_profile right_col_profile_bottom mobile_profile">
         <div class="pencil"></div>
         <div class="text-center">
             {!! HTML::profilePicture($user, 120, 120) !!}
