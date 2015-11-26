@@ -32,11 +32,10 @@ html, body {
     margin: 0 auto;
 }
 
-/*
+
 .push {
-    height: 100px;
+    height: 10px;
 }
-*/
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
     .right-column {
@@ -237,9 +236,9 @@ html, body {
     border-top-right-radius: 0
 }
 
-.left_col {
+/*.left_col {
     border-right: 1px solid black;
-}
+}*/
 
 .articles_list {
     border-bottom: 1px solid #bbbbbb;
@@ -864,7 +863,9 @@ span.tag.label.label-info {
          z-index: -2;
 }
 
-
+.left_col {
+    padding-bottom: 50px;
+}
 
 
 
