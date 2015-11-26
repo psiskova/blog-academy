@@ -102,6 +102,12 @@ class Article extends Model implements SluggableInterface {
         return $rating;
     }
 
+    public function getTeacherRatingValueAttribute(){
+        $rating = Rating::where('article_id', '=', $this->id)->where('text', '<>', '')->first(['rating']);
+
+        return $rating->rating;
+    }
+
     /**
      * Return only published articles
      *
@@ -144,9 +150,26 @@ class Article extends Model implements SluggableInterface {
                 ->where('ratings.text', '=', '');
         })->whereIn('articles.id', $articlesTaskIds)->get(['articles.id'])->toArray();
 
-        $articles = array_collapse([array_flatten($articlesWithoutAnyRating),array_flatten($articlesWithSomeRating)]);
+        $articles = array_collapse([array_flatten($articlesWithoutAnyRating), array_flatten($articlesWithSomeRating)]);
 
         return $query->whereIn('id', $articles);
+    }
+
+    public function scopeRated($query, $course_id) {
+        $course = Course::findBySlugOrId($course_id);
+        $tasks = $course->tasks();
+        $tasksIds = $tasks->get(['id'])->toArray(['id']);
+
+        $articlesTaskIds = array_flatten(Article::whereIn('task_id', array_flatten($tasksIds))->get(['id'])->toArray());
+
+        $articlesWithSomeRating = Article::whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('ratings')
+                ->whereRaw('articles.id = ratings.article_id')
+                ->where('ratings.text', '<>', '');
+        })->whereIn('articles.id', $articlesTaskIds)->get(['articles.id'])->toArray();
+
+        return $query->whereIn('id', array_flatten($articlesWithSomeRating));
     }
 
 }

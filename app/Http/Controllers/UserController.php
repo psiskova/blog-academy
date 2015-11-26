@@ -164,21 +164,26 @@ class UserController extends Controller {
 
     public function getGrading($id) {
         $user = User::findBySlugOrIdOrFail($id);
+        $course_id = null;
+        $course = $user->course;
+        if ($course) {
+            $course_id = $course->id;
+        }
 
         if ($user->hasRole(User::STUDENT_ROLE)) {
-            $course_id = null;
-            $course = $user->course;
-
-            if ($course) {
-                $course_id = $course->id;
-            }
 
             $unratedArticles = $user->articles()->published()->unrated($course_id);
+            $ratedArticles = $user->articles()->published()->rated($course_id);
+        } else {
+
+            $unratedArticles = Article::published()->unrated($course_id);
+            $ratedArticles = [];
         }
 
         return view('users.grading', [
             'user' => $user,
-            'unratedArticles' => $unratedArticles
+            'unratedArticles' => $unratedArticles,
+            'ratedArticles' => $ratedArticles
         ]);
     }
 
