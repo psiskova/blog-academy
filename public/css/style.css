@@ -32,11 +32,10 @@ html, body {
     margin: 0 auto;
 }
 
-/*
+
 .push {
-    height: 100px;
+    height: 10px;
 }
-*/
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
     .right-column {
