@@ -74,6 +74,11 @@ class Article extends Model implements SluggableInterface {
         return $tags;
     }
 
+    public function discussions() {
+
+        return $this->hasMany(Discussion::class, 'article_id', 'id');
+    }
+
     /**
      * Get created_at attribute in d.m.Y format
      *
