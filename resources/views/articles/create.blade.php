@@ -55,12 +55,8 @@
             </div>
         </div>
         <div class="form-group addarticle-form-group-btns">
-            <div class="col-sm-2 col-md-offset-2 col-xs-4">
-                {!! Form::submit('Uložiť', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
-            </div>
-            <div class="col-sm-2 col-xs-4">
-                {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
-            </div>
+            {!! Form::submit('Uložiť', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
+            {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
             <button type="button" class="btn btn-primary" id="trash">
                 <span class="glyphicon glyphicon-trash"></span>
             </button>
