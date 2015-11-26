@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model implements SluggableInterface {
@@ -124,19 +125,28 @@ class Article extends Model implements SluggableInterface {
     }
 
     public function scopeUnrated($query, $course_id = null) {
-        // TODO: article is not in rating or article is in rating and text <> ''
-        /*$ratings = Rating::where('text', '<>', '');
-        if ($course_id) {
-            $course = Course::findBySlugOrId($course_id);
-            $tasks = $course->tasks();
-            $tasksIds = $tasks->get(['id'])->toArray(['id']);
+        $course = Course::findBySlugOrId($course_id);
+        $tasks = $course->tasks();
+        $tasksIds = $tasks->get(['id'])->toArray(['id']);
 
-            $articlesIds = array_flatten(Article::whereIn('task_id', array_flatten($tasksIds))->get(['id'])->toArray());
-        }
-        $ratings = $ratings->get(['article_id'])->toArray();*/
+        $articlesTaskIds = array_flatten(Article::whereIn('task_id', array_flatten($tasksIds))->get(['id'])->toArray());
 
+        $articlesWithoutAnyRating = Article::whereNotExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('ratings')
+                ->whereRaw('articles.id = ratings.article_id');
+        })->whereIn('articles.id', $articlesTaskIds)->get(['articles.id'])->toArray();
 
-        return $query;//->whereNotIn('id', array_flatten($ratings));
+        $articlesWithSomeRating = Article::whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('ratings')
+                ->whereRaw('articles.id = ratings.article_id')
+                ->where('ratings.text', '=', '');
+        })->whereIn('articles.id', $articlesTaskIds)->get(['articles.id'])->toArray();
+
+        $articles = array_collapse([array_flatten($articlesWithoutAnyRating),array_flatten($articlesWithSomeRating)]);
+
+        return $query->whereIn('id', $articles);
     }
 
 }
