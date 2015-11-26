@@ -68,6 +68,14 @@ Route::get('/about-us', function () {
     return view('aboutus');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+});
+
+Route::get('/rules', function () {
+    return view('rules');
+});
+
 Route::get('/migrate/{id}', function () {
     Artisan::call('migrate', [
         '--force' => true,

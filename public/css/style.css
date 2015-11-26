@@ -101,6 +101,15 @@ html{
     padding-right: 10px;
     margin-left: -10px;
     margin-right: -10px;
+
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+    -o-border-image: -o-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+    border-image: linear-gradient(to top, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+    border-bottom: 1px solid #9a9a9a;
 }
 
 .side_tabs_top:before, .side_tabs:after {
@@ -557,12 +566,14 @@ span.tag.label.label-info {
          margin-bottom: 60px;
      }*/
 
+/
 .container_content{
     position:relative;
 }
 span.nav-tab-item-caption, .course-select-label  {
     font-size: 18px;
 }
+
 
 .container {
     padding-left: 0;
@@ -622,18 +633,18 @@ button.btn.btn-primary {
         margin-top: -30px;
     }
 
-    .right_col_profile:before {
-        top: 0px;
-        left: -1px;
-        bottom: 0px;
-        right: 0px;
-        background-color: black;
-        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
-        background-image: -webkit-linear-gradient(transparent, #9a9a9a);
-        background-image: -moz-linear-gradient(transparent, #9a9a9a);
-        background-image: -o-linear-gradient(transparent, #9a9a9a);
-        z-index: -2;
-    }
+    /*   .right_col_profile:before {
+            top: 0px;
+            left: -1px;
+            bottom: 0px;
+            right: 0px;
+            background-color: black;
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
+            background-image: -webkit-linear-gradient(transparent, #9a9a9a);
+            background-image: -moz-linear-gradient(transparent, #9a9a9a);
+            background-image: -o-linear-gradient(transparent, #9a9a9a);
+            z-index: -2;
+        }*/
 
     .right_col_profile {
         position: relative;
@@ -641,27 +652,35 @@ button.btn.btn-primary {
         margin-left: -10px;
         padding-bottom: 50px;
 
-        border-width: 1px; border-style: solid; -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%; -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; -o-border-image: -o-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%; border-image: linear-gradient(to top, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
-
-    }
-
-    .right_col_profile:before, .right_col_profile:after {
-        content: '';
-        position: absolute;
-    }
-
-    .right_col_profile:after {
-        z-index: -1;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: #fff;
+        border-left: 1px solid;
+        -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
+        -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+        -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+        -o-border-image: -o-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
+        border-image: linear-gradient(to top, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
         background-position: left bottom;
         background-image: url('/img/ceruzka.png');
         background-repeat: no-repeat;
 
     }
+
+    /*   .right_col_profile:before, .right_col_profile:after {
+            content: '';
+            position: absolute;
+        }
+
+        .right_col_profile:after {
+            z-index: -1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: #fff;
+            background-position: left bottom;
+            background-image: url('/img/ceruzka.png');
+            background-repeat: no-repeat;
+
+        }*/
 
 }
 
@@ -916,3 +935,31 @@ button.btn.btn-primary {
         margin-top: 30px;
     }
 }
+
+@media (max-width: 767px) {
+    .main-header i.icon.icon-resizer{
+        margin-top: 8px;
+    }
+
+    select#chooseCourse.form-control.course-option.course-option-mobile {
+        margin-top: 15px;
+    }
+
+    input.form-control.search-input-mod {
+        margin: 0;
+    }
+
+    .main-header {
+        margin-bottom: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+}
+
+
+
+
+
+
+

@@ -26,7 +26,7 @@
             {{--TODO: asi všetky vlastné články--}}
             <div class="row">
                 <h1>Publikované články</h1>
-                @foreach($articles as $article)
+                @forelse($articles as $article)
                     <div class="articles_list">
                         <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                         <span class="article-info">{{ $article->user->fullname }} | {{ $article->updated_at }}
@@ -34,7 +34,9 @@
                         {!! HTML::tags($article) !!}
                         {{ str_limit(strip_tags($article->text), 200) }}
                     </div>
-                @endforeach
+                @empty
+                    <p>Nemáte žiadne publikované články</p>
+                @endforelse
             </div>
         </div>
     </div>

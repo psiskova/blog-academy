@@ -163,8 +163,8 @@
             <div class="row footer-top-row">
                 <ul class="footer-top-menu">
                     <li> <a href="{!! url('/about-us') !!}">O nás</a> </li>
-                    <li> <a href="{!! url('/about-us') !!}">FAQ</a> </li>
-                    <li> <a href="{!! url('/about-us') !!}">Pravidlá</a> </li>
+                    <li> <a href="{!! url('/faq') !!}">FAQ</a> </li>
+                    <li> <a href="{!! url('/rules') !!}">Pravidlá</a> </li>
                 </ul>
             </div>
             <div class="row footer-bottom-row">
