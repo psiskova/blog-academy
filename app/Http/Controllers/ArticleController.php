@@ -125,7 +125,9 @@ class ArticleController extends Controller {
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getDraft($id) {
-        $article = Article::findBySlugOrId($id);
+        if (!$article = Article::findBySlugOrId($id)) {
+            return redirect()->action('ArticleController@getCreate');
+        }
         $tags = implode(',', array_flatten($article->tags()->get(['name'])->toArray()));
 
         return view('articles.create', [

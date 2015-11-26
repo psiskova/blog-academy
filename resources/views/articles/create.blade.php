@@ -42,7 +42,7 @@
             <label for="tags" class="col-md-2 control-label">Tagy</label>
 
             <div class="col-md-10">
-                <input type="text" id="tags" name="tags" class="form-control" data-role="tagsinput" value="{!! $tags or '' !!}">
+                <input type="text" id="tags" name="tags" class="form-control" data-trimValue="true" data-role="tagsinput" value="{!! $tags or '' !!}">
             </div>
         </div>
         <div class="form-group">

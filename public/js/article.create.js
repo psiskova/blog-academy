@@ -38,7 +38,7 @@ var deleteArticleCallback = function (response) {
 
     $('[name=id]').val('');
     $('#title').val('');
-    $('#tags').val('');
+    $('#tags').val('').tagsinput('removeAll');
     $('#task_id').val('');
     initSummernote();
 };
