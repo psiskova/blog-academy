@@ -6,7 +6,7 @@
             <h4>{{ $user->fullname }}</h4>
 
             <p>{{ $user->email }}</p>
-            @if($user->id == Auth::id())
+            @if(Auth::check() && $user->id == Auth::id())
                 <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
                 <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
                 {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}

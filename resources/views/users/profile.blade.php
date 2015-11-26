@@ -16,5 +16,5 @@
 @stop
 
 @section('right')
-    @include('users.rightmenu')
+    @include('users.rightmenu', ['user' => $user])
 @stop

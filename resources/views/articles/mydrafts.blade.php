@@ -14,5 +14,5 @@
 @stop
 
 @section('right')
-    @include('users.rightmenu')
+    @include('users.rightmenu', ['user' => Auth::user()])
 @stop
