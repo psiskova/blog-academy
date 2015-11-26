@@ -56,7 +56,13 @@ class Article extends Model implements SluggableInterface {
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function user() {
+
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function task() {
+
+        return $this->hasOne(Task::class, 'id', 'task_id');
     }
 
     public function tags() {
@@ -74,6 +80,7 @@ class Article extends Model implements SluggableInterface {
      * @return string
      */
     public function getCreatedAtAttribute($date) {
+
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
     }
 
@@ -84,6 +91,7 @@ class Article extends Model implements SluggableInterface {
      * @return string
      */
     public function getUpdatedAtAttribute($date) {
+
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
     }
 
@@ -94,6 +102,7 @@ class Article extends Model implements SluggableInterface {
      * @return mixed
      */
     public function scopePublished($query) {
+
         return $query->where('state', '=', Article::PUBLISHED);
     }
 
@@ -104,6 +113,8 @@ class Article extends Model implements SluggableInterface {
      * @return mixed
      */
     public function scopeDraft($query) {
+
         return $query->where('state', '=', Article::DRAFT);
     }
+
 }

@@ -38,4 +38,9 @@ class Course extends Model implements SluggableInterface {
         return $this->hasMany(Participant::class, 'course_id', 'id');
     }
 
+    public function tasks() {
+
+        return $this->hasMany(Task::class, 'course_id', 'id');
+    }
+
 }

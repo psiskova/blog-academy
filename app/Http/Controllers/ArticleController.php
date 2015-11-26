@@ -59,6 +59,7 @@ class ArticleController extends Controller {
         $input = $request->all();
         $input['user_id'] = Auth::id();
         $input['tags'] = array_map('trim', explode(',', $input['tags']));
+        $input['task_id'] = $input['task_id'] ? $input['task_id'] : null;
 
         if ($input['action'] == "Odoslať") {
             $input['state'] = Article::PUBLISHED;

@@ -25,9 +25,16 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'user_id' => App\Models\User::all()->random()->id,
-        'text' => $faker->text(800),
-        'task_id' => App\Models\Task::all()->random()->id
+        'text' => $faker->text(800)
     ];
+});
+
+$factory->defineAs(App\Models\Article::class, 'withTask', function (Faker\Generator $faker) use ($factory) {
+    $article = $factory->raw(App\Models\Article::class);
+
+    return array_merge($article, [
+        'task_id' => App\Models\Task::all()->random()->id
+    ]);
 });
 
 $factory->defineAs(App\Models\Article::class, 'published', function (Faker\Generator $faker) use ($factory) {
