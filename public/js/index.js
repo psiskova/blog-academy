@@ -6,7 +6,7 @@ $(document).ready(function () {
         displayField: 'title'
     });
 
-    $('#chooseCourse').on('change', function () {
+    $('.course-option').on('change', function () {
 
         this.form.submit();
     });

@@ -66,7 +66,7 @@
                                         @endforeach
                                     @else
                                         @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
-                                            <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $participant->course->name }}</option>
+                                            <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -126,7 +126,7 @@
                                             @endforeach
                                         @else
                                             @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
-                                                <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? '"selected"' : ''}}>{{ $participant->course->name }}</option>
+                                                <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
                                             @endforeach
                                         @endif
                                     </select>
