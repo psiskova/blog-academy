@@ -40,7 +40,7 @@ html{
 
 
 .push {
-    height: 100px;
+    padding-bottom: 100px;
 }
 
 
@@ -198,11 +198,11 @@ html{
     margin: 30px 0;
 }
 
-.table_not_grading_student td, .table_grades td {
+.table_not_grading_student td, .table_grades td, .table_courses_view_td  {
     padding: 15px 10px;
 }
 
-.table_not_grading_teacher td, .table_courses_view td {
+.table_not_grading_teacher td, .table_courses_view_button {
     padding: 8px 10px;
 }
 
