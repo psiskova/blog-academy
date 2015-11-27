@@ -405,6 +405,12 @@ img.discussion-profile {
     width: 100%;
 }
 
+.top-separator {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 0.2em;
+}
+
 .mobile-icon-profile {
     margin-top: 2px;
     text-align: right;
@@ -464,6 +470,29 @@ textarea#comment-area {
     overflow: auto;
     min-height: 4em;
     margin-bottom: 12px;
+}
+
+textarea.reply {
+    resize: none;
+    overflow: auto;
+    min-height: 8em;
+    margin-bottom: 8px;
+    width: 100%;
+    display: none;
+    padding: 0.3em 0.5em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+}
+
+.hidden-btn {
+    display: none;
+}
+
+.reply-link {
+    cursor: pointer;
+    font-weight: bold;
 }
 
 input:focus {
