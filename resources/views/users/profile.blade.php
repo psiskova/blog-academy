@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
+@section('scripts')
+    {!! HTML::script('js/star-rating.min.js') !!}
+@stop
+
 @section('content')
+    {!! HTML::style('css/star-rating.min.css') !!}
     <div class="container-fluid row text-justify container_content">
         <div class="col-sm-3 col-sm-push-7  col-md-3 col-md-offset-1 right_col">
             <div class="right_col_profile right_col_profile_top mobile_profile">
@@ -31,7 +36,8 @@
                     <div class="articles_list">
                         <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                         <span class="article-info">{{ $article->user->fullname }} | {{ $article->updated_at }}
-                            | {{ $article->average_rating }}</span><br>
+                            | <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
+                                     data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}"></span><br>
                         {!! HTML::tags($article) !!}
                         {{ str_limit(strip_tags($article->text), 200) }}
                     </div>
