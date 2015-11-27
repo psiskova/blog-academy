@@ -377,8 +377,21 @@ img.discussion-profile {
 }
 
 .discussion-main {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 0.5em;
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+.discussion-main .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.discussion-commentary {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.03);
     padding: 0.5em;
     margin-bottom: 2em;
     margin-top: 1em;
@@ -386,6 +399,10 @@ img.discussion-profile {
 
 .discussion-author-info {
     font-weight: bold;
+    font-size: large;
+    display: inline-block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
 }
 
 .mobile-icon-profile {
@@ -446,6 +463,7 @@ textarea#comment-area {
     resize: none;
     overflow: auto;
     min-height: 4em;
+    margin-bottom: 12px;
 }
 
 input:focus {
@@ -632,6 +650,10 @@ button.btn.btn-primary {
 }
 
 @media (min-width: 992px) {
+
+    li.color-nav-home a.tab-item {
+        margin-left: 10px;
+    }
     .form-group.search-form-group.row {
         margin-top: -25px;
     }
@@ -757,10 +779,6 @@ button.btn.btn-primary {
         margin-top: -10px;
     }
 
-    .header-separator {
-        border-bottom: 5px solid rgba(51, 51, 51, 0.06);
-    }
-
     form.navbar-form.navbar-right.search-form-header {
         width: 100%;
     }
@@ -778,8 +796,12 @@ button.btn.btn-primary {
     }
 
     input.form-control.typeahead.mobile-search-input {
-        width: 30%;
-        min-width: 10em;
+        border: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        width: 10%;
         float: right;
         -webkit-transition: width 1s ease-in-out;
         -moz-transition:width 1s ease-in-out;
@@ -789,6 +811,7 @@ button.btn.btn-primary {
 
     input.form-control.typeahead.mobile-search-input:focus {
         width: 90%;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .inner-addon {

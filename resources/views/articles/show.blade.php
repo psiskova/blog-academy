@@ -27,24 +27,27 @@
         <div class="form-group">
             <label for="comment-area">Komentár:</label>
             <textarea class="form-control" rows="4" id="comment-area"></textarea>
-            <!-- Form::submit('Pridať komentár', ['class'=>'btn btn-ba-style', 'name' => 'action']) -->
+            {!! Form::submit('Pridať komentár', ['class'=>'btn btn-ba-style', 'name' => 'action']) !!}
 
         </div>
         <!-- FORM::submit & FORM::close -->
         @endif
+
         <div class="discussion-main col-xs-12">
-            <div class="discussion-commentary">
+            <div class="discussion-commentary row">
                 <div class="col-xs-3">
                     <img class="discussion-profile col-xs-3"
                          src="http://blogdailyherald.com/wp-content/uploads/2014/10/wallpaper-for-facebook-profile-photo.jpg">
                 </div>
                 <div class="col-xs-9 discussion-right">
-                    <span class="discussion-author-info">Discussion->Author name</span>
+                    <span class="discussion-author-info">Author name (link) | date</span>
 
-                    <p>Discussion text...</p>
+                    <p>In finibus facilisis est non ultricies. Donec a consequat neque, sit amet pulvinar nisi. Suspendisse potenti. Quisque suscipit felis metus, ut mattis orci sagittis in. Duis consequat nec lectus a tempus. Nulla a dictum dolor. In interdum iaculis risus, ac convallis libero mollis eu. Sed ac dictum est, id consequat augue. Aliquam rutrum, erat dignissim semper rutrum, diam metus lacinia est, vel luctus odio mauris non diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum arcu enim, quis volutpat magna porta eu.</p>
+                    {!! Form::submit('Reagovať', ['class'=>'btn btn-ba-style', 'name' => 'action']) !!}
                 </div>
             </div>
         </div>
+
     </div>
 @stop
 
