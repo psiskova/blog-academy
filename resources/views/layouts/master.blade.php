@@ -32,7 +32,7 @@
                         <a href="{!! URL::action('Auth\AuthController@getRegister') !!}" class="vertical-login-separator">Registrácia</a>
                     @endif
                 </div>
-                <div class="{{ Auth::check() ? 'col-xs-3 col-sm-3' : 'col-xs-4 col-sm-4' }} col-md-6">
+                <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
                 </div>
                 <div class="col-md-6 hidden-xs hidden-sm">

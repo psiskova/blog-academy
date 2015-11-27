@@ -767,6 +767,10 @@ button.btn.btn-primary {
         padding-bottom: 20px;
     }
 
+    form.navbar-form.navbar-right.search-form-header {
+        margin-top: 14px;
+    }
+
     .right_col_profile_top {
         border-top: 1px solid gray;
         border-bottom: 1px solid gray;
@@ -805,6 +809,7 @@ button.btn.btn-primary {
 
     input.form-control.typeahead.mobile-search-input {
         border: none;
+        background: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -823,7 +828,7 @@ button.btn.btn-primary {
 
     .inner-addon {
         position: relative;
-        margin-top: -18px;
+        margin-top: -24px;
     }
 
     .inner-addon .icon {
@@ -985,6 +990,7 @@ button.btn.btn-primary {
 
     .inner-addon.left-addon {
         margin-right: -60px;
+        margin-top: -17px;
     }
 
 
