@@ -48,11 +48,9 @@
                         <a onclick="resizeArea(141)" name="reply">Odpovedať</a>
                     </span>
                     <br>
-
                     <!-- (ID textarea) treba generovat pre kazdy koment a potom ho poslat do resizeArea funkcie ako parameter -->
 
                     <!-- odoslat button prislucha k jednotlivemu komentaru, preto treba ako triedu poslat toto ID aj tam -->
-
                     <textarea id="141" class="reply" style="" name="text"></textarea>
                     <br>
                     {!! Form::submit('Odoslať', ['class'=>'btn btn-ba-style 141 hidden-btn', 'name' => 'action']) !!}

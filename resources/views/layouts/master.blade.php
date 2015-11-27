@@ -199,15 +199,36 @@
 
 
 <div class="tab-nav tabs hidden-lg hidden-md">
-    {!! HTML::tabItem(url('/'), 'Home', 'ion-home', 'color-nav-home') !!}
+
+    <div class="more-dropdown-menu">
+        <ul>
+            @if(Auth::check())
+                <li><a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a></li>
+                @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                    <li><a href="{!! URL::action('CourseController@getOverview') !!}">Moje predmety</a></li>
+                @elseif(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
+                    <li><a href="{!! URL::action('CourseController@getOverview') !!}">Zapísať sa</a></li>
+                @elseif(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
+
+                @endif
+            @else
+            @endif
+                <li> <a href="{!! url('/about-us') !!}">O nás</a> </li>
+                <li> <a href="{!! url('/faq') !!}">FAQ</a> </li>
+                <li> <a href="{!! url('/rules') !!}">Pravidlá</a> </li>
+
+        </ul>
+    </div>
+
+    {!! HTML::tabItem(url('/'), 'Domov', 'ion-home', 'color-nav-home') !!}
     @if(Auth::check())
         {!! HTML::tabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-compose', 'color-nav-addarticle') !!}
         {!! HTML::tabItem('', 'Hodnotenia', 'ion-ios-star', 'color-nav-grading') !!}
-        {!! HTML::tabItem('', 'Viac', 'ion-navicon-round', 'color-nav-course') !!}
     @else
-        {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Login', 'ion-log-in', 'color-nav-grading') !!}
-        {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Register', 'ion-person-add', 'color-nav-course') !!}
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-log-in', 'color-nav-addarticle') !!}
+        {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-person-add', 'color-nav-grading') !!}
     @endif
+    {!! HTML::tabItem('', 'Viac', 'ion-navicon-round', 'color-nav-course') !!}
 </div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -215,6 +236,7 @@
         crossorigin="anonymous"></script>
 {!! HTML::script('js/laroute.js') !!}
 {!! HTML::script('js/bootstrap-typeahead.min.js') !!}
+{!! HTML::script('js/mobile-more-dropdown.js') !!}
 <script>
     $(document).ready(function () {
         $.ajaxSetup({

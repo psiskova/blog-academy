@@ -657,6 +657,45 @@ button.btn.btn-primary {
     padding: 5px 20px;
 }
 
+.more-dropdown-menu {
+    position: fixed;
+    bottom: 47px;
+    background-color: rgb(252, 163, 221);
+    border: 1px solid gray;
+    right: 0;
+    width: 20%;
+    -webkit-box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
+    border: rgb(119, 119, 119);
+}
+
+.tab-nav.tabs .more-dropdown-menu ul{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-nav.tabs .more-dropdown-menu ul li{
+    list-style: none;
+    line-height: 1.5em;
+    width:100%;
+    padding: 0.5em;
+}
+
+.tab-nav.tabs .more-dropdown-menu ul li:hover{
+    background-color: #f1f1f1;
+}
+
+.tab-nav.tabs .more-dropdown-menu ul li a {
+    color: #000;
+    display: inline-block;
+    width:100%;
+}
+
+.tab-nav.tabs .more-dropdown-menu ul li a:hover {
+    text-decoration: none;
+}
 /* Media queries MAX, MIN width for desktop */
 
 
@@ -988,7 +1027,7 @@ button.btn.btn-primary {
     }
 
     .tab-item.tab-item-active, a.tab-item.tab-item-active {
-        color: #337ab7
+        color: #ffffff
     }
 
     .tabs {
