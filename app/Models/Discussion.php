@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Discussion extends Model {
@@ -14,6 +15,28 @@ class Discussion extends Model {
         'text',
         'parent'
     ];
+
+    /**
+     * Get created_at attribute in d.m.Y format
+     *
+     * @param $date
+     * @return string
+     */
+    public function getCreatedAtAttribute($date) {
+
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
+    }
+
+    /**
+     * Get updated_at attribute in d.m.Y format
+     *
+     * @param $date
+     * @return string
+     */
+    public function getUpdatedAtAttribute($date) {
+
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
+    }
 
     public function user() {
 

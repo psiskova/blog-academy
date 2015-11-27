@@ -17,46 +17,52 @@
     </div>
     <div class="row">
         @if(Auth::check())
-        <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
-               data-show-Caption="false" data-show-Clear="false">
+            <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
+                   data-show-Caption="false" data-show-Clear="false">
         @endif
 
         <h3>Diskusia k článku</h3>
         @if(Auth::check())
-                <!-- Form::open Form::hidden for discussion -->
-
-        <div class="form-group">
-            <label for="comment-area">Komentár:</label>
-            <textarea class="form-control" rows="4" id="comment-area"></textarea>
-            {!! Form::submit('Pridať komentár', ['class'=>'btn btn-ba-style', 'name' => 'action']) !!}
-
-        </div>
-        <!-- FORM::submit & FORM::close -->
+            {!! Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method'=>'post']) !!}
+            {!! Form::hidden('article_id', $article->id) !!}
+            <div class="form-group">
+                <label for="comment-area">Komentár:</label>
+                <textarea class="form-control" rows="4" id="comment-area" name="text"></textarea>
+                {!! Form::submit('Pridať komentár', ['class'=>'btn btn-ba-style', 'name' => 'action']) !!}
+            </div>
+            {!! Form::close() !!}
         @endif
 
-        <div class="discussion-main col-xs-12">
-            <div class="discussion-commentary row">
-                <div class="col-xs-3">
-                    <img class="discussion-profile col-xs-3"
-                         src="http://blogdailyherald.com/wp-content/uploads/2014/10/wallpaper-for-facebook-profile-photo.jpg">
-                </div>
-                <div class="col-xs-9 discussion-right">
-                    <span class="discussion-author-info">Author name (link) | date</span>
+        @forelse($article->discussions as $discussion)
+            <div class="discussion-main col-xs-12">
+                <div class="discussion-commentary row">
+                    <div class="col-xs-3">
+                        {!! HTML::profilePicture($discussion->user, '100%', '100%', ['class' => 'discussion-profile col-xs-3']) !!}
+                    </div>
+                    <div class="col-xs-9 discussion-right">
+                        <span class="discussion-author-info">{!! link_to_action('UserController@getProfile', $discussion->user->fullname, ['user_id' => $discussion->user->slug])!!}
+                            | {{ $discussion->created_at }}</span>
 
-                    <p>In finibus facilisis est non ultricies. Donec a consequat neque, sit amet pulvinar nisi. Suspendisse potenti. Quisque suscipit felis metus, ut mattis orci sagittis in. Duis consequat nec lectus a tempus. Nulla a dictum dolor. In interdum iaculis risus, ac convallis libero mollis eu. Sed ac dictum est, id consequat augue. Aliquam rutrum, erat dignissim semper rutrum, diam metus lacinia est, vel luctus odio mauris non diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum arcu enim, quis volutpat magna porta eu.</p>
-                    <span class="reply-link pull-right">
-                        <a onclick="resizeArea(141)" name="reply">Odpovedať</a>
-                    </span>
-                    <!-- (ID textarea) treba generovat pre kazdy koment a potom ho poslat do resizeArea funkcie ako parameter -->
+                        <p>{{ $discussion->text }}</p>
+                    </div>
+                    @if(Auth::check())
+                        <div class="col-xs-12 discussion-bottom">
+                        <span class="reply-link pull-right">
+                            <a onclick="resizeArea(141)" name="reply">Odpovedať</a>
+                        </span>
+                            <!-- (ID textarea) treba generovat pre kazdy koment a potom ho poslat do resizeArea funkcie ako parameter -->
 
-                    <!-- odoslat button prislucha k jednotlivemu komentaru, preto treba ako triedu poslat toto ID aj tam -->
-                    <textarea id="141" class="reply" style="" name="text"></textarea>
-                    <br>
-                    {!! Form::submit('Odoslať', ['class'=>'btn btn-ba-style 141 hidden-btn', 'name' => 'action']) !!}
+                            <!-- odoslat button prislucha k jednotlivemu komentaru, preto treba ako triedu poslat toto ID aj tam -->
+                            <textarea id="141" class="reply" style="" name="text"></textarea>
+                            <br>
+                            {!! Form::submit('Odoslať', ['class'=>'btn btn-ba-style 141 hidden-btn', 'name' => 'action']) !!}
+                        </div>
+                    @endif
                 </div>
             </div>
-        </div>
-
+        @empty
+            Žiadny diskusný príspevok. Buďte prvý!
+        @endforelse
     </div>
 @stop
 

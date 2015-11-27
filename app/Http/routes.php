@@ -97,6 +97,7 @@ Route::get('/refresh/{id}', function () {
 Route::controller('auth', \Auth\AuthController::class);
 Route::controller('password', \Auth\PasswordController::class);
 Route::controller('article', ArticleController::class);
+Route::controller('discussion', DiscussionController::class);
 Route::controller('course', CourseController::class);
 Route::controller('user', UserController::class);
 Route::controller('search', SearchController::class);

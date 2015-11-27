@@ -9,8 +9,7 @@ html, body {
     min-height: 100%;
 }
 
-
-html{
+html {
     position: relative;
 }
 
@@ -34,17 +33,13 @@ html{
     min-height: 100%;
     overflow: hidden;
     padding-bottom: 50px;
-/*    height: auto !important;
-    height: 100%;*/
+    /*    height: auto !important;
+        height: 100%;*/
 }
-
 
 .push {
     padding-bottom: 100px;
 }
-
-
-
 
 .navbar {
     background: -webkit-linear-gradient(#f2f2f2, #ffffff); /* For Safari 5.1 to 6.0 */
@@ -198,7 +193,7 @@ html{
     margin: 30px 0;
 }
 
-.table_not_grading_student td, .table_grades td, .table_courses_view_td  {
+.table_not_grading_student td, .table_grades td, .table_courses_view_td {
     padding: 15px 10px;
 }
 
@@ -380,8 +375,11 @@ img.discussion-profile {
     border: 1px solid rgba(0, 0, 0, 0.05);
     background-color: rgba(0, 0, 0, 0.01);
     padding: 0.5em;
-    margin-bottom: 2em;
     margin-top: 1em;
+}
+
+.discussion-main:last-of-type{
+    margin-bottom: 2em;
 }
 
 .discussion-main .row {
@@ -403,6 +401,10 @@ img.discussion-profile {
     display: inline-block;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     width: 100%;
+}
+
+.discussion-right p {
+    margin: 0;
 }
 
 .top-separator {
@@ -477,6 +479,7 @@ textarea.reply {
     overflow: auto;
     min-height: 8em;
     margin-bottom: 8px;
+    margin-top: 8px;
     width: 100%;
     display: none;
     padding: 0.3em 0.5em;
@@ -548,7 +551,7 @@ span.tag a {
 .row.footer-top-row {
     margin-right: 0;
     margin-left: 0;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     height: 50px;
 }
 
@@ -591,24 +594,23 @@ ul.typeahead.dropdown-menu {
     overflow: hidden;
 }
 
-
 span.tag.label.label-info {
     font-size: medium;
 }
 
 .side_tabs_top:before {
-         top: 0px;
-         left: -1px;
-         bottom: -1px;
-         right: -1px;
-         background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
-         background-image: -webkit-linear-gradient(transparent, #9a9a9a);
-         background-image: -moz-linear-gradient(transparent, #9a9a9a);
-         background-image: -o-linear-gradient(transparent, #9a9a9a);
-         z-index: -2;
+    top: 0px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#9a9a9a));
+    background-image: -webkit-linear-gradient(transparent, #9a9a9a);
+    background-image: -moz-linear-gradient(transparent, #9a9a9a);
+    background-image: -o-linear-gradient(transparent, #9a9a9a);
+    z-index: -2;
 }
 
-a.tab-item{
+a.tab-item {
     opacity: 1;
 }
 
@@ -632,13 +634,13 @@ nav.navbar.navbar-default {
     padding-left: 0.5em;
 }
 
-.container_content{
-    position:relative;
-}
-span.nav-tab-item-caption, .course-select-label  {
-    font-size: 18px;
+.container_content {
+    position: relative;
 }
 
+span.nav-tab-item-caption, .course-select-label {
+    font-size: 18px;
+}
 
 .container {
     padding-left: 0;
@@ -664,40 +666,40 @@ button.btn.btn-primary {
     border: 1px solid gray;
     right: 0;
     width: 20%;
-    -webkit-box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
-    box-shadow: 0 0 30px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.2);
     border: rgb(119, 119, 119);
 }
 
-.tab-nav.tabs .more-dropdown-menu ul{
+.tab-nav.tabs .more-dropdown-menu ul {
     text-align: center;
     padding: 0;
     margin: 0;
 }
 
-.tab-nav.tabs .more-dropdown-menu ul li{
+.tab-nav.tabs .more-dropdown-menu ul li {
     list-style: none;
     line-height: 1.5em;
-    width:100%;
+    width: 100%;
     padding: 0.5em;
 }
 
-.tab-nav.tabs .more-dropdown-menu ul li:hover{
+.tab-nav.tabs .more-dropdown-menu ul li:hover {
     background-color: #f1f1f1;
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li a {
     color: #000;
     display: inline-block;
-    width:100%;
+    width: 100%;
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li a:hover {
     text-decoration: none;
 }
-/* Media queries MAX, MIN width for desktop */
 
+/* Media queries MAX, MIN width for desktop */
 
 @media only screen and (min-width: 1200px) {
     .form-group.search-form-group.row {
@@ -730,6 +732,7 @@ button.btn.btn-primary {
     li.color-nav-home a.tab-item {
         margin-left: 10px;
     }
+
     .form-group.search-form-group.row {
         margin-top: -25px;
     }
@@ -761,7 +764,6 @@ button.btn.btn-primary {
             background-image: -o-linear-gradient(transparent, #9a9a9a);
             z-index: -2;
         }*/
-
     .right_col_profile {
         position: relative;
         padding-top: 2em;
@@ -827,7 +829,7 @@ button.btn.btn-primary {
         width: 100%;
     }
 
-    .mobile_profile{
+    .mobile_profile {
         width: 100%;
         background-color: rgba(185, 185, 185, 0.3);
         margin-top: 50px;
@@ -891,7 +893,7 @@ button.btn.btn-primary {
 
     input.form-control.typeahead.mobile-search-input:focus {
         width: 90%;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .inner-addon {
@@ -906,11 +908,21 @@ button.btn.btn-primary {
         top: -6px;
     }
 
-    .left-addon .icon  { left:  0px;}
-    .right-addon .icon { right: 0px;}
+    .left-addon .icon {
+        left: 0px;
+    }
 
-    .left-addon input  { padding-left:  30px; }
-    .right-addon input { padding-right: 30px; }
+    .right-addon .icon {
+        right: 0px;
+    }
+
+    .left-addon input {
+        padding-left: 30px;
+    }
+
+    .right-addon input {
+        padding-right: 30px;
+    }
 
     body {
         padding-bottom: 50px;
@@ -1061,7 +1073,6 @@ button.btn.btn-primary {
         margin-top: -17px;
     }
 
-
     .form-group {
         margin-bottom: 14px;
     }
@@ -1091,7 +1102,7 @@ button.btn.btn-primary {
 @media (min-width: 768px) {
 
     .navbar-form .input-group {
-        margin-top:-14px;
+        margin-top: -14px;
     }
 
     .main-header i.icon.icon-resizer {

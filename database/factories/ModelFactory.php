@@ -72,3 +72,11 @@ $factory->define(App\Models\Task::class, function (Faker\Generator $faker) {
         'course_id' => App\Models\Course::all()->random()->id
     ];
 });
+
+$factory->define(App\Models\Discussion::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => App\Models\User::all()->random()->id,
+        'text' => $faker->text($faker->numberBetween(100, 400)),
+        'article_id' => App\Models\Article::all()->random()->id
+    ];
+});
