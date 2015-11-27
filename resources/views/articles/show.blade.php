@@ -2,7 +2,7 @@
 
 @section('scripts')
     {!! HTML::script('js/star-rating.min.js') !!}
-    {!! HTML::script('js/reply-comment.js') !!}
+    {!! HTML::script('js/article.show.js') !!}
 @stop
 
 @section('left')
@@ -44,10 +44,9 @@
                     <span class="discussion-author-info">Author name (link) | date</span>
 
                     <p>In finibus facilisis est non ultricies. Donec a consequat neque, sit amet pulvinar nisi. Suspendisse potenti. Quisque suscipit felis metus, ut mattis orci sagittis in. Duis consequat nec lectus a tempus. Nulla a dictum dolor. In interdum iaculis risus, ac convallis libero mollis eu. Sed ac dictum est, id consequat augue. Aliquam rutrum, erat dignissim semper rutrum, diam metus lacinia est, vel luctus odio mauris non diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum arcu enim, quis volutpat magna porta eu.</p>
-                    <span class="reply-link">
+                    <span class="reply-link pull-right">
                         <a onclick="resizeArea(141)" name="reply">Odpovedať</a>
                     </span>
-                    <br>
                     <!-- (ID textarea) treba generovat pre kazdy koment a potom ho poslat do resizeArea funkcie ako parameter -->
 
                     <!-- odoslat button prislucha k jednotlivemu komentaru, preto treba ako triedu poslat toto ID aj tam -->
