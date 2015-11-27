@@ -406,7 +406,7 @@ img.discussion-profile {
 }
 
 .mobile-icon-profile {
-    margin-top: 10px;
+    margin-top: 2px;
     text-align: right;
 }
 
@@ -987,9 +987,6 @@ button.btn.btn-primary {
         margin-right: -60px;
     }
 
-    .main-header i.icon.icon-resizer{
-        margin-top: 8px;
-    }
 
     .form-group {
         margin-bottom: 14px;
@@ -1046,7 +1043,7 @@ button.btn.btn-primary {
     }
 
     .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
-        margin-top: 30px;
+        margin-top: 22px;
     }
 }
 
