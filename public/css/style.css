@@ -579,6 +579,10 @@ span.tag.label.label-info {
          z-index: -2;
 }
 
+a.tab-item{
+    opacity: 1;
+}
+
 .left_col {
     padding-bottom: 50px;
 }
@@ -800,11 +804,10 @@ button.btn.btn-primary {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
-
         width: 10%;
         float: right;
         -webkit-transition: width 1s ease-in-out;
-        -moz-transition:width 1s ease-in-out;
+        -moz-transition: width 1s ease-in-out;
         -o-transition: width 1s ease-in-out;
         transition: width 1s ease-in-out;
     }
