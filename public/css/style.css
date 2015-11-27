@@ -435,6 +435,14 @@ img.discussion-profile {
     display: inline-block;
 }
 
+.rating-disabled {
+    cursor: default!important;
+}
+
+.rating-xs {
+    font-size: 1.25em!important;
+}
+
 a {
     color: #208c8c;
 }
