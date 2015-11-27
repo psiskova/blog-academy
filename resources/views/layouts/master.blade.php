@@ -25,15 +25,14 @@
                            aria-expanded="false">
                             {{ Auth::user()->fullname }}
                             {!! HTML::profilePicture(Auth::user(), 30, 30, ['class' => 'profile-image img-circle']) !!}
-                            <span class="caret"></span>
                         </a>
-                        <a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a>
+                        <a href="{!! URL::action('Auth\AuthController@getLogout') !!}" class="vertical-login-separator">Odhlásiť</a>
                     @else
-                        {!! link_to_action('Auth\AuthController@getLogin', 'Prihlásenie') !!} &#124;
-                        {!! link_to_action('Auth\AuthController@getRegister', 'Registrácia') !!}
+                        {!! link_to_action('Auth\AuthController@getLogin', 'Prihlásenie') !!}
+                        <a href="{!! URL::action('Auth\AuthController@getRegister') !!}" class="vertical-login-separator">Registrácia</a>
                     @endif
                 </div>
-                <div class="{{ Auth::check() ? 'col-xs-3 col-sm-3' : 'col-xs-10 col-sm-10' }} col-md-6">
+                <div class="{{ Auth::check() ? 'col-xs-3 col-sm-3' : 'col-xs-4 col-sm-4' }} col-md-6">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
                 </div>
                 <div class="col-md-6 hidden-xs hidden-sm">
@@ -52,33 +51,23 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                @if(Auth::check())
-                    <div class="col-xs-5 col-sm-5 hidden-md hidden-lg">
-                        {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
-                        <div class="form-group search-form-group row">
-                            <div class="input-group">
+                <div class="mobile-icon-profile col-xs-7 col-sm-7 hidden-md hidden-lg">
+                    <!-- MOBILE SEARCH FORM -->
 
-                                <select class="form-control course-option course-option-mobile" id="chooseCourse" name="course_id">
-                                    <option value="" style="display:none">Vyber predmet</option>
-                                    @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
-                                        @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
-                                            <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
-                                        @endforeach
-                                    @else
-                                        @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
-                                            <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
+                    {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
+                    <div class="form-group search-form-group row">
+
+                        <div class="inner-addon left-addon">
+                            <i class="icon icon-resizer ion-search "></i>
+                            <input type="text" name="search" class="form-control typeahead mobile-search-input"
+                                   placeholder="Hľadaj" value="{{ $search or '' }}"
+                                   autocomplete="off">
                         </div>
-                        {!! Form::close() !!}
+
+
                     </div>
-                @endif
-                <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg">
-                    <a href="#" class="">
-                        <i class="icon icon-resizer ion-search"></i>
-                    </a>
+                    {!! Form::close() !!}
+                    <!-- END OF MOBILE SEARCH FORM -->
                 </div>
                 @if(Auth::check())
                     <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg">
@@ -89,6 +78,32 @@
                 @endif
             </div>
         </div>
+        @if(Auth::check())
+        <div class="hidden-md hidden-lg course-mobile-row">
+            {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
+            <div class="form-group col-sm-offset-3">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <label for="chooseCourse" class="course-select-label hidden-xs">Výber predmetu:</label>
+                    </span>
+                    <select class="form-control course-option" id="chooseCourse" name="course_id">
+                        <option value="" style="display:none">Vyber predmet</option>
+                        @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                            @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
+                                <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
+                            @endforeach
+                        @else
+                            @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
+                                <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                </div>
+
+            </div>
+            {!! Form::close() !!}
+        </div>
+        @endif
         <div class="row hidden-xs hidden-sm">
             <nav class="navbar navbar-default">
                 <!-- Collect the nav links, forms, and other content for toggling  **dektop -->

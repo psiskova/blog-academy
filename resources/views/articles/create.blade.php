@@ -55,15 +55,17 @@
             </div>
         </div>
         <div class="form-group addarticle-form-group-btns">
-            {!! Form::submit('Uložiť', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
-            {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
-            <button type="button" class="btn btn-primary" id="trash">
-                <span class="glyphicon glyphicon-trash"></span>
-            </button>
+            <div class="col-xs-11 col-md-offset-2" style="margin-top:-20px">
+                {!! Form::submit('Uložiť', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
+                {!! Form::submit('Odoslať', ['class'=>'btn btn-primary', 'name' => 'action']) !!}
+                <button type="button" class="btn btn-primary" id="trash">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
 
-            <button type="button" class="btn btn-primary" id="insight">
-                <span class="glyphicon glyphicon-zoom-in"></span>
-            </button>
+                <button type="button" class="btn btn-primary" id="insight">
+                    <span class="glyphicon glyphicon-zoom-in"></span>
+                </button>
+            </div>
         </div>
         {!! Form::close() !!}
 
