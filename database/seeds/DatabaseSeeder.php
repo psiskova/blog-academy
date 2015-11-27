@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder {
 
         $this->call(DiscussionTableSeeder::class);
 
+        $this->call(RatingTableSeeder::class);
+
         Model::reguard();
     }
 }
