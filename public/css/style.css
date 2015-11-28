@@ -825,6 +825,10 @@ button.btn.btn-primary {
         padding-top: 10px;
     }
 
+    .left_col {
+        padding-bottom: 20px;
+    }
+
     .col-md-7.right-column.left_col .row {
         padding-left: 15px;
         padding-right: 15px;
