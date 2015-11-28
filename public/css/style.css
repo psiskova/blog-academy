@@ -1232,5 +1232,5 @@ button.btn.btn-primary {
 }
 
 .rating-gly-star, .rating-gly-star .rating-stars:before {
-    padding-left: 0;
+    padding-left: 0 !important;
 }
