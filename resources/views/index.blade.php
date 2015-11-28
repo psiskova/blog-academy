@@ -11,7 +11,7 @@
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                 <span class="article-info">
-                    {!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}
+                    <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
                     <div class="divider"></div>
                     {{$article->updated_at}}
                     <div class="divider"></div>
@@ -19,9 +19,9 @@
                            data-size="xs"
                            data-show-Caption="false" data-show-Clear="false"
                            value="{{ round($article->average_rating) }}">
-                </span><br>
-                {!! HTML::tags($article) !!}
-                {{ str_limit(strip_tags($article->text), 200) }}
+                </span>
+                <p>{!! HTML::tags($article) !!}</p>
+                <p>{{ str_limit(strip_tags($article->text), 200) }}</p>
             </div>
         @endforeach
         <div class="text-center fix1">

@@ -44,7 +44,7 @@
                     <div class="articles_list">
                         <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                         <span class="article-info">
-                            {{ $article->user->fullname }}
+                            <p>{{ $article->user->fullname }}</p>
                             <div class="divider"></div>
                             {{ $article->updated_at }}
                             <div class="divider"></div>
@@ -52,8 +52,8 @@
                                    data-size="xs"
                                    data-show-Caption="false" data-show-Clear="false"
                                    value="{{ round($article->average_rating) }}">
-                        </span><br>
-                        {!! HTML::tags($article) !!}
+                        </span>
+                        <p>{!! HTML::tags($article) !!}</p>
                         {{ str_limit(strip_tags($article->text), 200) }}
                     </div>
                 @empty

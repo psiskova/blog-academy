@@ -580,7 +580,7 @@ ul.typeahead.dropdown-menu {
 }
 
 span.tag.label.label-info {
-    font-size: medium;
+    font-size: smaller;
 }
 
 .side_tabs_top:before {
@@ -1172,6 +1172,10 @@ button.btn.btn-primary {
     .divider {
         margin-right: 10px;
         margin-left: 10px;
+    }
+
+    .label {
+        padding: 3px 6px !important;
     }
 
 }
