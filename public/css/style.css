@@ -1159,22 +1159,22 @@ button.btn.btn-primary {
         padding-bottom: 100px;
     }
 
-   /* .separator {
+/*  .separator1 {                                                     1
         margin-bottom: 10px;
         height: 12px;
         border: 0;
         box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
-    }*/
+    }
 
 
-    /*.separator {
+    .separator2 {
         margin-bottom: 10px;
         border: 0;
         border-bottom: 1px dashed #ccc;
         background: #999;
-    }*/
+    }
 
-/*    .separator:before {
+    .separator3 {
         display: block;
         content: "";
         height: 30px;
@@ -1184,21 +1184,25 @@ button.btn.btn-primary {
         border-color: rgba(147, 147, 147, 0.47);
         border-width: 0 0 1px 0;
         border-radius: 20px;
-    }*/
+    }
 
-/*    .separator {
+     .separator5 {
+        margin-bottom: 10px;
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
+    }
+
+     .separator6 {
+        height: 50px;
+    }  */
+
+    .separator {
         margin-bottom: 10px;
         border: 0;
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    }*/
-
-        .separator{
-            height: 50px;
-/*            margin-bottom: 10px;
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));*/ }
+    }
 
 
 }
