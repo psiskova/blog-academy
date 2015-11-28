@@ -182,6 +182,8 @@ class UserController extends Controller {
                             articles.task_id = tasks.id and
                             ratings.text <> \'\' and
                             ratings.article_id = articles.id
+                        having
+                            avg(ratings.rating) > 0
                         union
                             select
                               participants.user_id as user_id,
