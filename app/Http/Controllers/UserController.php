@@ -34,6 +34,10 @@ class UserController extends Controller {
             'postManagement',
             'postBlock'
         ]]);
+
+        $this->middleware('roles:' . User::TEACHER_ROLE . User::STUDENT_ROLE, ['only' => [
+            'getGrading'
+        ]]);
     }
 
     /**
