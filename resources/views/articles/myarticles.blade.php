@@ -1,6 +1,11 @@
 @extends('layouts.9-3')
 
+@section('scripts')
+    {!! HTML::script('js/star-rating.min.js') !!}
+@stop
+
 @section('left')
+    {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h1>Publikované články</h1>
         @forelse($articles as $article)
