@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckForBanUser;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RoleMiddleware;
+use App\Http\Middleware\RolesMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -41,5 +42,6 @@ class Kernel extends HttpKernel {
         'auth.basic' => AuthenticateWithBasicAuth::class,
         'guest' => RedirectIfAuthenticated::class,
         'role' => RoleMiddleware::class,
+        'roles' => RolesMiddleware::class,
     ];
 }

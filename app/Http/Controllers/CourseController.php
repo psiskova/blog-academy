@@ -16,7 +16,17 @@ class CourseController extends Controller {
      *
      */
     public function __construct() {
+        $this->middleware('auth');
 
+        $this->middleware('role:' . User::TEACHER_ROLE, ['only' => [
+            'getCreate',
+            'postCreate',
+            'postUpdateParticipant',
+        ]]);
+
+        $this->middleware('roles:' . User::STUDENT_ROLE . User::TEACHER_ROLE, ['only' => [
+            'getOverview',
+        ]]);
     }
 
     public function getOverview() {

@@ -41,7 +41,8 @@
                     <div class="top_user_{{ $i }}">
                         {{--*/ $i++ /*--}}
                         {!! HTML::profilePicture($topUser->user, 120, 120) !!}
-                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span><span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
+                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
+                        <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
                     </div><br>
                 @endforeach
             </div>
@@ -51,7 +52,7 @@
                     <div class="top_user_{{ $i }}">
                         {{--*/ $i++ /*--}}
                         {!! HTML::profilePicture($bestUser, 120, 120) !!}
-                        <span class="top-user-name">{{ $bestUser->fullname }}</span>
+                        <span class="top-user-name">{!! link_to_action('UserController@getProfile', $bestUser->fullname, ['user_id' => $bestUser->slug])!!}</span>
                         <span class="top-user-count"><input id="input-id-best" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
                                data-show-Caption="false" data-show-Clear="false" value="{{ round($bestUser->average_rating) }}">
                         </span>

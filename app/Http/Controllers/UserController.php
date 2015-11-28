@@ -34,10 +34,6 @@ class UserController extends Controller {
             'postManagement',
             'postBlock'
         ]]);
-
-        /*  $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
-
-          $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);*/
     }
 
     /**

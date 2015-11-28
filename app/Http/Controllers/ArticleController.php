@@ -19,6 +19,11 @@ class ArticleController extends Controller {
      */
     public function __construct() {
 
+        $this->middleware('auth', ['only' => [
+            'getCreate',
+            'postCreate',
+            'getDraft',
+        ]]);
     }
 
     /**
@@ -153,11 +158,6 @@ class ArticleController extends Controller {
         return view('articles.myarticles', [
             'articles' => $articles
         ]);
-    }
-
-    public function getManagement() {
-
-        return view('articles.management');
     }
 
     public function getRate($slug) {

@@ -7,10 +7,11 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model implements SluggableInterface {
 
-    use SluggableTrait;
+    use SluggableTrait, SoftDeletes;
 
     const DRAFT = 0;
     const PUBLISHED = 1;
@@ -49,6 +50,15 @@ class Article extends Model implements SluggableInterface {
     protected $rules = [
         'title' => 'required',
         'text' => 'required'
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
     ];
 
     /**

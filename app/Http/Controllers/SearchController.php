@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class SearchController extends Controller {
+
     public function getSearch(Request $request) {
         $search = $request->get('query');
         $articles = Article::published()

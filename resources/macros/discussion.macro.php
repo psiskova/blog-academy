@@ -12,13 +12,17 @@ HTML::macro('discussion', function ($discussion, $article_id) {
     if (Auth::check()) {
         $result .= '<div class="col-xs-12 discussion-bottom">
                         <span class="reply-link pull-right">
-                            <a onclick="resizeArea(' . $discussion->id . ')" name="reply">Odpovedať</a>
-                        </span>'
-                            . Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method'=>'post']).
-                             Form::hidden('parent', $discussion->id) . Form::hidden('article_id', $article_id).
-                                '<textarea id="' . $discussion->id . '" class="reply" style="" name="text"></textarea>
-                                <br>' . Form::submit('Odoslať', ['class' => 'btn btn-ba-style hidden-btn ' . $discussion->id, 'name' => 'action']) .
-                            Form::close().
+                            <a onclick="resizeArea(' . $discussion->id . ')" name="reply">Odpovedať</a>';
+        if (Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) || Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE)) {
+            $result .= ' <a href="' . action('DiscussionController@getDelete', ['id' => $discussion->id]) . '" name="reply" style="color:red">Zmazať nevhodný komentár</a>';
+        }
+        $result .=
+            '</span>'
+            . Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method' => 'post']) .
+            Form::hidden('parent', $discussion->id) . Form::hidden('article_id', $article_id) .
+            '<textarea id="' . $discussion->id . '" class="reply" style="" name="text"></textarea><br>' .
+            Form::submit('Odoslať', ['class' => 'btn btn-ba-style hidden-btn ' . $discussion->id, 'name' => 'action']) .
+            Form::close() .
             '</div>';
     }
     $children = \App\Models\Discussion::where('parent', '=', $discussion->id)->orderBy('created_at', 'ASC')->get();

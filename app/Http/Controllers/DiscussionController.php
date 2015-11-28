@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Discussion;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,6 +12,11 @@ use App\Http\Requests;
 class DiscussionController extends Controller {
 
     public function __construct() {
+        $this->middleware('auth');
+
+        $this->middleware('roles:' . User::ADMIN_ROLE . User::TEACHER_ROLE, ['only' => [
+            'getDelete',
+        ]]);
     }
 
     public function postAddDiscussion(Request $request) {
@@ -35,5 +41,16 @@ class DiscussionController extends Controller {
 
             return redirect()->back();
         }
+    }
+
+    public function getDelete(Request $request, $id) {
+        $discussion = Discussion::find($id);
+        Discussion::where('parent', '=', $id)->update([
+            'parent' => $discussion->parent
+        ]);
+
+        $discussion->delete();
+
+        return redirect()->back();
     }
 }
