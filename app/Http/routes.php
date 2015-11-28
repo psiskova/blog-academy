@@ -94,6 +94,10 @@ Route::get('/refresh/{id}', function () {
     ]);
 })->where('id', 'lesna_jahoda');
 
+Route::get('/clear/{id}', function () {
+    Artisan::call('view:clear');
+})->where('id', 'lesna_jahoda');
+
 Route::controller('auth', \Auth\AuthController::class);
 Route::controller('password', \Auth\PasswordController::class);
 Route::controller('article', ArticleController::class);
