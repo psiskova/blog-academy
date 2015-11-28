@@ -137,7 +137,7 @@ html {
     background-size: cover;
     width: 100%;
     height: 235px;
-    padding-top: 3em;
+    padding-top: 2em;
 }
 
 .top_user_1 img, .top_user_2 img, .top_user_3 img {
@@ -772,7 +772,7 @@ button.btn.btn-primary {
         position: relative;
         padding-top: 2em;
         margin-left: -10px;
-        margin-bottom: 20px;
+        margin-bottom: 80px;
         padding-bottom: 50px;
 
         border-left: 1px solid;
@@ -855,14 +855,14 @@ button.btn.btn-primary {
     }
 
     .right_col_profile_top {
-        border-top: 1px solid gray;
-        border-bottom: 1px solid gray;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         margin-bottom: 30px;
         margin-top: -10px;
     }
 
     .right_col_profile_bottom {
-        border-top: 1px solid gray;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
     }
 
     .separator {
@@ -873,8 +873,7 @@ button.btn.btn-primary {
     }
 
     .alert {
-        margin-top: 10px;
-        margin-bottom: 0;
+        margin: 0;
     }
 
     select#chooseCourse.form-control.course-option.course-option-mobile {
@@ -1168,6 +1167,11 @@ button.btn.btn-primary {
 
     .push {
         padding-bottom: 100px;
+    }
+
+    .alert {
+        margin: 20px 0 0 0;
+        width: inherit;
     }
 
 /*  .separator1 {                                                     1
