@@ -5,44 +5,67 @@
     {!! HTML::script('js/courses.teacher.overview.js') !!}
 @stop
 
-@section('left')
-    <div class="row">
-        <h1>Prihlásení na predmet</h1>
-        <table class="center_elements table_courses_view table-striped col-xs-12">
-            @foreach($participants as $participant)
-                <tr class="row">
-                    <td class="border_right col-xs-6">{{ $participant->user->fullname }}</td>
-                    <td class="col-xs-6 text-center">
-                        @if($participant->state == \App\Models\Participant::ACCEPTED)
-                            Prihlásený
+@section('content')
+    {!! HTML::style('css/star-rating.min.css') !!}
+    <div class="container-fluid row text-justify container_content">
+        <div class="col-md-3 col-md-push-7 col-md-offset-1 right_col">
+            <div class="right_col_profile right_col_profile_top mobile_profile">
+                <div class="pencil"></div>
+                <div class="text-center">
+                    <p>Správa predmetu</p>
+                    <p>{!! link_to_action('TaskController@getCreate', 'Vytvoriť zadanie') !!}</p>
+                    <p>{!! link_to_action('CourseController@getCreate', 'Pridať predmet') !!}</p>
+                    <div class="hidden-sm hidden-xs">
+                        <div class = "separator"></div>
+                        {!! HTML::profilePicture(Auth::user(), 120, 120) !!}
+                        <h4>{{ Auth::user()->fullname }}</h4>
+                        <p>{{ Auth::user()->email }}</p>
+                        @if(Auth::check())
+                            <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
+                            <div class = "separator"></div>
+                            <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
+                            {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}
+                            <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články" . ($count ? ('('.$count.')') : '')) !!}</p>
+                            {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
+                            <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty" . ($count ? ('('.$count.')') : '')) !!}</p>
                         @endif
-                        @if($participant->state == \App\Models\Participant::REJECTED)
-                            Odmietnutý
-                        @endif
-                        @if($participant->state == \App\Models\Participant::PENDING)
-                            <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
-                                    data-value="{{  \App\Models\Participant::ACCEPTED }}">
-                                Prihlásiť
-                            </button>
-                            <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
-                                    data-value="{{  \App\Models\Participant::REJECTED }}">
-                                Odmietnuť
-                            </button>
-                        @endif
-                    </td>
-                </tr>
-            @endforeach
-        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-md-pull-4 right-column left_col">
+            <div class="row">
+                <h1>Správa predmetu</h1>
+                <table class="center_elements table_courses_view table-striped col-xs-12">
+                    @foreach($participants as $participant)
+                        <tr class="row">
+                            <td class="border_right col-xs-6">{{ $participant->user->fullname }}</td>
+                            <td class="col-xs-6 text-center">
+                                @if($participant->state == \App\Models\Participant::ACCEPTED)
+                                    Prihlásený
+                                @endif
+                                @if($participant->state == \App\Models\Participant::REJECTED)
+                                    Odmietnutý
+                                @endif
+                                @if($participant->state == \App\Models\Participant::PENDING)
+                                    <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                            data-value="{{  \App\Models\Participant::ACCEPTED }}">
+                                        Prihlásiť
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                            data-value="{{  \App\Models\Participant::REJECTED }}">
+                                        Odmietnuť
+                                    </button>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
     </div>
 @stop
 
-@section('right')
-    <div class="row">
-        {!! link_to_action('CourseController@getCreate', 'Pridať predmet') !!}
-        <br>
-        {!! link_to_action('TaskController@getCreate', 'Vytvoriť zadanie') !!}
-    </div>
-@stop
 @else
 @section('content')
     <div class="container-fluid">
@@ -55,3 +78,4 @@
     </div>
 @stop
 @endif
+

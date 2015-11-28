@@ -21,13 +21,12 @@
                         <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
                         {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}
                         <p>Publikované články {{ ($count ? ('('.$count.')') : '')}}</p>
-{{--                        <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>--}}
                         {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
                         <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : '')) !!}</p>
                         @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
-                            <p>{!! link_to_action('CourseController@getOverview', "Zapísať sa na predmet ") !!}</p>
+                            <p>{!! link_to_action('CourseController@getOverview', "Zapísať sa na predmet") !!}</p>
                         @else
-                            <p>{!! link_to_action('CourseController@getCreate', "Vytvoriť predmet ") !!}</p>
+                            <p>{!! link_to_action('CourseController@getOverview', "Správa predmetov") !!}</p>
                         @endif
                     @else
                         <p>Publikované články ({{$user->countPublishedArticles()}})</p>
@@ -35,9 +34,7 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-7 col-md-pull-4 right-column left_col">
-            {{--TODO: asi všetky vlastné články--}}
             <div class="row">
                 <h1>Publikované články</h1>
                 @forelse($articles as $article)
