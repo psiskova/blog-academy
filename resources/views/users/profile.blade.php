@@ -25,8 +25,10 @@
                         <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : '')) !!}</p>
                         @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
                             <p>{!! link_to_action('CourseController@getOverview', "Zapísať sa na predmet") !!}</p>
-                        @else
+                        @elseif (Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                             <p>{!! link_to_action('CourseController@getOverview', "Správa predmetov") !!}</p>
+                        @else
+                            <p>{!! link_to_action('UserController@getManagement', "Správa používateľov") !!}</p>
                         @endif
                     @else
                         <p>Publikované články ({{$user->countPublishedArticles()}})</p>
