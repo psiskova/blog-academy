@@ -78,7 +78,8 @@ $factory->define(App\Models\Discussion::class, function (Faker\Generator $faker)
     return [
         'user_id' => App\Models\User::all()->random()->id,
         'text' => $faker->text($faker->numberBetween(100, 400)),
-        'article_id' => App\Models\Article::all()->random()->id
+        'article_id' => App\Models\Article::all()->random()->id,
+        'parent' => ($faker->boolean(70) && App\Models\Discussion::all()->count() > 0) ? App\Models\Discussion::all()->random()->id : null
     ];
 });
 

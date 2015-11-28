@@ -27,7 +27,7 @@
         <h3>Diskusia k článku</h3>
         @if(Auth::check())
             {!! Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method'=>'post']) !!}
-            {!! Form::hidden('article_id', $article->id) !!}
+                {!! Form::hidden('article_id', $article->id) !!}
             <div class="form-group">
                 <label for="comment-area">Komentár:</label>
                 <textarea class="form-control" rows="4" id="comment-area" name="text"></textarea>
@@ -36,33 +36,8 @@
             {!! Form::close() !!}
         @endif
 
-        @forelse($article->discussions as $discussion)
-            <div class="discussion-main col-xs-12">
-                <div class="discussion-commentary row">
-                    <div class="col-xs-3">
-                        {!! HTML::profilePicture($discussion->user, '100%', '100%', ['class' => 'discussion-profile col-xs-3']) !!}
-                    </div>
-                    <div class="col-xs-9 discussion-right">
-                        <span class="discussion-author-info">{!! link_to_action('UserController@getProfile', $discussion->user->fullname, ['user_id' => $discussion->user->slug])!!}
-                            | {{ $discussion->created_at }}</span>
-
-                        <p>{{ $discussion->text }}</p>
-                    </div>
-                    @if(Auth::check())
-                        <div class="col-xs-12 discussion-bottom">
-                        <span class="reply-link pull-right">
-                            <a onclick="resizeArea(141)" name="reply">Odpovedať</a>
-                        </span>
-                            <!-- (ID textarea) treba generovat pre kazdy koment a potom ho poslat do resizeArea funkcie ako parameter -->
-
-                            <!-- odoslat button prislucha k jednotlivemu komentaru, preto treba ako triedu poslat toto ID aj tam -->
-                            <textarea id="141" class="reply" style="" name="text"></textarea>
-                            <br>
-                            {!! Form::submit('Odoslať', ['class'=>'btn btn-ba-style 141 hidden-btn', 'name' => 'action']) !!}
-                        </div>
-                    @endif
-                </div>
-            </div>
+        @forelse($article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get() as $discussion)
+            {!! HTML::discussion($discussion, $article->id) !!}
         @empty
             Žiadny diskusný príspevok. Buďte prvý!
         @endforelse
