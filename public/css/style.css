@@ -1158,7 +1158,8 @@ button.btn.btn-primary {
     }
 
     .left_col {
-        margin-bottom: 80px
+        margin-bottom: 80px;
+        padding-bottom:40px;
     }
 
     .push {
