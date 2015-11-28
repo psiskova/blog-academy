@@ -29,17 +29,19 @@
         @if(Auth::check())
             @if($article->user->id == Auth::id())
                 @if($hodnotenie)
-                    <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
+                    <h3>Hodnotenie</h3>
+                    <input type="number" class="rating" min=0 max=5 step=1 data-size="sm"
                            data-show-Caption="false" data-show-Clear="false" data-disabled="true"
                            value="{{ $hodnotenie->rating }}">
                     <p>{!!  $hodnotenie->text !!}</p>
                 @endif
             @endif
             @if($article->user->id != Auth::id())
-                <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
+                <input id="rate" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
                        data-show-Caption="false" data-show-Clear="false"
                        data-disabled="{{ $rating ? 'true' : 'false' }}"
-                       value="{{ $rating ? $rating->rating : '' }}">
+                       value="{{ $rating ? $rating->rating : '' }}"
+                       data-article_id="{{ $article->id }}">
             @endif
         @endif
 

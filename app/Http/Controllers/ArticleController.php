@@ -26,10 +26,18 @@ class ArticleController extends Controller {
             'getDraft',
             'getDelete',
             'postDelete',
+            'postRating',
+            'postRate',
+            'getRate',
         ]]);
 
         $this->middleware('roles:' . User::TEACHER_ROLE . User::ADMIN_ROLE, ['only' => [
             'getDelete'
+        ]]);
+
+        $this->middleware('role:' . User::TEACHER_ROLE, ['only' => [
+            'postRate',
+            'getRate',
         ]]);
     }
 
@@ -48,7 +56,7 @@ class ArticleController extends Controller {
         $discussions = $article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get();
         $rating = null;
         $hodnotenie = Rating::where('article_id', '=', $article->id)->where('text', '<>', '')->first();
-        if(Auth::check()) {
+        if (Auth::check()) {
             $rating = Rating::where('article_id', '=', $article->id)->where('user_id', '=', Auth::id())->first();
         }
 
@@ -200,7 +208,7 @@ class ArticleController extends Controller {
 
             return redirect()->back()->withInput($input);
         }
-        if($input['rating'] == 0){
+        if ($input['rating'] == 0) {
             flash()->error('Nevyplnené hodnotenie');
 
             return redirect()->back()->withInput($input);
@@ -214,5 +222,20 @@ class ArticleController extends Controller {
 
         flash()->success('Článok bol ohodnotený');
         return redirect(URL::action('UserController@getGrading', ['id' => Auth::id()]));
+    }
+
+    public function postRating(Request $request) {
+        $input = $request->only(['rating', 'article_id']);
+        $input['user_id'] = Auth::id();
+
+        if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
+            $rating->update($input);
+        } else {
+            Rating::create($input);
+        }
+
+        return response()->json([
+            'result' => 'success'
+        ]);
     }
 }
