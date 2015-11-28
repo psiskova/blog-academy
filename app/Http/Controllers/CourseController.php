@@ -42,18 +42,16 @@ class CourseController extends Controller {
                 'courses' => $courses
             ]);
         } else {
-            if ($course = Auth::user()->course) {
+            $course = Auth::user()->course;
+            if ($course) {
                 $participants = $course->participants;
-
-                return view('courses.teacher.overview', [
-                    'participants' => $participants
-                ]);
             } else {
-
-                return view('courses.teacher.overview', [
-                    'course' => false
-                ]);
+                $participants = [];
             }
+
+            return view('courses.teacher.overview', [
+                'participants' => $participants
+            ]);
         }
     }
 

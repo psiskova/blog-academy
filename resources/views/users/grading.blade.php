@@ -1,6 +1,11 @@
 @extends('layouts/9-3')
 
+@section('scripts')
+    {!! HTML::script('js/star-rating.min.js') !!}
+@stop
+
 @section('left')
+    {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h1>Hodnotenie</h1>
 
@@ -38,10 +43,18 @@
                 <div id="tab2" class="tab-pane fade">
                     @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                         <table class="center_elements table-striped table_grades col-xs-12">
-                            <tr class="row">
-                                <td class="border_right col-xs-6">Meno študenta</td>
-                                <td class="col-xs-6">Celkové hodnotenie študenta v danom predmete</td>
-                            </tr>
+                            @foreach($ratedArticles as $ratedArticle)
+                                <tr class="row">
+                                    <td class="border_right col-xs-6">{{ \App\Models\User::find($ratedArticle->user_id)->fullname }}</td>
+                                    <td class="col-xs-6">
+                                        <input id="input-id-best" type="number" class="rating" min=0 max=5
+                                               step=1 readonly="true" data-size="xs"
+                                               data-show-Caption="false" data-show-Clear="false"
+                                               value="{{ round($ratedArticle->rating) }}"
+                                               data-disabled="true">
+                                    </td>
+                                </tr>
+                            @endforeach
                         </table>
                     @else
                         <table class="center_elements table-striped table_grades col-xs-12">

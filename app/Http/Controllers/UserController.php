@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Rating;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -154,7 +154,28 @@ class UserController extends Controller {
             } else {
 
                 $unratedArticles = Article::published()->unrated($course_id)->get();
-                $ratedArticles = [];
+
+                $ratedArticles = DB::select(DB::raw('
+                    select
+                        users.id user_id,
+                        avg(ratings.rating) as rating
+                    from
+                        articles,
+                        participants,
+                        courses,
+                        tasks,
+                        ratings,
+                        users
+                    where
+                        users.id = articles.user_id and
+                        courses.id = ' . $course_id . ' and
+                        tasks.course_id = courses.id and
+                        participants.course_id = courses.id and
+                        articles.task_id = tasks.id and
+                        ratings.text <> \'\' and
+                        ratings.article_id = articles.id
+                    group by
+                      users.id'));
             }
         } else {
             $unratedArticles = [];

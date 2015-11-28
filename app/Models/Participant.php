@@ -40,4 +40,9 @@ class Participant extends Model {
 
         return $this->belongsTo(Course::class);
     }
+
+    public function scopeAccepted($query) {
+
+        return $query->where('state', '=', Participant::ACCEPTED);
+    }
 }
