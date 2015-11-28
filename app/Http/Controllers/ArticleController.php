@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\ArticleTagMapper;
 use App\Models\Rating;
 use App\Models\Tag;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use URL;
@@ -23,6 +24,12 @@ class ArticleController extends Controller {
             'getCreate',
             'postCreate',
             'getDraft',
+            'getDelete',
+            'postDelete',
+        ]]);
+
+        $this->middleware('roles:' . User::TEACHER_ROLE . User::ADMIN_ROLE, ['only' => [
+            'getDelete'
         ]]);
     }
 
@@ -125,6 +132,12 @@ class ArticleController extends Controller {
                 'status' => 'success'
             ]);
         }
+    }
+
+    public function getDelete(Request $request, $id) {
+        Article::findBySlugOrId($id)->delete();
+
+        return redirect('/');
     }
 
     /**
