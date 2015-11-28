@@ -20,6 +20,7 @@ class TaskController extends Controller {
     public function postCreate(Request $request) {
         $input = $request->only(['name']);
         $input['user_id'] = Auth::id();
+        $input['course_id'] = Auth::user()->course_id;
         Task::create($input);
         flash()->message('Zadanie bolo vytvorené');
 
