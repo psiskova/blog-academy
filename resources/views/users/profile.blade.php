@@ -23,7 +23,11 @@
                         <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>
                         {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
                         <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : '')) !!}</p>
-                        <p>{!! link_to_action('CourseController@getOverview', "Zapísať sa na predmet ") !!}</p>
+                        @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
+                            <p>{!! link_to_action('CourseController@getOverview', "Zapísať sa na predmet ") !!}</p>
+                        @else
+                            <p>{!! link_to_action('CourseController@getCreate', "Vytvoriť predmet ") !!}</p>
+                        @endif
                     @endif
                 </div>
             </div>
