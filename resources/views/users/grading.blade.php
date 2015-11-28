@@ -47,7 +47,7 @@
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{{ \App\Models\User::find($ratedArticle->user_id)->fullname }}</td>
                                     <td class="col-xs-6">
-                                        <input id="input-id-best" type="number" class="rating" min=0 max=5
+                                        <input type="number" class="rating" min=0 max=5
                                                step=1 readonly="true" data-size="xs"
                                                data-show-Caption="false" data-show-Clear="false"
                                                value="{{ round($ratedArticle->rating) }}"
@@ -61,7 +61,13 @@
                             @foreach($ratedArticles as $ratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{!! link_to_action('ArticleController@getShow', $ratedArticle->title, ['id' => $ratedArticle->slug]) !!}</td>
-                                    <td class="col-xs-6">{{ $ratedArticle->teacher_rating_value }}</td>
+                                    <td class="col-xs-6">
+                                        <input type="number" class="rating" min=0 max=5
+                                               step=1 readonly="true" data-size="xs"
+                                               data-show-Caption="false" data-show-Clear="false"
+                                               value="{{ round($ratedArticle->teacher_rating_value) }}"
+                                               data-disabled="true">
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
