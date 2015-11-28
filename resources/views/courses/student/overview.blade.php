@@ -5,7 +5,7 @@
 @stop
 
 @section('left')
-    <div class="row push">
+    <div class="row">
         <h1>Prihlásenie na predmet</h1>
         <table class="center_elements table_courses_view table-striped col-xs-12">
             @foreach($courses as $course)

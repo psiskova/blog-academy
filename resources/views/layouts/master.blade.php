@@ -23,7 +23,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true"
                            aria-expanded="false">
-                            {{ Auth::user()->fullname }}
+                            {!! link_to_action('UserController@getProfile', Auth::user()->fullname, Auth::user()->slug)!!}
                             {!! HTML::profilePicture(Auth::user(), 30, 30, ['class' => 'profile-image img-circle']) !!}
                         </a>
                         <a href="{!! URL::action('Auth\AuthController@getLogout') !!}" class="vertical-login-separator">Odhlásiť</a>
