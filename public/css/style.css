@@ -1077,6 +1077,11 @@ button.btn.btn-primary {
         color: white;
         margin-top: 5px;
     }
+
+    .divider {
+        margin-right: 3px;
+        margin-left: 3px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1148,6 +1153,12 @@ button.btn.btn-primary {
     .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
         margin-top: 22px;
     }
+
+    .divider {
+        margin-right: 7px;
+        margin-left: 7px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -1173,48 +1184,16 @@ button.btn.btn-primary {
         width: inherit;
     }
 
-    /*  .separator1 {                                                     1
-            margin-bottom: 10px;
-            height: 12px;
-            border: 0;
-            box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
-        }
-
-
-            .separator2 {
-                margin-bottom: 10px;
-                border: 0;
-                border-bottom: 1px dashed #ccc;
-                background: #999;
-            }
-
-            .separator3 {
-                display: block;
-                content: "";
-                height: 30px;
-                margin-top: -31px;
-                margin-bottom: 10px;
-                border-style: solid;
-                border-color: rgba(147, 147, 147, 0.47);
-                border-width: 0 0 1px 0;
-                border-radius: 20px;
-            }
-
-             .separator5 {
-                margin-bottom: 10px;
-                border: 0;
-                height: 1px;
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
-            }
-
-             .separator6 {
-                height: 50px;
-            }  */
     .separator {
         margin-bottom: 10px;
         border: 0;
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    }
+
+    .divider {
+        margin-right: 10px;
+        margin-left: 10px;
     }
 
 }
@@ -1226,8 +1205,6 @@ button.btn.btn-primary {
 
 .divider {
     border-left: 1px solid rgb(46, 175, 175);
-    margin-right: 2px;
-    margin-left: 2px;
     margin-bottom: 3px;
 }
 
