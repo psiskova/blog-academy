@@ -931,10 +931,7 @@ button.btn.btn-primary {
     h1 {
         font-size: 23px;
     }
-    
-    .logo-col {
-        text-align: center;
-    }
+
     
     #ba-logo {
         display: block;
@@ -945,6 +942,7 @@ button.btn.btn-primary {
         overflow: hidden;
         margin-top: 10px;
         display: inline-block;
+        margin-left: 15px;
     }
 
     .h3, h3 {
