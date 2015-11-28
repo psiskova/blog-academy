@@ -1,8 +1,8 @@
 @extends('layouts.9-3')
 
 @section('scripts')
-    {!! HTML::script('js/star-rating.min.js') !!}
-    {!! HTML::script('js/article.show.js') !!}
+    <script src="{{ elixir('js/star-rating.min.js') }}"></script>
+    <script src="{{ elixir('js/article.show.js') }}"></script>
 @stop
 
 @section('left')

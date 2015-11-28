@@ -1,7 +1,7 @@
 @extends('layouts.9-3')
 
 @section('scripts')
-    {!! HTML::script('js/courses.student.overview.js') !!}
+    <script src="{{ elixir('js/courses.student.overview.js') }}"></script>
 @stop
 
 @section('left')

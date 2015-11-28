@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('scripts')
-    {!! HTML::script('js/users.block.js') !!}
+    <script src="{{ elixir('js/users.block.js') }}"></script>
 @stop
 
 @section('content')

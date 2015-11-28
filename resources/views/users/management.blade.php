@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('scripts')
-    {!! HTML::script('js/users.management.js') !!}
+    <script src="{{ elixir('js/users.management.js') }}"></script>
 @stop
 
 @section('content')

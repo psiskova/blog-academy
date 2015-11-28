@@ -2,7 +2,7 @@
 
 @if(!isset($course))
 @section('scripts')
-    {!! HTML::script('js/courses.teacher.overview.js') !!}
+    <script src="{{ elixir('js/courses.teacher.overview.js') }}"></script>
 @stop
 
 @section('content')

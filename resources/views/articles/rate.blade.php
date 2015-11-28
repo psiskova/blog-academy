@@ -1,10 +1,10 @@
 @extends('layouts.9-3')
 
 @section('scripts')
-    {!! HTML::script('js/summernote.min.js') !!}
-    {!! HTML::script('js/bootstrap-tagsinput.min.js') !!}
-    {!! HTML::script('js/star-rating.min.js') !!}
-    {!! HTML::script('js/article.rate.js') !!}
+    <script src="{{ elixir('js/summernote.min.js') }}"></script>
+    <script src="{{ elixir('js/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ elixir('js/star-rating.min.js') }}"></script>
+    <script src="{{ elixir('js/article.rate.js') }}"></script>
 @stop
 
 @section('left')

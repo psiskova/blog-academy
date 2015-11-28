@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('scripts')
-    {!! HTML::script('js/star-rating.min.js') !!}
+    <script src="{{ elixir('js/star-rating.min.js') }}"></script>
 @stop
 
 @section('content')
