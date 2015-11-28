@@ -46,10 +46,17 @@ class ArticleController extends Controller {
     public function getShow($id) {
         $article = Article::findBySlugOrId($id);
         $discussions = $article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get();
+        $rating = null;
+        $hodnotenie = Rating::where('article_id', '=', $article->id)->where('text', '<>', '')->first();
+        if(Auth::check()) {
+            $rating = Rating::where('article_id', '=', $article->id)->where('user_id', '=', Auth::id())->first();
+        }
 
         return view('articles.show', [
             'article' => $article,
-            'discussions' => $discussions
+            'discussions' => $discussions,
+            'rating' => $rating,
+            'hodnotenie' => $hodnotenie,
         ]);
     }
 
