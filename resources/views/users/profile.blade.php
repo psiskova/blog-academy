@@ -20,7 +20,8 @@
                         <div class="separator"></div>
                         <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
                         {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}
-                        <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>
+                        <p>Publikované články {{ ($count ? ('('.$count.')') : '')}}</p>
+{{--                        <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>--}}
                         {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
                         <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : '')) !!}</p>
                         @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))

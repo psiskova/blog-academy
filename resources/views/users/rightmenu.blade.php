@@ -19,7 +19,7 @@
                     <p>{!! link_to_action('CourseController@getCreate', "Vytvoriť predmet ") !!}</p>
                 @endif
             @else
-                <p>Publikované články ({{$user->countPublishedArticles()}})</p>
+                <p>{!! link_to_action('UserController@getProfile', "Publikované články (" . $user->countPublishedArticles() . ')' , ['user_id' => $article->user->slug]) !!}</p>
             @endif
         </div>
 </div>

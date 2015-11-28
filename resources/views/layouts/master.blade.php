@@ -32,7 +32,7 @@
                         <a href="{!! URL::action('Auth\AuthController@getRegister') !!}" class="vertical-login-separator">Registrácia</a>
                     @endif
                 </div>
-                <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
+                <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6 logo-col">
                     <a href="{!! url('/') !!}" id="ba-logo"></a>
                 </div>
                 <div class="col-md-6 hidden-xs hidden-sm">
@@ -51,7 +51,7 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                <div class="mobile-icon-profile col-xs-7 col-sm-7 hidden-md hidden-lg">
+                <div class="mobile-icon-profile {{ Auth::check() ? 'col-xs-7 col-sm-7' : 'col-xs-8 col-sm-8' }} hidden-md hidden-lg">
                     <!-- MOBILE SEARCH FORM -->
 
                     {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
@@ -204,6 +204,7 @@
         <ul>
             @if(Auth::check())
                 <li><a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a></li>
+                <li><a href="#">Výber predmetu</a></li>
                 @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                     <li><a href="{!! URL::action('CourseController@getOverview') !!}">Moje predmety</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))

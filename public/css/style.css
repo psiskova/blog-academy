@@ -32,9 +32,6 @@ html {
 .main_container {
     min-height: 100%;
     overflow: hidden;
-    /*padding-bottom: 50px;*/
-    /*    height: auto !important;
-        height: 100%;*/
 }
 
 .navbar {
@@ -45,10 +42,6 @@ html {
     border-top-left-radius: 0;
     border-top-right-radius: 0
 }
-
-/*.left_col {
-    border-right: 1px solid black;
-}*/
 
 .articles_list {
     border-bottom: 1px solid #bbbbbb;
@@ -91,7 +84,6 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 -10px 180px -10px;
-
     border-width: 1px;
     border-style: solid;
     -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
@@ -157,15 +149,6 @@ html {
 .top_user_3 {
     background-image: url('/img/topuser_background3.png');
 }
-
-/*footer {
-    bottom: 0;
-    height: 60px;
-    color: #ffffff;
-    background-color: #18222c;
-    padding: 20px 0;
-    z-index: 50;
-}*/
 
 .center_elements {
     margin: 0 auto;
@@ -489,7 +472,6 @@ textarea.reply {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-
 }
 
 .hidden-btn {
@@ -621,16 +603,6 @@ nav.navbar.navbar-default {
     margin-bottom: 0;
 }
 
-/*.left_col {
-    padding-bottom: 50px;
-}*/
-
-/*.main_container {
-         min-height: 100%;
-         overflow: hidden;
-         margin-bottom: 60px;
-     }*/
-
 .vertical-login-separator {
     border-left: 1px solid red;
     margin-left: 0.3em;
@@ -663,6 +635,7 @@ button.btn.btn-primary {
 }
 
 .more-dropdown-menu {
+    display: none;
     position: fixed;
     bottom: 47px;
     background-color: rgb(252, 163, 221);
@@ -689,7 +662,7 @@ button.btn.btn-primary {
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li:hover {
-    background-color: #f1f1f1;
+    background-color: rgba(256,256,256,0.6);
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li a {
@@ -722,11 +695,17 @@ button.btn.btn-primary {
         padding: 0;
         margin-right: 0;
     }
+
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
     .right-column {
         padding-left: 64px;
+    }
+
+    .h3, h3 {
+        font-size: 18px;
+        font-weight: normal;
     }
 }
 
@@ -767,13 +746,13 @@ button.btn.btn-primary {
             background-image: -o-linear-gradient(transparent, #9a9a9a);
             z-index: -2;
         }*/
+
     .right_col_profile {
         position: relative;
-        padding-top: 2em;
-        margin-left: -10px;
         margin-bottom: 80px;
+        margin-left: -10px;
+        padding-top: 2em;
         padding-bottom: 50px;
-
         border-left: 1px solid;
         border-right: 0px;
         -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
@@ -784,7 +763,6 @@ button.btn.btn-primary {
         background-position: left bottom;
         background-image: url('/img/ceruzka.png');
         background-repeat: no-repeat;
-
     }
 
     /*   .right_col_profile:before, .right_col_profile:after {
@@ -935,7 +913,7 @@ button.btn.btn-primary {
     }
 
     .left-addon input {
-        padding-left: 30px;
+        padding-left: 40px;
     }
 
     .right-addon input {
@@ -953,7 +931,11 @@ button.btn.btn-primary {
     h1 {
         font-size: 23px;
     }
-
+    
+    .logo-col {
+        text-align: center;
+    }
+    
     #ba-logo {
         display: block;
         height: 63px;
@@ -962,15 +944,16 @@ button.btn.btn-primary {
         text-indent: -99999px;
         overflow: hidden;
         margin-top: 10px;
+        display: inline-block;
     }
 
     .h3, h3 {
         font-size: 18px;
-        font-weight: bold;
+        font-weight: normal;
     }
 
     .row-header {
-        padding-right: 15px;
+        border-bottom: 5px solid rgba(0,0,0,0.1);
     }
 
     .tabs {
@@ -1003,6 +986,10 @@ button.btn.btn-primary {
         border-top: 1px solid #b2b2b2;
         background-size: 0;
         line-height: 49px
+    }
+
+    .tab-nav.tabs.hidden-lg.hidden-md {
+        background-color: rgb(228, 228, 228);
     }
 
     .tab-item .icon {
@@ -1061,7 +1048,6 @@ button.btn.btn-primary {
     }
 
     .tabs {
-        /*padding-top: 2px;*/
         border-top: none !important;
         border-bottom: 0;
         background-size: 100% 1px;
@@ -1076,6 +1062,11 @@ button.btn.btn-primary {
     label.course-select-label.hidden-xs {
         color: white;
         margin-top: 5px;
+    }
+
+    .divider {
+        margin-right: 3px;
+        margin-left: 3px;
     }
 }
 
@@ -1131,12 +1122,6 @@ button.btn.btn-primary {
         vertical-align: inherit;
     }
 
-    .h3, h3 {
-        font-size: 24px;
-        font-weight: normal;
-
-    }
-
     .search-form-group {
         margin-top: 25px;
     }
@@ -1148,6 +1133,12 @@ button.btn.btn-primary {
     .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
         margin-top: 22px;
     }
+
+    .divider {
+        margin-right: 7px;
+        margin-left: 7px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -1173,48 +1164,16 @@ button.btn.btn-primary {
         width: inherit;
     }
 
-    /*  .separator1 {                                                     1
-            margin-bottom: 10px;
-            height: 12px;
-            border: 0;
-            box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
-        }
-
-
-            .separator2 {
-                margin-bottom: 10px;
-                border: 0;
-                border-bottom: 1px dashed #ccc;
-                background: #999;
-            }
-
-            .separator3 {
-                display: block;
-                content: "";
-                height: 30px;
-                margin-top: -31px;
-                margin-bottom: 10px;
-                border-style: solid;
-                border-color: rgba(147, 147, 147, 0.47);
-                border-width: 0 0 1px 0;
-                border-radius: 20px;
-            }
-
-             .separator5 {
-                margin-bottom: 10px;
-                border: 0;
-                height: 1px;
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
-            }
-
-             .separator6 {
-                height: 50px;
-            }  */
     .separator {
         margin-bottom: 10px;
         border: 0;
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    }
+
+    .divider {
+        margin-right: 10px;
+        margin-left: 10px;
     }
 
 }
@@ -1226,8 +1185,6 @@ button.btn.btn-primary {
 
 .divider {
     border-left: 1px solid rgb(46, 175, 175);
-    margin-right: 2px;
-    margin-left: 2px;
     margin-bottom: 3px;
 }
 
