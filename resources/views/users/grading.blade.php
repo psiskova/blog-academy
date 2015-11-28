@@ -13,7 +13,7 @@
                 <div id="tab1" class="tab-pane fade in active">
                     @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                         <table class="center_elements table-striped table_not_grading_teacher col-xs-12">
-                            @foreach($unratedArticles->get() as $unratedArticle)
+                            @foreach($unratedArticles as $unratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{{ $unratedArticle->title }}</td>
                                     <td class="col-xs-6">
@@ -27,7 +27,7 @@
                         </table>
                     @else
                         <table class="center_elements table-striped table_not_grading_student col-xs-12">
-                            @foreach($unratedArticles->get() as $unratedArticle)
+                            @foreach($unratedArticles as $unratedArticle)
                                 <tr class="row">
                                     <td class="col-xs-12">{!! link_to_action('ArticleController@getShow', $unratedArticle->title, ['id' => $unratedArticle->slug]) !!}</td>
                                 </tr>
@@ -45,7 +45,7 @@
                         </table>
                     @else
                         <table class="center_elements table-striped table_grades col-xs-12">
-                            @foreach($ratedArticles->get() as $ratedArticle)
+                            @foreach($ratedArticles as $ratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{!! link_to_action('ArticleController@getShow', $ratedArticle->title, ['id' => $ratedArticle->slug]) !!}</td>
                                     <td class="col-xs-6">{{ $ratedArticle->teacher_rating_value }}</td>

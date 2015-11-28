@@ -143,19 +143,21 @@ class UserController extends Controller {
 
     public function getGrading($id) {
         $user = User::findBySlugOrIdOrFail($id);
-        $course_id = null;
         $course = $user->course;
         if ($course) {
             $course_id = $course->id;
-        }
 
-        if ($user->hasRole(User::STUDENT_ROLE)) {
+            if ($user->hasRole(User::STUDENT_ROLE)) {
 
-            $unratedArticles = $user->articles()->published()->unrated($course_id);
-            $ratedArticles = $user->articles()->published()->rated($course_id);
+                $unratedArticles = $user->articles()->published()->unrated($course_id)->get();
+                $ratedArticles = $user->articles()->published()->rated($course_id)->get();
+            } else {
+
+                $unratedArticles = Article::published()->unrated($course_id)->get();
+                $ratedArticles = [];
+            }
         } else {
-
-            $unratedArticles = Article::published()->unrated($course_id);
+            $unratedArticles = [];
             $ratedArticles = [];
         }
 
