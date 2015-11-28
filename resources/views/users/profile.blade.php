@@ -28,7 +28,8 @@
                         @elseif (Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                             <p>{!! link_to_action('CourseController@getOverview', "Správa predmetov") !!}</p>
                         @else
-                            <p>{!! link_to_action('UserController@getManagement', "Správa používateľov") !!}</p>
+                            <p>{!! link_to_action('UserController@getManagement', "Správa používateľských rolí") !!}</p>
+                            <p>{!! link_to_action('UserController@getBlock', "Blokovanie používateľov") !!}</p>
                         @endif
                     @else
                         <p>Publikované články ({{$user->countPublishedArticles()}})</p>
