@@ -32,7 +32,7 @@ html {
 .main_container {
     min-height: 100%;
     overflow: hidden;
-    padding-bottom: 50px;
+    /*padding-bottom: 50px;*/
     /*    height: auto !important;
         height: 100%;*/
 }
@@ -626,9 +626,9 @@ nav.navbar.navbar-default {
     margin-bottom: 0;
 }
 
-.left_col {
+/*.left_col {
     padding-bottom: 50px;
-}
+}*/
 
 /*.main_container {
          min-height: 100%;
@@ -776,9 +776,11 @@ button.btn.btn-primary {
         position: relative;
         padding-top: 2em;
         margin-left: -10px;
+        margin-bottom: 20px;
         padding-bottom: 50px;
 
         border-left: 1px solid;
+        border-right: 0px;
         -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
         -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
         -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
@@ -823,6 +825,10 @@ button.btn.btn-primary {
         padding-right: 0;
     }
 
+    .container_content {
+        padding-top: 10px;
+    }
+
     .col-md-7.right-column.left_col .row {
         padding-left: 15px;
         padding-right: 15px;
@@ -841,7 +847,7 @@ button.btn.btn-primary {
         width: 100%;
         background-color: rgba(185, 185, 185, 0.3);
         margin-top: 50px;
-        padding-top: 20px;
+        padding-top: 30px;
         padding-bottom: 20px;
     }
 
@@ -857,7 +863,6 @@ button.btn.btn-primary {
 
     .right_col_profile_bottom {
         border-top: 1px solid gray;
-        margin-bottom: -50px;
     }
 
     .alert {
@@ -1051,7 +1056,7 @@ button.btn.btn-primary {
     }
 
     .tabs {
-        padding-top: 2px;
+        /*padding-top: 2px;*/
         border-top: none !important;
         border-bottom: 0;
         background-size: 100% 1px;
@@ -1138,6 +1143,18 @@ button.btn.btn-primary {
     .mobile-icon-profile.col-xs-2.col-sm-2.hidden-md.hidden-lg {
         margin-top: 22px;
     }
+}
+
+@media (min-width: 992px) {
+    .container_content {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .left_col {margin-bottom: 80px}
 }
 
 

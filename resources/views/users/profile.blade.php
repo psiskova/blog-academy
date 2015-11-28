@@ -8,7 +8,7 @@
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="container-fluid row text-justify container_content">
         <div class="col-sm-3 col-sm-push-7  col-md-3 col-md-offset-1 right_col">
-            <div class="right_col_profile right_col_profile_top mobile_profile">
+            <div class="right_col_profile mobile_profile">
                 <div class="pencil"></div>
                 <div class="text-center">
                     {!! HTML::profilePicture($user, 120, 120) !!}

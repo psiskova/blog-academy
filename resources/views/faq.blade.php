@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 push">
+        <div class="col-md-8 col-md-offset-2 push container_content">
             <h1>FAQ</h1>
         </div>
     </div>
