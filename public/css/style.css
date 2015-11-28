@@ -394,12 +394,17 @@ img.discussion-profile {
 .mobile-icon-profile {
     margin-top: 2px;
     text-align: right;
+    padding-right: 60px;
 }
 
 .btn-ba-style, .btn-primary {
     background-color: #803a76;
     color: white;
     border: none;
+}
+
+.auth-padding-fix {
+    padding-right: 0;
 }
 
 .btn-ba-style:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus, .btn-ba-style:focus, .btn-ba-style:active:focus {
