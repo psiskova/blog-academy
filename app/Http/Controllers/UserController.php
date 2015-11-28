@@ -157,25 +157,39 @@ class UserController extends Controller {
 
                 $ratedArticles = DB::select(DB::raw('
                     select
-                        users.id user_id,
-                        avg(ratings.rating) as rating
-                    from
-                        articles,
-                        participants,
-                        courses,
-                        tasks,
-                        ratings,
-                        users
-                    where
-                        users.id = articles.user_id and
-                        courses.id = ' . $course_id . ' and
-                        tasks.course_id = courses.id and
-                        participants.course_id = courses.id and
-                        articles.task_id = tasks.id and
-                        ratings.text <> \'\' and
-                        ratings.article_id = articles.id
+                      *
+                    from (
+                        select
+                            users.id as user_id,
+                            avg(ratings.rating) as rating
+                        from
+                            articles,
+                            participants,
+                            courses,
+                            tasks,
+                            ratings,
+                            users
+                        where
+                            users.id = articles.user_id and
+                            courses.id = ' . $course_id . ' and
+                            tasks.course_id = courses.id and
+		                    participants.user_id = users.id and
+                            participants.course_id = courses.id and
+                            articles.task_id = tasks.id and
+                            ratings.text <> \'\' and
+                            ratings.article_id = articles.id
+                        union
+                            select
+                              participants.user_id as user_id,
+                              0 as rating
+                            from
+                              participants
+                            where
+                              participants.course_id =  ' . $course_id . ' and
+                              participants.state = 2
+                    ) t
                     group by
-                      users.id'));
+                      user_id'));
             }
         } else {
             $unratedArticles = [];
