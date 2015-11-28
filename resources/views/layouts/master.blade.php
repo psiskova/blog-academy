@@ -126,7 +126,7 @@
                                 @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
                                     {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
                                 @else
-                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Moje predmety', 'ion-university') !!}
+                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Moje predmety', 'ion-university', ['TaskController@getCreate', 'CourseController@getCreate']) !!}
                                 @endif
                             </li>
                             <li class="col-md-2 color-nav-select">
