@@ -1161,7 +1161,7 @@ button.btn.btn-primary {
 
     .left_col {
         margin-bottom: 80px;
-        padding-bottom:40px;
+        padding-bottom: 40px;
     }
 
     .push {
@@ -1173,43 +1173,43 @@ button.btn.btn-primary {
         width: inherit;
     }
 
-/*  .separator1 {                                                     1
-        margin-bottom: 10px;
-        height: 12px;
-        border: 0;
-        box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
-    }
-
-
-        .separator2 {
+    /*  .separator1 {                                                     1
             margin-bottom: 10px;
+            height: 12px;
             border: 0;
-            border-bottom: 1px dashed #ccc;
-            background: #999;
+            box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
         }
 
-        .separator3 {
-            display: block;
-            content: "";
-            height: 30px;
-            margin-top: -31px;
-            margin-bottom: 10px;
-            border-style: solid;
-            border-color: rgba(147, 147, 147, 0.47);
-            border-width: 0 0 1px 0;
-            border-radius: 20px;
-        }
 
-         .separator5 {
-            margin-bottom: 10px;
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
-        }
+            .separator2 {
+                margin-bottom: 10px;
+                border: 0;
+                border-bottom: 1px dashed #ccc;
+                background: #999;
+            }
 
-         .separator6 {
-            height: 50px;
-        }  */
+            .separator3 {
+                display: block;
+                content: "";
+                height: 30px;
+                margin-top: -31px;
+                margin-bottom: 10px;
+                border-style: solid;
+                border-color: rgba(147, 147, 147, 0.47);
+                border-width: 0 0 1px 0;
+                border-radius: 20px;
+            }
+
+             .separator5 {
+                margin-bottom: 10px;
+                border: 0;
+                height: 1px;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
+            }
+
+             .separator6 {
+                height: 50px;
+            }  */
     .separator {
         margin-bottom: 10px;
         border: 0;
@@ -1229,4 +1229,8 @@ button.btn.btn-primary {
     margin-right: 2px;
     margin-left: 2px;
     margin-bottom: 3px;
+}
+
+.rating-gly-star, .rating-gly-star .rating-stars:before {
+    padding-left: 0;
 }
