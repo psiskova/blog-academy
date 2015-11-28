@@ -722,11 +722,17 @@ button.btn.btn-primary {
         padding: 0;
         margin-right: 0;
     }
+
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
     .right-column {
         padding-left: 64px;
+    }
+
+    .h3, h3 {
+        font-size: 18px;
+        font-weight: normal;
     }
 }
 
@@ -966,7 +972,7 @@ button.btn.btn-primary {
 
     .h3, h3 {
         font-size: 18px;
-        font-weight: bold;
+        font-weight: normal;
     }
 
     .row-header {
@@ -1134,12 +1140,6 @@ button.btn.btn-primary {
 
     .navbar-form .form-group {
         vertical-align: inherit;
-    }
-
-    .h3, h3 {
-        font-size: 24px;
-        font-weight: normal;
-
     }
 
     .search-form-group {
