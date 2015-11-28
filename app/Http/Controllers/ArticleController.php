@@ -32,11 +32,12 @@ class ArticleController extends Controller {
     }
 
     public function getShow($id) {
-        $article = Article::
-        findBySlugOrId($id);
+        $article = Article::findBySlugOrId($id);
+        $discussions = $article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get();
 
         return view('articles.show', [
-            'article' => $article
+            'article' => $article,
+            'discussions' => $discussions
         ]);
     }
 

@@ -24,7 +24,9 @@
                    data-show-Caption="false" data-show-Clear="false">
         @endif
 
-        <h3>Diskusia k článku</h3>
+        @if(Auth::check() or $discussions->count()>0)
+            <h3>Diskusia k článku</h3>
+        @endif
         @if(Auth::check())
             {!! Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method'=>'post']) !!}
                 {!! Form::hidden('article_id', $article->id) !!}
@@ -36,10 +38,10 @@
             {!! Form::close() !!}
         @endif
 
-        @forelse($article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get() as $discussion)
+        @forelse($discussions as $discussion)
             {!! HTML::discussion($discussion, $article->id) !!}
         @empty
-            Žiadny diskusný príspevok. Buďte prvý!
+            @if(Auth::check()) Žiadny diskusný príspevok. Buďte prvý!@endif
         @endforelse
     </div>
 @stop
