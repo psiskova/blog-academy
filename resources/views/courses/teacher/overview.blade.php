@@ -39,6 +39,8 @@
 @section('right')
     <div class="row">
         {!! link_to_action('CourseController@getCreate', 'Pridať predmet') !!}
+        <br>
+        {!! link_to_action('TaskController@getCreate', 'Vytvoriť zadanie') !!}
     </div>
 @stop
 @else
