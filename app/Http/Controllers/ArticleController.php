@@ -184,8 +184,20 @@ class ArticleController extends Controller {
     }
 
     public function postRate(Request $request) {
+
         $input = $request->only(['text', 'rating', 'article_id']);
         $input['user_id'] = Auth::id();
+
+        if (!trim(strip_tags($input['text']))) {
+            flash()->error('Nevyplnený text');
+
+            return redirect()->back()->withInput($input);
+        }
+        if($input['rating'] == 0){
+            flash()->error('Nevyplnené hodnotenie');
+
+            return redirect()->back()->withInput($input);
+        }
 
         if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
             $rating->update($input);
@@ -193,8 +205,7 @@ class ArticleController extends Controller {
             Rating::create($input);
         }
 
-        return response()->json([
-            'status' => 'success'
-        ]);
+        flash()->success('Článok bol ohodnotený');
+        return redirect(URL::action('UserController@getGrading', ['id' => Auth::id()]));
     }
 }

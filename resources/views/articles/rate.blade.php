@@ -29,11 +29,12 @@
         <h1> Ohodnotiť článok </h1>
         <!-- Grading controller -->
         {!! Form::open(['url' => action('ArticleController@postRate'), 'method' => 'post', 'class'=>'form-horizontal clearfix']) !!}
-        {!! Form::hidden('id', $article->id) !!}
+        {!! Form::hidden('article_id', $article->id) !!}
+        <textarea name="text" id="text" style="display: none"></textarea>
         <div class="form-group">
             <label for="grades">Hodnotenie:</label>
             <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="sm"
-                   data-show-Caption="false" data-show-Clear="false">
+                   data-show-Caption="false" data-show-Clear="false" name="rating" value="{!! old('rating') !!}">
         </div>
         <div class="form-group">
             <label for="summernote" class="control-label">Text hodnotenia</label>
@@ -41,7 +42,7 @@
             <div>
                 <br>
 
-                <div id="summernote"></div>
+                <div id="summernote">{!! old('text') !!}</div>
             </div>
         </div>
         <div class="form-group">

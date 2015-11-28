@@ -112,7 +112,7 @@ class Article extends Model implements SluggableInterface {
     }
 
     public function getAverageRatingAttribute() {
-        $rating = Rating::where('article_id', '=', $this->id)->where('text', '=', '')->avg('rating');
+        $rating = Rating::where('article_id', '=', $this->id)->avg('rating');
         if (!$rating) {
             $rating = 0;
         }
