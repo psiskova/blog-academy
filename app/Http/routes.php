@@ -101,3 +101,4 @@ Route::controller('discussion', DiscussionController::class);
 Route::controller('course', CourseController::class);
 Route::controller('user', UserController::class);
 Route::controller('search', SearchController::class);
+Route::controller('task', TaskController::class);
