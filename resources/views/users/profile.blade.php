@@ -7,8 +7,8 @@
 @section('content')
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="container-fluid row text-justify container_content">
-        <div class="col-sm-3 col-sm-push-7  col-md-3 col-md-offset-1 right_col">
-            <div class="right_col_profile mobile_profile">
+        <div class="col-md-3 col-md-push-7 col-md-offset-1 right_col">
+            <div class="right_col_profile right_col_profile_top mobile_profile">
                 <div class="pencil"></div>
                 <div class="text-center">
                     {!! HTML::profilePicture($user, 120, 120) !!}
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="col-sm-7 col-sm-pull-4 col-md-7 right-column left_col">
+        <div class="col-md-7 col-md-pull-4 right-column left_col">
             {{--TODO: asi všetky vlastné články--}}
             <div class="row">
                 <h1>Publikované články</h1>

@@ -47,19 +47,5 @@
 @stop
 
 @section('right')
-    <div class="row">
-        <div class="right_col_profile right_col_profile_bottom text-center mobile_profile">
-            {{--<img src="{{ url($user->image) }}">--}}
-            {!! HTML::profilePicture($article->user, 120, 120) !!}
-            <h4>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}  </h4>
-
-            <p>{{ $article->user->email }}</p>
-
-            <p>{!! link_to_action('UserController@getProfile', 'publikované články ('.$article->user->articles()->published()->count().')', ['user_id' => $article->user->slug]) !!}</p>
-        </div>
-        {{--{!! link_to_action('**TODO presmerovanie', 'publikované články('.**TODO pocet.')',['user_id' => $article->slug]) !!} --}}
-        {{--@foreach($article->user->articles as $art)
-            <p>{!! link_to_action('ArticleController@getShow', 'b' , ['user_id' => $art->slug]) !!}</p>
-        @endforeach--}}
-    </div>
+    @include('users.rightmenu', ['user' => Auth::user()])
 @stop

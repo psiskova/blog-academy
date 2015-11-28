@@ -8,6 +8,7 @@
             @if(Auth::check() && $user->id == Auth::id())
                 <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
                 <div class = "separator"></div>
+                <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
                 {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}
                 <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>
                 {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
