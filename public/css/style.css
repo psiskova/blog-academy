@@ -32,9 +32,6 @@ html {
 .main_container {
     min-height: 100%;
     overflow: hidden;
-    /*padding-bottom: 50px;*/
-    /*    height: auto !important;
-        height: 100%;*/
 }
 
 .navbar {
@@ -45,10 +42,6 @@ html {
     border-top-left-radius: 0;
     border-top-right-radius: 0
 }
-
-/*.left_col {
-    border-right: 1px solid black;
-}*/
 
 .articles_list {
     border-bottom: 1px solid #bbbbbb;
@@ -91,7 +84,6 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 -10px 180px -10px;
-
     border-width: 1px;
     border-style: solid;
     -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
@@ -157,15 +149,6 @@ html {
 .top_user_3 {
     background-image: url('/img/topuser_background3.png');
 }
-
-/*footer {
-    bottom: 0;
-    height: 60px;
-    color: #ffffff;
-    background-color: #18222c;
-    padding: 20px 0;
-    z-index: 50;
-}*/
 
 .center_elements {
     margin: 0 auto;
@@ -489,7 +472,6 @@ textarea.reply {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-
 }
 
 .hidden-btn {
@@ -620,16 +602,6 @@ a.tab-item {
 nav.navbar.navbar-default {
     margin-bottom: 0;
 }
-
-/*.left_col {
-    padding-bottom: 50px;
-}*/
-
-/*.main_container {
-         min-height: 100%;
-         overflow: hidden;
-         margin-bottom: 60px;
-     }*/
 
 .vertical-login-separator {
     border-left: 1px solid red;
@@ -773,13 +745,13 @@ button.btn.btn-primary {
             background-image: -o-linear-gradient(transparent, #9a9a9a);
             z-index: -2;
         }*/
+
     .right_col_profile {
         position: relative;
-        padding-top: 2em;
-        margin-left: -10px;
         margin-bottom: 80px;
+        margin-left: -10px;
+        padding-top: 2em;
         padding-bottom: 50px;
-
         border-left: 1px solid;
         border-right: 0px;
         -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
@@ -790,7 +762,6 @@ button.btn.btn-primary {
         background-position: left bottom;
         background-image: url('/img/ceruzka.png');
         background-repeat: no-repeat;
-
     }
 
     /*   .right_col_profile:before, .right_col_profile:after {
@@ -1067,7 +1038,6 @@ button.btn.btn-primary {
     }
 
     .tabs {
-        /*padding-top: 2px;*/
         border-top: none !important;
         border-bottom: 0;
         background-size: 100% 1px;
