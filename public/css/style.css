@@ -37,7 +37,6 @@ html {
         height: 100%;*/
 }
 
-
 .navbar {
     background: -webkit-linear-gradient(#f2f2f2, #ffffff); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#f2f2f2, #ffffff); /* For Opera 11.1 to 12.0 */
@@ -374,7 +373,7 @@ img.discussion-profile {
     margin-top: 1em;
 }
 
-.discussion-main:last-of-type{
+.discussion-main:last-of-type {
     margin-bottom: 2em;
 }
 
@@ -428,15 +427,15 @@ img.discussion-profile {
 .article-info {
     color: #2eafaf;
     font-size: medium;
-    display: inline-block;
+    display: flex;
 }
 
 .rating-disabled {
-    cursor: default!important;
+    cursor: default !important;
 }
 
 .rating-xs {
-    font-size: 1.25em!important;
+    font-size: 1.25em !important;
 }
 
 a {
@@ -1182,36 +1181,35 @@ button.btn.btn-primary {
     }
 
 
-    .separator2 {
-        margin-bottom: 10px;
-        border: 0;
-        border-bottom: 1px dashed #ccc;
-        background: #999;
-    }
+        .separator2 {
+            margin-bottom: 10px;
+            border: 0;
+            border-bottom: 1px dashed #ccc;
+            background: #999;
+        }
 
-    .separator3 {
-        display: block;
-        content: "";
-        height: 30px;
-        margin-top: -31px;
-        margin-bottom: 10px;
-        border-style: solid;
-        border-color: rgba(147, 147, 147, 0.47);
-        border-width: 0 0 1px 0;
-        border-radius: 20px;
-    }
+        .separator3 {
+            display: block;
+            content: "";
+            height: 30px;
+            margin-top: -31px;
+            margin-bottom: 10px;
+            border-style: solid;
+            border-color: rgba(147, 147, 147, 0.47);
+            border-width: 0 0 1px 0;
+            border-radius: 20px;
+        }
 
-     .separator5 {
-        margin-bottom: 10px;
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
-    }
+         .separator5 {
+            margin-bottom: 10px;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0));
+        }
 
-     .separator6 {
-        height: 50px;
-    }  */
-
+         .separator6 {
+            height: 50px;
+        }  */
     .separator {
         margin-bottom: 10px;
         border: 0;
@@ -1219,12 +1217,16 @@ button.btn.btn-primary {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
     }
 
-
 }
 
+.star-rating {
+    margin-top: -5px !important;
+    font-style: initial !important;
+}
 
-
-
-
-
-
+.divider {
+    border-left: 1px solid rgb(46, 175, 175);
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 3px;
+}

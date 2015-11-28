@@ -10,9 +10,15 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}
-                    | {{$article->updated_at}} | <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
-                                                        data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
+                <span class="article-info">
+                    {!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}
+                    <div class="divider"></div>
+                    {{$article->updated_at}}
+                    <div class="divider"></div>
+                    <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"
+                           data-size="xs"
+                           data-show-Caption="false" data-show-Clear="false"
+                           value="{{ round($article->average_rating) }}">
                 </span><br>
                 {!! HTML::tags($article) !!}
                 {{ str_limit(strip_tags($article->text), 200) }}
@@ -53,8 +59,10 @@
                         {{--*/ $i++ /*--}}
                         {!! HTML::profilePicture($bestUser, 120, 120) !!}
                         <span class="top-user-name">{!! link_to_action('UserController@getProfile', $bestUser->fullname, ['user_id' => $bestUser->slug])!!}</span>
-                        <span class="top-user-count"><input id="input-id-best" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
-                               data-show-Caption="false" data-show-Clear="false" value="{{ round($bestUser->average_rating) }}">
+                        <span class="top-user-count"><input id="input-id-best" type="number" class="rating" min=0 max=5
+                                                            step=1 readonly="true" data-size="xs"
+                                                            data-show-Caption="false" data-show-Clear="false"
+                                                            value="{{ round($bestUser->average_rating) }}">
                         </span>
                     </div><br>
                 @endforeach

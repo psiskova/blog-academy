@@ -7,7 +7,7 @@ HTML::macro('tags', function ($article) {
 
     $result = implode(' ', $collection);
     if ($result != '') {
-        $result = '<span class="article-info">' . $result . '</span><br>';
+        $result = '<span class="article-info" style="display: inline-block">' . $result . '</span><br>';
     }
     return $result;
 });

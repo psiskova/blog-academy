@@ -22,6 +22,7 @@ class RolesMiddleware {
             }
         }
 
+        flash()->error('Nemáte oprávnenie na vykonanie akcie');
         return redirect('/');
     }
 }

@@ -9,12 +9,15 @@
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h3>{{ $article->title }}</h3>
-        <span class="article-info">{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}
-            | {{ $article->updated_at }} |
+        <span class="article-info">
+            {!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}
+            <div class="divider"></div>{{ $article->updated_at }}
+            <div class="divider"></div>
             <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true" data-size="xs"
                    data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
             @if(Auth::check() && (Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) || Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE)))
-                |  <a href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
+                <div class="divider"></div><a
+                        href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
                     nevhodný článok</a>
             @endif
         </span><br>
