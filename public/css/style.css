@@ -689,7 +689,7 @@ button.btn.btn-primary {
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li:hover {
-    background-color: #f1f1f1;
+    background-color: rgba(256,256,256,0.6);
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li a {
@@ -941,7 +941,7 @@ button.btn.btn-primary {
     }
 
     .left-addon input {
-        padding-left: 30px;
+        padding-left: 40px;
     }
 
     .right-addon input {
@@ -959,7 +959,11 @@ button.btn.btn-primary {
     h1 {
         font-size: 23px;
     }
-
+    
+    .logo-col {
+        text-align: center;
+    }
+    
     #ba-logo {
         display: block;
         height: 63px;
@@ -968,6 +972,7 @@ button.btn.btn-primary {
         text-indent: -99999px;
         overflow: hidden;
         margin-top: 10px;
+        display: inline-block;
     }
 
     .h3, h3 {
@@ -976,7 +981,7 @@ button.btn.btn-primary {
     }
 
     .row-header {
-        padding-right: 15px;
+        border-bottom: 5px solid rgba(0,0,0,0.1);
     }
 
     .tabs {
@@ -1009,6 +1014,10 @@ button.btn.btn-primary {
         border-top: 1px solid #b2b2b2;
         background-size: 0;
         line-height: 49px
+    }
+
+    .tab-nav.tabs.hidden-lg.hidden-md {
+        background-color: rgb(228, 228, 228);
     }
 
     .tab-item .icon {
