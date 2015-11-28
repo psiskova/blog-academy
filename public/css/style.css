@@ -635,6 +635,7 @@ button.btn.btn-primary {
 }
 
 .more-dropdown-menu {
+    display: none;
     position: fixed;
     bottom: 47px;
     background-color: rgb(252, 163, 221);
