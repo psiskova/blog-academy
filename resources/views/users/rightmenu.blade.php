@@ -19,7 +19,7 @@
                     <p>{!! link_to_action('CourseController@getCreate', "Vytvoriť predmet ") !!}</p>
                 @endif
             @else
-                <p>Publikované články (počet)</p>
+                <p>Publikované články ({{$user->countPublishedArticles()}})</p>
             @endif
         </div>
 </div>
