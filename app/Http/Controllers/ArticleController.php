@@ -82,15 +82,17 @@ class ArticleController extends Controller {
         }
         ArticleTagMapper::where('article_id', '=', $article->id)->delete();
         foreach ($input['tags'] as $tagName) {
-            if (!($tag = Tag::where('name', '=', $tagName)->first())) {
-                $tag = Tag::create([
-                    'name' => $tagName
+            if ($tagName) {
+                if (!($tag = Tag::where('name', '=', $tagName)->first())) {
+                    $tag = Tag::create([
+                        'name' => $tagName
+                    ]);
+                }
+                ArticleTagMapper::create([
+                    'article_id' => $article->id,
+                    'tag_id' => $tag->id
                 ]);
             }
-            ArticleTagMapper::create([
-                'article_id' => $article->id,
-                'tag_id' => $tag->id
-            ]);
         }
 
         if ($request->ajax()) {

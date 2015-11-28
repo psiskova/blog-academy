@@ -65,6 +65,11 @@ $(document).ready(function () {
         return false;
     });
 
+    $('input[type=submit][value=Odoslať]').on('click', function () {
+
+        $('#area').text($('#summernote').code());
+    });
+
     $('#trash').on('click', function () {
         deleteArticleRequest();
 
@@ -76,5 +81,5 @@ $(document).ready(function () {
     } else {
         initSummernote('');
     }
-    $('#area').remove();
+    $('#area').hide();
 });

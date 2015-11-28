@@ -55,29 +55,12 @@ class UserController extends Controller {
      */
     public function getProfile($id) {
         $user = User::findBySlugOrIdOrFail($id);
-        $articles = $user->articles()->published()->get();
+        $articles = $user->articles()->published()->orderBy('updated_at', 'DESC')->get();
 
         return view('users.profile', [
             'user' => $user,
             'articles' => $articles
         ]);
-    }
-
-    /**
-     * Responds to requests to GET /user/admin-profile
-     */
-    public function getAdminProfile() {
-
-        return view('welcome');
-    }
-
-    /**
-     * Responds to requests to POST /user/profile
-     *
-     * @param Request $r
-     */
-    public function postProfile(Request $r) {
-        dd($r->all());
     }
 
     /**
