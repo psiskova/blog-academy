@@ -40,24 +40,30 @@
                     @foreach($participants as $participant)
                         <tr class="row">
                             <td class="border_right col-xs-6">{{ $participant->user->fullname }}</td>
-                            <td class="col-xs-6 text-center">
-                                @if($participant->state == \App\Models\Participant::ACCEPTED)
+                            @if($participant->state == \App\Models\Participant::ACCEPTED)
+                                <td class="col-xs-6 text-center table_courses_view_td">
                                     Prihlásený
-                                @endif
-                                @if($participant->state == \App\Models\Participant::REJECTED)
+                                </td>
+                            @endif
+                            @if($participant->state == \App\Models\Participant::REJECTED)
+                                <td class="col-xs-6 text-center table_courses_view_td">
                                     Odmietnutý
-                                @endif
-                                @if($participant->state == \App\Models\Participant::PENDING)
+                                </td>
+                            @endif
+                            @if($participant->state == \App\Models\Participant::PENDING)
+                                <td class="col-xs-6 text-center table_courses_view_button">
                                     <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
                                             data-value="{{  \App\Models\Participant::ACCEPTED }}">
                                         Prihlásiť
                                     </button>
+                                </td>
+                                <td class="col-xs-6 text-center table_courses_view_button">
                                     <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
                                             data-value="{{  \App\Models\Participant::REJECTED }}">
                                         Odmietnuť
                                     </button>
-                                @endif
-                            </td>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
