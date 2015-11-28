@@ -18,6 +18,8 @@
                 @else
                     <p>{!! link_to_action('CourseController@getCreate', "Vytvoriť predmet ") !!}</p>
                 @endif
+            @else
+                <p>Publikované články (počet)</p>
             @endif
         </div>
 </div>
