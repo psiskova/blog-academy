@@ -54,10 +54,8 @@
                                 <td class="col-xs-6 text-center table_courses_view_button">
                                     <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
                                             data-value="{{  \App\Models\Participant::ACCEPTED }}">
-                                        Prihlásiť
+                                        Potvrdiť
                                     </button>
-                                </td>
-                                <td class="col-xs-6 text-center table_courses_view_button">
                                     <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
                                             data-value="{{  \App\Models\Participant::REJECTED }}">
                                         Odmietnuť
