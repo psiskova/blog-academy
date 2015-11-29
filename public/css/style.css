@@ -1263,3 +1263,8 @@ button.btn.btn-primary {
 .table_not_grading_teacher, .table_not_grading_student, .table_grades, .table_grades {
     text-align: left;
 }
+
+.lr-margin-clear-fix {
+    margin-left:0;
+    margin-right: 0;
+}
