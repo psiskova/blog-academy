@@ -46,7 +46,6 @@ html {
 
 .articles_list {
     border-bottom: 1px solid #bbbbbb;
-    padding-bottom: 20px;
 }
 
 .side_tabs {
@@ -939,6 +938,7 @@ button.btn.btn-primary {
 
     h1 {
         font-size: 23px;
+        margin-bottom: 20px;
     }
 
     
@@ -1079,6 +1079,12 @@ button.btn.btn-primary {
     .ion-android-person {
         margin-top: 10px;
     }
+
+    .articles_list {
+        padding-bottom: 5px;
+        margin-bottom: -5px;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -1198,6 +1204,10 @@ button.btn.btn-primary {
         padding: 3px 6px !important;
     }
 
+    .articles_list {
+        padding-bottom: 20px;
+    }
+
 }
 
 .star-rating {
@@ -1207,7 +1217,7 @@ button.btn.btn-primary {
 
 .divider {
     border-left: 1px solid rgb(46, 175, 175);
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .rating-gly-star, .rating-gly-star .rating-stars:before {
