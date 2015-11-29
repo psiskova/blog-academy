@@ -14,7 +14,7 @@ HTML::macro('discussion', function ($discussion, $article_id) {
                         <span class="reply-link pull-right">
                             <a onclick="resizeArea(' . $discussion->id . ')" name="reply">Odpovedať</a>';
         if (Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) || Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE)) {
-            $result .= ' <a href="' . action('DiscussionController@getDelete', ['id' => $discussion->id]) . '" style="color:red">Zmazať nevhodný komentár</a>';
+            $result .= '<br> <a href="' . action('DiscussionController@getDelete', ['id' => $discussion->id]) . '" style="color:red">Zmazať nevhodný komentár</a>';
         }
         $result .=
             '</span>'

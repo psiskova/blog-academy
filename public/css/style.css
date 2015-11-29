@@ -373,7 +373,7 @@ img.discussion-profile {
     font-weight: bold;
     font-size: large;
     display: inline-block;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.05);*/
     width: 100%;
 }
 
@@ -1262,6 +1262,10 @@ button.btn.btn-primary {
 
 .table_not_grading_teacher, .table_not_grading_student, .table_grades, .table_grades {
     text-align: left;
+}
+
+span.reply-link.pull-right {
+    text-align: right;
 }
 
 .lr-margin-clear-fix {
