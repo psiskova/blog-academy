@@ -140,7 +140,7 @@ class UserController extends Controller {
             ]);
         } else {
 
-            flash()->success('User updated');
+            flash()->success('Užívateľ bol upravený');
             return redirect()->back();
         }
     }

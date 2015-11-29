@@ -152,6 +152,7 @@ class ArticleController extends Controller {
     public function getDelete(Request $request, $id) {
         Article::findBySlugOrId($id)->delete();
 
+        flash()->success('Článok bol úspešne zmazaný');
         return redirect('/');
     }
 
@@ -213,6 +214,11 @@ class ArticleController extends Controller {
 
             return redirect()->back()->withInput($input);
         }
+        if ($input['rating'] < 1 || $input['rating'] > 5) {
+            flash()->error('Nesprávne vyplenené hodnotenie');
+
+            return redirect()->back()->withInput($input);
+        }
 
         if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
             $rating->update($input);
@@ -228,10 +234,12 @@ class ArticleController extends Controller {
         $input = $request->only(['rating', 'article_id']);
         $input['user_id'] = Auth::id();
 
-        if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
-            $rating->update($input);
-        } else {
-            Rating::create($input);
+        if ($input['rating'] > 0 && $input['rating'] < 6) {
+            if ($rating = Rating::where('user_id', '=', $input['user_id'])->where('article_id', '=', $input['article_id'])->first()) {
+                $rating->update($input);
+            } else {
+                Rating::create($input);
+            }
         }
 
         return response()->json([

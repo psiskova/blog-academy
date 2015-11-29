@@ -64,7 +64,7 @@ class CourseController extends Controller {
         $input = $request->only(['year', 'name']);
         $input['user_id'] = Auth::id();
         Course::create($input);
-        flash()->message('Kurz bol vytvorený');
+        flash()->success('Kurz bol vytvorený');
 
         return redirect()->back();
     }

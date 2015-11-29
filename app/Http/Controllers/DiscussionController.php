@@ -39,6 +39,7 @@ class DiscussionController extends Controller {
             return response()->json($discussion);
         } else {
 
+            flash()->success('Príspevok bol pridaný do diskusie');
             return redirect()->back();
         }
     }
@@ -50,6 +51,7 @@ class DiscussionController extends Controller {
         ]);
 
         $discussion->delete();
+        flash()->success('Diskusný príspevok bol úspešne zmazaný');
 
         return redirect()->back();
     }
