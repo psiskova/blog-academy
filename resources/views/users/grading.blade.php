@@ -21,7 +21,7 @@
                             @foreach($unratedArticles as $unratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6 table_not_grading_student_td">{{ $unratedArticle->title }}</td>
-                                    <td class="col-xs-6 table_not_grading_student_button">
+                                    <td class="col-xs-6 table_not_grading_student_button text-center">
                                         <a href="{{ action('ArticleController@getRate', ['id' => $unratedArticle->slug]) }}">
                                             <button type="button" class="btn btn-default">
                                                 Ohodnotiť
@@ -47,7 +47,7 @@
                             @foreach($ratedArticles as $ratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{{ \App\Models\User::find($ratedArticle->user_id)->fullname }}</td>
-                                    <td class="col-xs-6">
+                                    <td class="col-xs-6 text-center">
                                         <input type="number" class="rating" min=0 max=5
                                                step=1 readonly="true" data-size="xs"
                                                data-show-Caption="false" data-show-Clear="false"
@@ -62,7 +62,7 @@
                             @foreach($ratedArticles as $ratedArticle)
                                 <tr class="row">
                                     <td class="border_right col-xs-6">{!! link_to_action('ArticleController@getShow', $ratedArticle->title, ['id' => $ratedArticle->slug]) !!}</td>
-                                    <td class="col-xs-6">
+                                    <td class="col-xs-6  text-center">
                                         <input type="number" class="rating" min=0 max=5
                                                step=1 readonly="true" data-size="xs"
                                                data-show-Caption="false" data-show-Clear="false"

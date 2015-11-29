@@ -167,6 +167,7 @@ html {
     margin: 30px 0;
 }
 
+
 .table_not_grading_student td, .table_grades td, .table_courses_view_td, .table_manage_td, .table_manage th, .table_block_td, .table_block th, .table_not_grading_student_td {
     padding: 15px 10px;
 }
@@ -1215,4 +1216,8 @@ button.btn.btn-primary {
 
 .skuska {
     display: flex;
+}
+
+.table_not_grading_teacher, .table_not_grading_student, .table_grades, .table_grades {
+    text-align: left;
 }
