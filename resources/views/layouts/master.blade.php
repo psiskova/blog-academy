@@ -218,12 +218,12 @@
             @if(Auth::check())
                 <li><a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a></li>
                 @if (!Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
-                    <li><a href="#">Výber predmetu</a></li>
+                    <li><label for="chooseCourse" style="font-weight: normal"><a href="#chooseCourse">Výber predmetu</a></label></li>
                 @endif
                 @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                     <li><a href="{!! URL::action('CourseController@getOverview') !!}">Moje predmety</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
-                    <li><a href="{!! URL::action('CourseController@getOverview') !!}">Zapísať sa</a></li>
+                    <li><a href="{!! URL::action('ArticleController@getCreate') !!}">Pridať článok</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
                     <li><a href="{!! URL::action('ArticleController@getCreate') !!}">Pridať článok</a></li>
                 @endif
@@ -241,6 +241,9 @@
         @if(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
             {!! HTML::tabItem(URL::action('UserController@getManagement'), 'Správa používateľov', 'ion-person-stalker', 'color-nav-addarticle') !!}
             {!! HTML::tabItem(URL::action('UserController@getBlock'), 'Blokovanie používateľov', 'ion-android-alert', 'color-nav-grading') !!}
+        @elseif(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+            {!! HTML::tabItem(URL::action('CourseController@getOverview'), 'Správa predmetov', 'ion-university', 'color-nav-addarticle') !!}
+            {!! HTML::tabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenia', 'ion-ios-star', 'color-nav-grading') !!}
         @else
             {!! HTML::tabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-compose', 'color-nav-addarticle') !!}
             {!! HTML::tabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenia', 'ion-ios-star', 'color-nav-grading') !!}
