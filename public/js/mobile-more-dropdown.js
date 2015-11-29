@@ -21,4 +21,17 @@ $(document).ready(function () {
         $('.more-dropdown-menu').css('right', rt);
         $('.more-dropdown-menu').css('width', rw);
     });
+
 });
+
+var sdd = function (element) {
+    var event;
+    event = document.createEvent('MouseEvents');
+    event.initMouseEvent('mousedown', true, true, window);
+    element.dispatchEvent(event);
+};
+
+window.showdropdown = function () {
+    var dropdown = document.getElementById('chooseCourse');
+    sdd(dropdown);
+};

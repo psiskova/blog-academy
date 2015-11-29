@@ -371,10 +371,19 @@ img.discussion-profile {
 
 .discussion-author-info {
     font-weight: bold;
-    font-size: large;
+    font-size: small;
     display: inline-block;
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.05);*/
     width: 100%;
+}
+
+.discussion-date, .discussion-date:hover {
+    color: #3e3e3e;
+    text-decoration: none;
+    font-style: italic;
+    display: inline-block;
+    padding-left: 0.5em;
+    border-left: 1px solid rgba(0,0,0,0.1);
 }
 
 .discussion-right p {
@@ -1268,7 +1277,7 @@ span.reply-link.pull-right {
     text-align: right;
 }
 
-.lr-margin-clear-fix {
+.form-group.lr-margin-clear-fix {
     margin-left:0;
     margin-right: 0;
 }
