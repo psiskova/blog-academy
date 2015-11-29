@@ -20,10 +20,11 @@
                         <table class="center_elements table-striped table_not_grading_teacher col-xs-12">
                             @foreach($unratedArticles as $unratedArticle)
                                 <tr class="row">
-                                    <td class="border_right col-xs-6">{{ $unratedArticle->title }}</td>
-                                    <td class="col-xs-6">
+                                    <td class="border_right col-xs-6 table_not_grading_student_td">{{ $unratedArticle->title }}</td>
+                                    <td class="col-xs-6 table_not_grading_student_button">
                                         <a href="{{ action('ArticleController@getRate', ['id' => $unratedArticle->slug]) }}">
-                                            <button type="button" class="btn btn-default center-block">Ohodnotiť
+                                            <button type="button" class="btn btn-default">
+                                                Ohodnotiť
                                             </button>
                                         </a>
                                     </td>

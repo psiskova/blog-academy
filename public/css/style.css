@@ -71,7 +71,7 @@ html {
 }
 
 .side_tabs a {
-    float: left;
+    /*float: left;*/
 }
 
 .side_nav > li > a {
@@ -167,11 +167,11 @@ html {
     margin: 30px 0;
 }
 
-.table_not_grading_student td, .table_grades td, .table_courses_view_td, .table_manage_td, .table_manage th, .table_block_td, .table_block th {
+.table_not_grading_student td, .table_grades td, .table_courses_view_td, .table_manage_td, .table_manage th, .table_block_td, .table_block th, .table_not_grading_student_td {
     padding: 15px 10px;
 }
 
-.table_not_grading_teacher td, .table_courses_view_button, .table_manage_button, .table_block_button {
+.table_not_grading_teacher td, .table_courses_view_button, .table_manage_button, .table_block_button, .table_not_grading_student_button {
     padding: 8px 10px;
 }
 
