@@ -902,7 +902,7 @@ button.btn.btn-primary {
     }
 
     input.form-control.typeahead.mobile-search-input:focus {
-        width: 90%;
+        width: 80%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -1094,6 +1094,11 @@ button.btn.btn-primary {
         margin-bottom: -5px;
     }
 
+    form.navbar-form.navbar-right.search-form-header.right-form-pm-fix {
+        padding-right: 0;
+        margin-right: -25px;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -1148,8 +1153,13 @@ button.btn.btn-primary {
     }
 
     .mobile-icon-profile.hidden-md.hidden-lg.right-padding-search-fix {
-        padding-right: 15px;
+        padding-right: 0;
     }
+
+    form.navbar-form.navbar-right.search-form-header.right-padding-form-fix {
+        padding-right: 25px;
+    }
+
 
     input.form-control.typeahead.mobile-search-input {
         margin: 0;
