@@ -14,13 +14,17 @@
             <div class="divider"></div>{{ $article->updated_at }}
             <div class="divider hidden-xs hidden-sm"></div>
             <div class="hidden-xs hidden-sm">
-            <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true" data-size="xs"
-                   data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}"></div>
+                <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true" data-size="xs"
+                       data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
+            </div>
             @if(Auth::check() && (Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) || Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE)))
-
-                <div class="divider hidden-xs hidden-sm"></div><div class="hidden-xs hidden-sm"><a
-                        href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
-                    nevhodný článok</a></div>
+                <div class="divider hidden-xs hidden-sm"></div>
+                <div class="hidden-xs hidden-sm">
+                    <p>
+                        <a href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
+                    nevhodný článok</a>
+                    </p>
+                </div>
             @endif
         </span>
         <div class="hidden-md hidden-lg">
@@ -29,9 +33,8 @@
                    data-show-Caption="false" data-show-Clear="false"
                    value="{{ round($article->average_rating) }}">
             @if(Auth::check() && (Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) || Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE)))
-                <div class="divider"></div><a
-                        href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
-                    nevhodný článok</a>
+                <p><a href="{{ action('ArticleController@getDelete', ['id' => $article->id]) }}" style="color:red">Zmazať
+                    nevhodný článok</a></p>
             @endif
         </div>
 
