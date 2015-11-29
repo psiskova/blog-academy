@@ -919,6 +919,7 @@ button.btn.btn-primary {
 
     .left-addon input {
         padding-left: 40px;
+        padding-right: 40px;
     }
 
     .right-addon input {
