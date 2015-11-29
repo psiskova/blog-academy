@@ -61,10 +61,6 @@
                 <button type="button" class="btn btn-primary" id="trash">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
-
-                <button type="button" class="btn btn-primary" id="insight">
-                    <span class="glyphicon glyphicon-zoom-in"></span>
-                </button>
             </div>
         </div>
         {!! Form::close() !!}
