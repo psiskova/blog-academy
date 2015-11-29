@@ -12,6 +12,9 @@ var initSummernote = function (text) {
         focus: false,
         onChange: function () {
             clearTimeout(timer);
+            if ($(this).code()) {
+                $('#summernote').closest('.form-group').removeClass('has-error');
+            }
             timer = setTimeout(saveArticleRequest, 500);
         }
     }).code(text || '');
@@ -22,37 +25,43 @@ var saveArticleCallback = function (response) {
 };
 
 var saveArticleRequest = function () {
-    if ($('#title').val() && $('#summernote').code()) {
-        $('input[type=submit][value=Uložiť]').attr({
-            'disabled': true
-        });
-        $.ajax({
-            url: laroute.action('ArticleController@postCreate'),
-            method: 'POST',
-            dataType: 'JSON',
-            data: {
-                text: $('#summernote').code(),
-                title: $('#title').val(),
-                tags: $('#tags').val(),
-                action: 'Uložiť',
-                'task_id': $('#task_id').val(),
-                id: $('[name=id]').val()
-            },
-            success: function (response) {
-                $('input[type=submit][value=Uložiť]').attr({
-                    'disabled': false
-                });
-                saveArticleCallback(response);
-            },
-            error: function () {
-                $('input[type=submit][value=Uložiť]').attr({
-                    'disabled': false
-                });
-            }
-        });
-    } else {
+    if (!$('#title').val()) {
+        $('#title').closest('.form-group').addClass('has-error');
 
+        return false;
     }
+    if (!$('#summernote').code()) {
+        $('#summernote').closest('.form-group').addClass('has-error');
+
+        return false;
+    }
+    $('input[type=submit][value=Uložiť]').attr({
+        'disabled': true
+    });
+    $.ajax({
+        url: laroute.action('ArticleController@postCreate'),
+        method: 'POST',
+        dataType: 'JSON',
+        data: {
+            text: $('#summernote').code(),
+            title: $('#title').val(),
+            tags: $('#tags').val(),
+            action: 'Uložiť',
+            'task_id': $('#task_id').val(),
+            id: $('[name=id]').val()
+        },
+        success: function (response) {
+            $('input[type=submit][value=Uložiť]').attr({
+                'disabled': false
+            });
+            saveArticleCallback(response);
+        },
+        error: function () {
+            $('input[type=submit][value=Uložiť]').attr({
+                'disabled': false
+            });
+        }
+    });
 };
 
 var deleteArticleCallback = function (response) {
@@ -95,6 +104,12 @@ $(document).ready(function () {
         $('#area').text($('#summernote').code());
     });
 
+    $('#title').on('keyup', function () {
+        if ($(this).val()) {
+            $(this).closest('.form-group').removeClass('has-error');
+        }
+    });
+
     $('#trash').on('click', function () {
         $(this).attr({
             'disabled': true
@@ -110,5 +125,7 @@ $(document).ready(function () {
     } else {
         initSummernote('');
     }
+
+    $('[rel=tooltip]').tooltip({placement: 'top'});
     $('#area').hide();
 });

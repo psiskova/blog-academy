@@ -25,7 +25,6 @@ html {
     margin-top: 15px;
 }
 
-
 .mobile-icon-profile .ion-android-person:before, .mobile-icon-profile .ion-search {
     color: #803a76;
 }
@@ -165,7 +164,6 @@ html {
 .pagination {
     margin: 30px 0;
 }
-
 
 .table_not_grading_student td, .table_grades td, .table_courses_view_td, .table_manage_td, .table_manage th, .table_block_td, .table_block th, .table_not_grading_student_td {
     padding: 15px 10px;
@@ -383,7 +381,7 @@ img.discussion-profile {
     font-style: italic;
     display: inline-block;
     padding-left: 0.5em;
-    border-left: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .discussion-right p {
@@ -679,7 +677,7 @@ button.btn.btn-primary {
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li:hover {
-    background-color: rgba(256,256,256,0.6);
+    background-color: rgba(256, 256, 256, 0.6);
 }
 
 .tab-nav.tabs .more-dropdown-menu ul li a {
@@ -763,7 +761,6 @@ button.btn.btn-primary {
             background-image: -o-linear-gradient(transparent, #9a9a9a);
             z-index: -2;
         }*/
-
     .right_col_profile {
         position: relative;
         margin-bottom: 80px;
@@ -916,7 +913,7 @@ button.btn.btn-primary {
 
     .inner-addon .icon {
         position: absolute;
-        //padding: 10px;
+    / / padding : 10 px;
         pointer-events: none;
     }
 
@@ -950,7 +947,6 @@ button.btn.btn-primary {
         margin-bottom: 20px;
     }
 
-    
     #ba-logo {
         display: block;
         height: 63px;
@@ -969,7 +965,7 @@ button.btn.btn-primary {
     }
 
     .row-header {
-        border-bottom: 5px solid rgba(0,0,0,0.1);
+        border-bottom: 5px solid rgba(0, 0, 0, 0.1);
     }
 
     .tabs {
@@ -1164,8 +1160,6 @@ button.btn.btn-primary {
         right: 0;
     }
 
-
-
 }
 
 @media (min-width: 768px) {
@@ -1174,10 +1168,9 @@ button.btn.btn-primary {
         margin-top: -14px;
     }
 
-/*    .main-header i.icon.icon-resizer {
-        margin-top: -7px;
-    }*/
-
+    /*    .main-header i.icon.icon-resizer {
+            margin-top: -7px;
+        }*/
     .navbar-form .form-group {
         vertical-align: inherit;
     }
@@ -1278,6 +1271,10 @@ span.reply-link.pull-right {
 }
 
 .form-group.lr-margin-clear-fix {
-    margin-left:0;
+    margin-left: 0;
     margin-right: 0;
+}
+
+.has-error .note-editor {
+    border: 1px solid #a94442 !important;
 }

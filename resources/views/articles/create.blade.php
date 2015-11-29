@@ -18,14 +18,14 @@
         {!! Form::open(['url' => action('ArticleController@postCreate'), 'method' => 'post', 'class'=>'form-horizontal clearfix']) !!}
         {!! Form::hidden('id', isset($article) ? $article->slug : '') !!}
         <div class="form-group">
-            <label for="title" class="col-md-2 control-label">Nadpis</label>
+            <label for="title" class="col-md-2 control-label">Nadpis <i class="ion-help-circled" rel="tooltip" title="Nadpis článku (povinné pole)"></i></label>
 
             <div class="col-md-10">
                 <input type="text" id="title" name="title" class="form-control" value="{{ $article->title or ''}}" autofocus>
             </div>
         </div>
         <div class="form-group">
-            <label for="task_id" class="col-md-2 control-label">Zadanie</label>
+            <label for="task_id" class="col-md-2 control-label">Zadanie <i class="ion-help-circled" rel="tooltip" title="Zvoľte zadanie článku"></i></label>
 
             <div class="col-md-10">
                 <select name="task_id" id="task_id" class="form-control">
@@ -39,14 +39,14 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="tags" class="col-md-2 control-label">Tagy</label>
+            <label for="tags" class="col-md-2 control-label">Tagy <i class="ion-help-circled" rel="tooltip" title="Kľúčové slová pre oddelenie použite Enter"></i></label>
 
             <div class="col-md-10">
                 <input type="text" id="tags" name="tags" class="form-control" data-trimValue="true" data-role="tagsinput" value="{!! $tags or '' !!}">
             </div>
         </div>
         <div class="form-group">
-            <label for="summernote" class="col-md-2 control-label">Text</label>
+            <label for="summernote" class="col-md-2 control-label">Text <i class="ion-help-circled" rel="tooltip" title="Text článku (povinné pole)"></i></label>
 
             <div class="col-md-10">
                 <textarea id="area" name="text">{{ $article->text or ''}}</textarea>
