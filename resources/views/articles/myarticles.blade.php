@@ -14,9 +14,23 @@
                     <span class="article-info"><p>{{ $article->user->fullname }}</p>
                         <div class="divider"></div>
                         {{ $article->updated_at }}
-                        <div class="divider"></div>
-                        <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
-                                 data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}"></span>
+                        <div class="divider hidden-sm hidden-xs"></div>
+                        <div class="hidden-sm hidden-xs">
+                            <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"  data-size="xs"
+                                     data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
+                        </div>
+                    </span>
+                    <div class="hidden-md hidden-lg">
+                        <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly="true"
+                               data-size="xs"
+                               data-show-Caption="false" data-show-Clear="false"
+                               value="{{ round($article->average_rating) }}">
+                    </div>
+                <p>{!! HTML::tags($article) !!}</p>
+                <p>{{ str_limit(strip_tags($article->text), 200) }}</p>
+            </div>
+
+
                 <p>{!! HTML::tags($article) !!}</p>
                 {{ str_limit(strip_tags($article->text), 200) }}
             </div>
