@@ -23,7 +23,7 @@ var initSummernote = function (text) {
 var saveArticleCallback = function (response) {
     $('[name=id]').val(response.id);
     if (response.count) {
-        $('#draft-count').text('Koncepty (' + response.count + ')')
+        $('#draft-count').text('Koncepty (' + response.count + ')');
     }
 };
 
@@ -71,7 +71,9 @@ var saveArticleRequest = function () {
 
 var deleteArticleCallback = function (response) {
     if (response.count) {
-        $('#draft-count').text('Koncepty (' + response.count + ')')
+        $('#draft-count').text('Koncepty (' + response.count + ')');
+    } else {
+        $('#draft-count').text('Koncepty');
     }
 
     $('[name=id]').val('');
