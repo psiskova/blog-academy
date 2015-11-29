@@ -62,6 +62,8 @@ var saveArticleRequest = function () {
             });
         }
     });
+
+    return true;
 };
 
 var deleteArticleCallback = function (response) {
@@ -93,7 +95,13 @@ var deleteArticleRequest = function () {
 $(document).ready(function () {
 
     $('input[type=submit][value=Uložiť]').on('click', function () {
-        saveArticleRequest();
+        if (saveArticleRequest()) {
+            $('#custom-message').removeClass('hidden')
+                .html('<div class="alert alert-success">' +
+                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                '<div id="custom-message-text">Článok bol uložený</div>' +
+                '</div>');
+        }
 
         return false;
     });
@@ -111,11 +119,20 @@ $(document).ready(function () {
     });
 
     $('#trash').on('click', function () {
+        if(!$('[name=id]').val()){
+
+            return false;
+        }
         $(this).attr({
             'disabled': true
         });
         clearTimeout(timer);
         deleteArticleRequest();
+        $('#custom-message').removeClass('hidden')
+            .html('<div class="alert alert-success">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+            '<div id="custom-message-text">Článok bol zmazaný</div>' +
+            '</div>');
 
         return false;
     });

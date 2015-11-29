@@ -190,6 +190,7 @@
 
 
     @include('flash::message')
+    <div class="hidden" id="custom-message"></div>
     @yield('content')
 
 
