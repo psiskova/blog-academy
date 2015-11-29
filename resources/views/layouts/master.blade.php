@@ -56,15 +56,15 @@
                 {!! Form::close() !!}
             </div>
 
-            <div class="skuska pull-right">
-                <div class="mobile-icon-profile hidden-md hidden-lg">
+            <div class="skuska pull-right {{ Auth::check() ? '' : 'symmetric-space' }}">
+                <div class="mobile-icon-profile hidden-md hidden-lg right-padding-search-fix">
                 <!-- MOBILE SEARCH FORM -->
 
                 {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
                 <div class="form-group search-form-group row">
 
                     <div class="inner-addon left-addon">
-                        <i class="icon icon-resizer ion-search "></i>
+                        <i class="icon icon-resizer ion-search"></i>
                         <input type="text" name="search" class="form-control typeahead mobile-search-input"
                                placeholder="Hľadaj" value="{{ $search or '' }}"
                                autocomplete="off">

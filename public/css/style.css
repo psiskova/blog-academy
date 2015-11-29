@@ -996,7 +996,7 @@ button.btn.btn-primary {
     }
 
     .tab-nav.tabs.hidden-lg.hidden-md {
-        background-color: rgb(228, 228, 228);
+        background-color: rgb(102, 46, 94);
     }
 
     .tab-item .icon {
@@ -1080,6 +1080,10 @@ button.btn.btn-primary {
         margin-top: 10px;
     }
 
+    .skuska.symmetric-space {
+        padding-right: 15px;
+    }
+
     .articles_list {
         padding-bottom: 5px;
         margin-bottom: -5px;
@@ -1091,12 +1095,13 @@ button.btn.btn-primary {
 
     input.form-control.typeahead.mobile-search-input {
         margin-bottom: -40px;
-        margin-top: 14px;
+        margin-top: 0;
+        margin-right: 40px;
     }
 
     .inner-addon.left-addon {
-        margin-right: -60px;
-        margin-top: -17px;
+        margin-right: 0;
+        margin-top: -24px;
     }
 
     .form-group {
@@ -1124,8 +1129,33 @@ button.btn.btn-primary {
     }
 
     .inner-addon .icon {
-        top: 2px;
+        top: -4px;
     }
+
+    form.navbar-form.navbar-right.search-form-header {
+        padding: 0 15px;
+        border: none;
+        margin-left: 0;
+    }
+
+    .form-group.search-form-group.row {
+        margin-top: 38px;
+    }
+
+    .mobile-icon-profile.hidden-md.hidden-lg.right-padding-search-fix {
+        padding-right: 15px;
+    }
+
+    input.form-control.typeahead.mobile-search-input {
+        margin: 0;
+    }
+
+    ul.typeahead.dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+
 
 }
 
@@ -1226,6 +1256,8 @@ button.btn.btn-primary {
 
 .skuska {
     display: flex;
+    margin-top: 8px;
+    margin-right: -24px;
 }
 
 .table_not_grading_teacher, .table_not_grading_student, .table_grades, .table_grades {
