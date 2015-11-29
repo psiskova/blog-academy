@@ -32,7 +32,11 @@
                     <a href="{!! URL::action('Auth\AuthController@getRegister') !!}" class="vertical-login-separator">Registrácia</a>
                 @endif
             </div>
-            <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
+
+
+
+
+           <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
                 <a href="{!! url('/') !!}" id="ba-logo"></a>
             </div>
             <div class="col-md-6 hidden-xs hidden-sm">
@@ -51,7 +55,9 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <div class="mobile-icon-profile {{ Auth::check() ? 'col-xs-8 col-sm-8 auth-padding-fix' : 'col-xs-9 col-sm-9' }} hidden-md hidden-lg">
+
+            <div class="skuska pull-right">
+                <div class="mobile-icon-profile hidden-md hidden-lg">
                 <!-- MOBILE SEARCH FORM -->
 
                 {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
@@ -70,12 +76,14 @@
                     <!-- END OF MOBILE SEARCH FORM -->
                 </div>
                 @if(Auth::check())
-                    <div class="mobile-icon-profile col-xs-2 col-sm-2 hidden-md hidden-lg auth-padding-fix">
+                    <div class="mobile-icon-profile hidden-md hidden-lg">
                         <a href="{!! URL::action('UserController@getProfile', Auth::user()->slug) !!}">
                             <i class="icon icon-resizer ion-android-person"></i>
                         </a>
                     </div>
                 @endif
+            </div>
+
             </div>
         </div>
         @if(Auth::check() && !(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE)))
