@@ -221,9 +221,9 @@
                     <li><label for="chooseCourse" style="font-weight: normal"><a href="#chooseCourse">Výber predmetu</a></label></li>
                 @endif
                 @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
-                    <li><a href="{!! URL::action('CourseController@getOverview') !!}">Moje predmety</a></li>
+                    <li><a href="{!! URL::action('ArticleCreate@getCreate') !!}">Pridať článok</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
-                    <li><a href="{!! URL::action('ArticleController@getCreate') !!}">Pridať článok</a></li>
+                    <li><a href="{!! URL::action('CourseController@getOverview') !!}">Zapísať sa</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
                     <li><a href="{!! URL::action('ArticleController@getCreate') !!}">Pridať článok</a></li>
                 @endif
