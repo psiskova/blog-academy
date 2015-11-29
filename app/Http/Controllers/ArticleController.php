@@ -41,18 +41,9 @@ class ArticleController extends Controller {
         ]]);
     }
 
-    /**
-     * Responds to requests to GET /article
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getIndex() {
-
-        return view('articles.index');
-    }
-
     public function getShow($id) {
-        $article = Article::findBySlugOrId($id);
+        $article = Article::findBySlugOrIdOrFail($id);
+
         $discussions = $article->discussions()->whereNull('parent')->orderBy('created_at', 'ASC')->get();
         $rating = null;
         $hodnotenie = Rating::where('article_id', '=', $article->id)->where('text', '<>', '')->first();
@@ -139,7 +130,7 @@ class ArticleController extends Controller {
     public function postDelete(Request $request) {
         if ($request->ajax()) {
             $input = $request->only(['id']);
-            $article = Article::findBySlugOrId($input['id']);
+            $article = Article::findBySlugOrIdOrFail($input['id']);
             ArticleTagMapper::where('article_id', '=', $article->id)->delete();
             $article->delete();
 
@@ -150,7 +141,7 @@ class ArticleController extends Controller {
     }
 
     public function getDelete(Request $request, $id) {
-        Article::findBySlugOrId($id)->delete();
+        Article::findBySlugOrIdOrFail($id)->delete();
 
         flash()->success('Článok bol úspešne zmazaný');
         return redirect('/');
@@ -163,7 +154,14 @@ class ArticleController extends Controller {
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getDraft($id) {
-        if (!$article = Article::findBySlugOrId($id)) {
+        $article = Article::where('user_id', '=', Auth::id())
+            ->where('state', '=', Article::DRAFT)
+            ->where(function ($q) use ($id) {
+                $q->where('slug', '=', $id)
+                    ->orWhere('id', '=', $id);
+            })
+            ->first();
+        if (!$article) {
 
             return redirect()->action('ArticleController@getCreate');
         }

@@ -3,10 +3,12 @@
 namespace App\Exceptions;
 
 use Exception;
+use Flash;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
@@ -41,9 +43,15 @@ class Handler extends ExceptionHandler {
      * @return Response
      */
     public function render($request, Exception $e) {
-
         if (config('app.debug')) {
+
             return $this->renderExceptionWithWhoops($e);
+        } else {
+            if ($e instanceof NotFoundHttpException || $e instanceof ModelNotFoundException) {
+                Flash::error('Neexistujúca stránka. Skontrolujte prosím adresu');
+
+                return redirect('/');
+            }
         }
 
         return parent::render($request, $e);

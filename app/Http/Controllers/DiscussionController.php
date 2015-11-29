@@ -29,7 +29,7 @@ class DiscussionController extends Controller {
 
             return redirect()->back();
         }
-        $input['article_id'] = Article::findBySlugOrId($input['article_id'])->id;
+        $input['article_id'] = Article::findBySlugOrIdOrFail($input['article_id'])->id;
         $input['user_id'] = \Auth::id();
 
         $discussion = Discussion::create($input);
