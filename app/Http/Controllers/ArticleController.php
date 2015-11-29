@@ -109,10 +109,12 @@ class ArticleController extends Controller {
         }
 
         if ($request->ajax()) {
+            $count = Auth::user()->articles()->draft()->count();
 
             return response()->json([
                 'id' => $article->id,
-                'status' => 'success'
+                'status' => 'success',
+                'count' => $count
             ]);
         } else {
 
@@ -134,8 +136,11 @@ class ArticleController extends Controller {
             ArticleTagMapper::where('article_id', '=', $article->id)->delete();
             $article->delete();
 
+            $count = Auth::user()->articles()->draft()->count();
+
             return response()->json([
-                'status' => 'success'
+                'status' => 'success',
+                'count' => $count
             ]);
         }
     }
