@@ -17,12 +17,12 @@
 
         <h3>{{ $article->title }}</h3>
         <span class="article-info">
-            {!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}
+             <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
             <div class="divider"></div>
             {{$article->updated_at}}
             <div class="divider"></div>{{ $article->average_rating }}
-        </span><br>
-        {!! HTML::tags($article) !!}
+        </span>
+        <p>{!! HTML::tags($article) !!}</p>
 
         <p>{!! $article->text !!}</p>
 
