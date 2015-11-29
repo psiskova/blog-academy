@@ -483,17 +483,19 @@ textarea.reply {
     font-weight: bold;
 }
 
+/*
 input:focus {
     outline: none !important;
     border: 1px solid grey;
     box-shadow: 0 0 2px grey;
 }
 
-input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus, select.form-control.course-option:focus, select.form-control.course-option:active:focus, select.form-control.course-option:active, button.btn.btn-default.btn-search:active:focus, button.btn.btn-default.btn-search:focus, select#task_id:active:focus, select#task_id:focus, .bootstrap-tagsinput:active:focus, .bootstrap-tagsinput:focus, select:active:focus, select:focus, button#trash:active:focus, button#trash:focus, *:focus, *:active:focus {
+input:focus, textarea#comment-area:focus, textarea:focus, input.form-control.search-input-mod:focus, input#title:focus, input.form-control:focus, select.form-control.course-option:focus, select.form-control.course-option:active:focus, select.form-control.course-option:active, button.btn.btn-default.btn-search:active:focus, button.btn.btn-default.btn-search:focus, select#task_id:active:focus, select#task_id:focus, .bootstrap-tagsinput:active:focus, .bootstrap-tagsinput:focus, select:active:focus, select:focus, button#trash:active:focus, button#trash:focus, *:focus {
     outline: none !important;
     border: 1px solid grey;
     box-shadow: 0 0 2px grey;
 }
+*/
 
 button.btn.btn-default.btn-search:active, button.btn.btn-default.btn-search:active:focus, button.btn.btn-default.btn-search:focus {
     background-color: #1F1F1F;
