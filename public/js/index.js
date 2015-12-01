@@ -7,6 +7,10 @@ $(document).ready(function () {
     });
 
     $('.course-option').on('change', function () {
+        if (!$(this).val()) {
+
+            return false;
+        }
 
         this.form.submit();
     });
