@@ -36,7 +36,7 @@
 
 
 
-           <div class="{{ Auth::check() ? 'col-xs-2 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
+           <div class="{{ Auth::check() ? 'col-xs-1 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
                 <a href="{!! url('/') !!}" id="ba-logo"></a>
             </div>
             <div class="col-md-6 hidden-xs hidden-sm">
@@ -60,7 +60,7 @@
                 <div class="mobile-icon-profile hidden-md hidden-lg right-padding-search-fix">
                 <!-- MOBILE SEARCH FORM -->
 
-                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
+                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header '.(Auth::check() ? 'right-form-pm-fix' : 'right-padding-form-fix'), 'role'=>'search']) !!}
                 <div class="form-group search-form-group row">
 
                     <div class="inner-addon left-addon">
@@ -190,6 +190,7 @@
 
 
     @include('flash::message')
+    <div class="hidden" id="custom-message"></div>
     @yield('content')
 
 
