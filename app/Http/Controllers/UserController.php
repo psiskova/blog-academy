@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Auth;
 use DB;
+use File;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -236,10 +237,15 @@ class UserController extends Controller {
         return redirect()->action('UserController@getProfile', ['id' => $user->slug]);
     }
 
-    public function getProfileImage($id) {
+    public function getProfileImage($id = null) {
         $filePath = storage_path() . '/' . $id;
 
-        return response()->download($filePath);
+       if(File::exists($filePath)){
+
+           return response()->download($filePath);
+       }
+
+        \App::abort(404);
     }
 
 }
