@@ -44,8 +44,8 @@
                         {!! Form::open(['url' => action('UserController@postBlock'), 'method' => 'post']) !!}
                         <tr class="row">
                             <td class="border_right col-xs-4 table_block_td">{{ $user->fullname }}</td>
-                            <td class="border_right col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok') !!}</td>
-                            <td class="col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove') !!}</td>
+                            <td class="border_right col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok', $user->ban == 0) !!}</td>
+                            <td class="col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove', $user->ban == 1) !!}</td>
                             {!! Form::hidden('id', $user->id) !!}
                         </tr>
                         {!! Form::close() !!}

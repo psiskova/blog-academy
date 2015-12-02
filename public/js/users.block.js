@@ -3,8 +3,8 @@
 var updateUserCallback = function (response) {
     let hidden = $('[name=id][value=' + response.id + ']'),
         tr = $(hidden).closest('tr');
-    $('.disabled', tr).removeClass('disabled');
-    $('[value=' + response.ban + ']', tr).addClass('disabled');
+    $('.disabled', tr).removeClass('disabled').prop('disabled', false);
+    $('[value=' + response.ban + ']', tr).addClass('disabled').prop('disabled', true);
 };
 
 var updateUserRequest = function (data) {
