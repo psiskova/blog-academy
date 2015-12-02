@@ -36,7 +36,7 @@
                             <div class="col-md-offset-4 col-md-6">
                                 <div class="alert alert-danger" role="alert">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <span class="sr-only">Error:</span>File too big. Max size 2048kB.
+                                    <span class="sr-only">Error:</span><div id="error-message"></div>
                                 </div>
                             </div>
                         </div>

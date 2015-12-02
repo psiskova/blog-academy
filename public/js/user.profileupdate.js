@@ -12,6 +12,14 @@ $(document).ready(function () {
             console.log(this.files[0].size / 1024 > 2048);
             if (this.files[0].size / 1024 > 2048) {
                 $('.image-error').removeClass('hidden');
+                $('#error-message').text('Súbor je príliš veľký. Maximálna veľkost 2048kB');
+                $(this).val('');
+
+                return false;
+            }
+            if (!this.files[0].type.match(/image.*/)) {
+                $('.image-error').removeClass('hidden');
+                $('#error-message').text('Nepodporovaný formát súboru');
                 $(this).val('');
 
                 return false;
