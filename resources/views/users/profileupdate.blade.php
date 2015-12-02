@@ -34,9 +34,9 @@
 
                         <div class="form-group image-error hidden" style="margin-bottom: 0">
                             <div class="col-md-offset-4 col-md-6">
-                                <div class="alert alert-danger" role="alert">
+                                <div class="alert alert-danger" role="alert" style="margin: 0 0px 20px 0">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <span class="sr-only">Error:</span><div id="error-message"></div>
+                                    <span class="sr-only">Error:</span><div id="error-message" style="width: initial"></div>
                                 </div>
                             </div>
                         </div>
