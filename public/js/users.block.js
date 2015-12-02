@@ -5,6 +5,11 @@ var updateUserCallback = function (response) {
         tr = $(hidden).closest('tr');
     $('.disabled', tr).removeClass('disabled').prop('disabled', false);
     $('[value=' + response.ban + ']', tr).addClass('disabled').prop('disabled', true);
+    $('#custom-message').removeClass('hidden')
+        .html('<div class="alert alert-success">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+            '<div id="custom-message-text">Užívateľ bol upravený</div>' +
+            '</div>');
 };
 
 var updateUserRequest = function (data) {
