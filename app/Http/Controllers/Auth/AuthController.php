@@ -45,6 +45,12 @@ class AuthController extends Controller {
             'surname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+        ], [
+            'name' => 'Zle vyplnené meno',
+            'surname' => 'Zle vyplnené priezvisko.',
+            'email.email' => 'Email nie je validný.',
+            'password' => 'Minimálna dĺžka je 6 znakov.',
+            'password.confirmed' => 'Heslá sa musia zhodovať.',
         ]);
     }
 
