@@ -46,10 +46,16 @@ class AuthController extends Controller {
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ], [
-            'name' => 'Zle vyplnené meno',
-            'surname' => 'Zle vyplnené priezvisko.',
+            'name.required' => 'Zle vyplnené meno',
+            'name.max' => 'Zle vyplnené meno',
+            'surname.required' => 'Zle vyplnené priezvisko.',
+            'surname.max' => 'Zle vyplnené priezvisko.',
             'email.email' => 'Email nie je validný.',
-            'password' => 'Minimálna dĺžka je 6 znakov.',
+            'email.required' => 'Email nie je validný.',
+            'email.max' => 'Email nie je validný.',
+            'email.unique' => 'Email nie je validný.',
+            'password.required' => 'Minimálna dĺžka hesla je 6 znakov.',
+            'password.min' => 'Minimálna dĺžka hesla je 6 znakov.',
             'password.confirmed' => 'Heslá sa musia zhodovať.',
         ]);
     }
@@ -111,6 +117,12 @@ class AuthController extends Controller {
     public function postLogin(Request $request) {
         $this->validate($request, [
             $this->loginUsername() => 'required', 'password' => 'required',
+        ], [
+            'email.email' => 'Email nie je validný.',
+            'email.required' => 'Email nie je validný.',
+            'email.max' => 'Email nie je validný.',
+            'password.required' => 'Minimálna dĺžka hesla je 6 znakov.',
+            'password.min' => 'Minimálna dĺžka hesla je 6 znakov.',
         ]);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
