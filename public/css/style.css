@@ -669,6 +669,10 @@ button.btn.btn-primary {
     margin: 0;
 }
 
+.tab-nav.tabs .more-dropdown-menu ul li + li {
+    border-top: 1px solid rgba(226, 25, 157, 0.14);
+}
+
 .tab-nav.tabs .more-dropdown-menu ul li {
     list-style: none;
     line-height: 1.5em;
@@ -913,7 +917,7 @@ button.btn.btn-primary {
 
     .inner-addon .icon {
         position: absolute;
-    / / padding : 10 px;
+    / / padding: 10 px;
         pointer-events: none;
     }
 
@@ -1159,7 +1163,6 @@ button.btn.btn-primary {
     form.navbar-form.navbar-right.search-form-header.right-padding-form-fix {
         padding-right: 25px;
     }
-
 
     input.form-control.typeahead.mobile-search-input {
         margin: 0;

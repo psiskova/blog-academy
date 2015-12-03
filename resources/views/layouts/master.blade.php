@@ -34,9 +34,7 @@
             </div>
 
 
-
-
-           <div class="{{ Auth::check() ? 'col-xs-1 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
+            <div class="{{ Auth::check() ? 'col-xs-1 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
                 <a href="{!! url('/') !!}" id="ba-logo"></a>
             </div>
             <div class="col-md-6 hidden-xs hidden-sm">
@@ -58,22 +56,22 @@
 
             <div class="skuska pull-right {{ Auth::check() ? '' : 'symmetric-space' }}">
                 <div class="mobile-icon-profile hidden-md hidden-lg right-padding-search-fix">
-                <!-- MOBILE SEARCH FORM -->
+                    <!-- MOBILE SEARCH FORM -->
 
-                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header '.(Auth::check() ? 'right-form-pm-fix' : 'right-padding-form-fix'), 'role'=>'search']) !!}
-                <div class="form-group search-form-group row">
+                    {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header '.(Auth::check() ? 'right-form-pm-fix' : 'right-padding-form-fix'), 'role'=>'search']) !!}
+                    <div class="form-group search-form-group row">
 
-                    <div class="inner-addon left-addon">
-                        <i class="icon icon-resizer ion-search"></i>
-                        <input type="text" name="search" class="form-control typeahead mobile-search-input"
-                               placeholder="Hľadaj" value="{{ $search or '' }}"
-                               autocomplete="off">
-                    </div>
+                        <div class="inner-addon left-addon">
+                            <i class="icon icon-resizer ion-search"></i>
+                            <input type="text" name="search" class="form-control typeahead mobile-search-input"
+                                   placeholder="Hľadaj" value="{{ $search or '' }}"
+                                   autocomplete="off">
+                        </div>
 
 
                     </div>
                     {!! Form::close() !!}
-                    <!-- END OF MOBILE SEARCH FORM -->
+                            <!-- END OF MOBILE SEARCH FORM -->
                 </div>
                 @if(Auth::check())
                     <div class="mobile-icon-profile hidden-md hidden-lg">
@@ -84,9 +82,9 @@
                 @endif
             </div>
 
-            </div>
         </div>
-        @if(Auth::check() && !(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE)))
+    </div>
+    @if(Auth::check() && !(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE)))
         <div class="hidden-md hidden-lg course-mobile-row">
             {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
             <div class="form-group col-sm-offset-3">
@@ -111,82 +109,82 @@
             </div>
             {!! Form::close() !!}
         </div>
-        @endif
-        <div class="row hidden-xs hidden-sm">
-            <nav class="navbar navbar-default">
-                <!-- Collect the nav links, forms, and other content for toggling  **dektop -->
-                <div class="container-fluid full-nav-width">
-                    @if(Auth::check())
-                        <ul class="nav navbar-nav row col-md-12">
-                            <li class="col-md-2 color-nav-home">
-                                {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
-                            </li>
-                            <li class="col-md-2 color-nav-profile">
-                                {!! HTML::navTabItem(URL::action('UserController@getProfile', Auth::user()->slug), 'Profil', 'ion-android-person') !!}
-                            </li>
-                            <li class="col-md-2 color-nav-addarticle">
-                                {!! HTML::navTabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-edit') !!}
-                            </li>
-                            <li class="{{ Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) ? 'col-md-3' : 'col-md-2' }} color-nav-grading">
-                                @if(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
-                                    {!! HTML::navTabItem(URL::action('UserController@getManagement'), 'Správa používateľov', 'ion-person-stalker') !!}
-                                @else
-                                    {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenie', 'ion-star') !!}
-                                @endif
-                            </li>
-                            <li class="{{ Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) ? 'col-md-3' : 'col-md-2' }} color-nav-course">
-                                @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
-                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
-                                @elseif(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
-                                    {!! HTML::navTabItem(URL::action('UserController@getBlock'), 'Blok používateľov', 'ion-android-alert') !!}
-                                @else
-                                    {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Moje predmety', 'ion-university', ['TaskController@getCreate', 'CourseController@getCreate']) !!}
-                                @endif
-                            </li>
-
-                            @if(!Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
-                                <li class="col-md-2 color-nav-select">
-                                    {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
-                                    <div class="form-group">
-                                        <label for="chooseCourse" class="course-select-label">Výber predmetu:</label>
-                                        <select class="form-control course-option" id="chooseCourse" name="course_id">
-                                            <option value="" style="display:none">Vyber predmet</option>
-                                            @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
-                                                @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
-                                                    <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
-                                                @endforeach
-                                            @else
-                                                @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
-                                                    <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                    {!! Form::close() !!}
-                                </li>
+    @endif
+    <div class="row hidden-xs hidden-sm">
+        <nav class="navbar navbar-default">
+            <!-- Collect the nav links, forms, and other content for toggling  **dektop -->
+            <div class="container-fluid full-nav-width">
+                @if(Auth::check())
+                    <ul class="nav navbar-nav row col-md-12">
+                        <li class="col-md-2 color-nav-home">
+                            {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-profile">
+                            {!! HTML::navTabItem(URL::action('UserController@getProfile', Auth::user()->slug), 'Profil', 'ion-android-person') !!}
+                        </li>
+                        <li class="col-md-2 color-nav-addarticle">
+                            {!! HTML::navTabItem(URL::action('ArticleController@getCreate'), 'Pridať článok', 'ion-edit') !!}
+                        </li>
+                        <li class="{{ Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) ? 'col-md-3' : 'col-md-2' }} color-nav-grading">
+                            @if(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
+                                {!! HTML::navTabItem(URL::action('UserController@getManagement'), 'Správa používateľov', 'ion-person-stalker') !!}
+                            @else
+                                {!! HTML::navTabItem(URL::action('UserController@getGrading', Auth::user()->slug), 'Hodnotenie', 'ion-star') !!}
                             @endif
+                        </li>
+                        <li class="{{ Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE) ? 'col-md-3' : 'col-md-2' }} color-nav-course">
+                            @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
+                                {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Zapísať sa', 'ion-university') !!}
+                            @elseif(Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
+                                {!! HTML::navTabItem(URL::action('UserController@getBlock'), 'Blok používateľov', 'ion-android-alert') !!}
+                            @else
+                                {!! HTML::navTabItem(URL::action('CourseController@getOverview'), 'Moje predmety', 'ion-university', ['TaskController@getCreate', 'CourseController@getCreate']) !!}
+                            @endif
+                        </li>
+
+                        @if(!Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
+                            <li class="col-md-2 color-nav-select">
+                                {!! Form::open(['url' => URL::action('CourseController@postChangeSelectedCourse'), 'class' => 'course-select-form', 'role' => 'form']) !!}
+                                <div class="form-group">
+                                    <label for="chooseCourse" class="course-select-label">Výber predmetu:</label>
+                                    <select class="form-control course-option" id="chooseCourse" name="course_id">
+                                        <option value="" style="display:none">Vyber predmet</option>
+                                        @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
+                                            @foreach(\App\Models\Course::where('user_id', '=', Auth::id())->get() as $course)
+                                                <option value="{{ $course->id }}" {{ (Auth::user()->course && $course->id == Auth::user()->course->id) ? 'selected' : '' }}>{{ $course->name }}</option>
+                                            @endforeach
+                                        @else
+                                            @foreach(\App\Models\Participant::where('user_id', '=', Auth::id())->where('state', '=', \App\Models\Participant::ACCEPTED)->with('course')->get() as $participant)
+                                                <option value="{{ $participant->course->id }}" {{ Auth::user()->course && $participant->course->id == Auth::user()->course->id ? 'selected' : ''}}>{{ $participant->course->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {!! Form::close() !!}
+                            </li>
+                        @endif
 
 
-                        </ul>
-                    @else
-                        <ul class="nav navbar-nav row col-md-12">
-                            <li class="col-md-3 color-nav-home">
-                                {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
-                            </li>
-                            <li class="col-md-3 color-nav-profile">
-                                {!! HTML::navTabItem(url('/about-us'), 'O nás', 'ion-android-person') !!}
-                            </li>
-                            <li class="col-md-3 color-nav-addarticle">
-                                {!! HTML::navTabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-edit') !!}
-                            </li>
-                            <li class="col-md-3 color-nav-grading">
-                                {!! HTML::navTabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-star') !!}
-                            </li>
-                        </ul>
-                    @endif
-                </div>
-            </nav>
-        </div>
+                    </ul>
+                @else
+                    <ul class="nav navbar-nav row col-md-12">
+                        <li class="col-md-3 color-nav-home">
+                            {!! HTML::navTabItem(url('/'), 'Domov', 'ion-home') !!}
+                        </li>
+                        <li class="col-md-3 color-nav-profile">
+                            {!! HTML::navTabItem(url('/about-us'), 'O nás', 'ion-android-person') !!}
+                        </li>
+                        <li class="col-md-3 color-nav-addarticle">
+                            {!! HTML::navTabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-edit') !!}
+                        </li>
+                        <li class="col-md-3 color-nav-grading">
+                            {!! HTML::navTabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-star') !!}
+                        </li>
+                    </ul>
+                @endif
+            </div>
+        </nav>
+    </div>
 
 
     @include('flash::message')
@@ -218,9 +216,6 @@
         <ul>
             @if(Auth::check())
                 <li><a href="{!! URL::action('Auth\AuthController@getLogout') !!}">Odhlásiť</a></li>
-                @if (!Auth::user()->hasRole(\App\Models\User::ADMIN_ROLE))
-                    <li><label for="chooseCourse" style="font-weight: normal"><a href="#chooseCourse" onclick="showdropdown()">Výber predmetu</a></label></li>
-                @endif
                 @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                     <li><a href="{!! URL::action('ArticleController@getCreate') !!}">Pridať článok</a></li>
                 @elseif(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
@@ -253,7 +248,7 @@
         {!! HTML::tabItem(URL::action('Auth\AuthController@getLogin'), 'Prihlásenie', 'ion-log-in', 'color-nav-addarticle') !!}
         {!! HTML::tabItem(URL::action('Auth\AuthController@getRegister'), 'Registrácia', 'ion-person-add', 'color-nav-grading') !!}
     @endif
-    {!! HTML::tabItem('', 'Viac', 'ion-navicon-round', 'color-nav-course') !!}
+    {!! HTML::tabItem('', 'Viac', 'ion-navicon-round', 'color-nav-course', 'more-tab') !!}
 </div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"

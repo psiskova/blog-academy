@@ -65,6 +65,7 @@
                         </tr>
                     @endforeach
                 </table>
+                {!! gettype($participants) != 'array' ? $participants->render() : '' !!}
             </div>
         </div>
     </div>

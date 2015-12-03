@@ -36,7 +36,7 @@ class CourseController extends Controller {
                 'participants' => function ($query) {
                     $query->where('user_id', '=', Auth::id());
                 }
-            ])->orderBy('name')->get();
+            ])->orderBy('name')->paginate(10);
 
             return view('courses.student.overview', [
                 'courses' => $courses
@@ -44,7 +44,7 @@ class CourseController extends Controller {
         } else {
             $course = Auth::user()->course;
             if ($course) {
-                $participants = $course->participants;
+                $participants = $course->participants()->paginate(10);
             } else {
                 $participants = [];
             }
