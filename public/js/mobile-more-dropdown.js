@@ -1,7 +1,7 @@
 'use strict';
 
 var toggleDropdown = function () {
-    $('.more-dropdown-menu').slideToggle('fast');
+    $('.more-dropdown-menu').stop().slideToggle('fast');
 };
 
 $(document).ready(function () {
@@ -31,9 +31,6 @@ $(document).ready(function () {
         if (!$(e.target).hasClass('more-tab') && !$(e.target).closest('.more-dropdown-menu').length) {
             if ($('.more-dropdown-menu').is(':visible')) {
                 toggleDropdown();
-                e.preventDefault();
-
-                return false;
             }
         }
     });
