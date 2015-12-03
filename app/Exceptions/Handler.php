@@ -47,15 +47,17 @@ class Handler extends ExceptionHandler {
 
             return $this->renderExceptionWithWhoops($e);
         } else {
-            if ($e instanceof NotFoundHttpException || $e instanceof ModelNotFoundException) {
+            if (!$request->ajax()) {
+                if ($e instanceof NotFoundHttpException || $e instanceof ModelNotFoundException) {
 
-                Flash::error('Neexistujúca stránka. Skontrolujte prosím adresu');
-            } else {
+                    Flash::error('Neexistujúca stránka. Skontrolujte prosím adresu');
+                } else {
 
-                Flash::error('Myslíš, že si chytrý? My sme chytrejší');
+                    Flash::error('Myslíš, že si chytrý? My sme chytrejší');
+                }
+
+                return redirect('/');
             }
-
-            return redirect('/');
         }
 
         return parent::render($request, $e);
