@@ -51,9 +51,6 @@ class Handler extends ExceptionHandler {
                 if ($e instanceof NotFoundHttpException || $e instanceof ModelNotFoundException) {
 
                     Flash::error('Neexistujúca stránka. Skontrolujte prosím adresu');
-                } else {
-
-                    Flash::error('Myslíš, že si chytrý? My sme chytrejší');
                 }
 
                 return redirect('/');
