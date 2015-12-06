@@ -14,6 +14,5 @@ $(document).ready(function () {
 
         this.form.submit();
     });
-
     $('[rel=tooltip]').tooltip({placement: 'top'});
 });
