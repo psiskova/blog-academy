@@ -2,6 +2,28 @@
 
 $(document).ready(function () {
 
+    $('[type=submit]').on('click', function () {
+        $('#name').closest('.form-group').removeClass('has-error');
+        $('#surname').closest('.form-group').removeClass('has-error');
+        $('#email').closest('.form-group').removeClass('has-error');
+        var error = false;
+
+        if (!$('#name').val()) {
+            error = true;
+            $('#name').closest('.form-group').addClass('has-error');
+        }
+        if (!$('#surname').val()) {
+            error = true;
+            $('#surname').closest('.form-group').addClass('has-error');
+        }
+        if (!$('#email').val()) {
+            error = true;
+            $('#email').closest('.form-group').addClass('has-error');
+        }
+
+        return !error;
+    });
+
     $('#profile_picture').on('click', function () {
         $('[name=image]').click();
     });

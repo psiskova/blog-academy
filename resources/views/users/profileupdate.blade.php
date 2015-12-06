@@ -45,7 +45,7 @@
                             <label class="col-md-4 control-label">Meno  <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše nové meno (povinné pole)"></i></label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name"
+                                <input type="text" class="form-control" name="name" id="name"
                                        value="{{ old('name') ? old('name')  : $user->name  }}">
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <label class="col-md-4 control-label">Priezvisko  <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše nové priezvisko (povinné pole)"></i></label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="surname"
+                                <input type="text" class="form-control" name="surname" id="surname"
                                        value="{{ old('surname') ? old('surname') : $user->surname }}">
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             <label class="col-md-4 control-label">E-Mail  <i class="ion-help-circled" rel="tooltip" title="Nový prihlasovací e-mail (povinné pole)"></i></label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email"
+                                <input type="email" class="form-control" name="email" id="email"
                                        value="{{ old('email') ? old('email') : $user->email }}">
                             </div>
                         </div>
