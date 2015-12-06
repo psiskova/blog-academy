@@ -9,6 +9,7 @@
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h3>{{ $article->title }}</h3>
+        <div class="top_separator"></div>
         <span class="article-info">
             <p>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}</p>
             <div class="divider"></div>{{ $article->updated_at }}
@@ -38,7 +39,7 @@
             @endif
         </div>
 
-        <p>{!! HTML::tags($article) !!}</p>
+        <p class="tagy">{!! HTML::tags($article) !!}</p>
 
         <p>{!! $article->text !!}</p>
     </div>
@@ -47,6 +48,7 @@
             @if($article->user->id == Auth::id())
                 @if($hodnotenie)
                     <h3>Hodnotenie</h3>
+                    <div class="top_separator"></div>
                     <input type="number" class="rating" min=0 max=5 step=1 data-size="sm"
                            data-show-Caption="false" data-show-Clear="false" data-disabled="true"
                            value="{{ $hodnotenie->rating }}">
@@ -64,7 +66,9 @@
 
         @if(Auth::check() or $discussions->count()>0)
             <h3>Diskusia k článku</h3>
+            <div class="top_separator"></div>
         @endif
+
         @if(Auth::check())
             {!! Form::open(['url' => action('DiscussionController@postAddDiscussion'), 'method'=>'post']) !!}
             {!! Form::hidden('article_id', $article->id) !!}

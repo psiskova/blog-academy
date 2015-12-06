@@ -1103,6 +1103,11 @@ button.btn.btn-primary {
         margin-right: -25px;
     }
 
+    .top_separator {
+        margin-bottom: 10px;
+    }
+
+
 }
 
 @media (max-width: 767px) {
@@ -1253,6 +1258,14 @@ button.btn.btn-primary {
         padding-bottom: 20px;
     }
 
+    .top_separator {
+        margin-bottom: 20px;
+    }
+
+    .tagy {
+        margin-bottom: 20px;
+    }
+
 }
 
 .star-rating {
@@ -1290,4 +1303,8 @@ span.reply-link.pull-right {
 
 .has-error .note-editor {
     border: 1px solid #a94442 !important;
+}
+
+.top_separator {
+    border-top: 1px solid #bbbbbb;
 }
