@@ -67,7 +67,7 @@
                 </table>
                 <div class="text-center">
                     {!! gettype($participants) != 'array' ? $participants->render() : '' !!}
-                <div>
+                </div>
             </div>
         </div>
     </div>
