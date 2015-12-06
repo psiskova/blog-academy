@@ -33,10 +33,31 @@
                 </tr>
             @endforeach
         </table>
-        {!! $courses->render() !!}
+        <div class="text-center">
+            {!! $courses->render() !!}
+        </div>
     </div>
 @stop
 
 @section('right')
-    @include('users.rightmenu', ['user' => Auth::user()])
+    <div class="right_col_profile right_col_profile_bottom mobile_profile">
+        <div class="pencil"></div>
+        <div class="text-center">
+            {!! HTML::profilePicture(Auth::user(), 120, 120) !!}
+            <h4>{{ Auth::user()->fullname }}</h4>
+            <p>{{ Auth::user()->email }}</p>
+            @if(Auth::check())
+                <p>{!! link_to_action('UserController@getUpdateProfile', 'Upraviť profil', [])!!}</p>
+                <div class = "separator"></div>
+                <p>{!! link_to_action('ArticleController@getCreate', "Nový článok") !!}</p>
+                {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->published()->count() /*--}}
+                <p>{!! link_to_action('ArticleController@getMyArticles', "Publikované články " . ($count ? ('('.$count.')') : '')) !!}</p>
+                {{--*/ $count = \App\Models\Article::where('user_id', '=', Auth::id())->draft()->count() /*--}}
+                <p>{!! link_to_action('ArticleController@getMyDrafts', "Koncepty " . ($count ? ('('.$count.')') : ''), [], ['id'=>'draft-count']) !!}</p>
+                @if(Auth::user()->hasRole(\App\Models\User::STUDENT_ROLE))
+                    <p>Zapísať sa na predmet</p>
+                @endif
+            @endif
+        </div>
+    </div>
 @stop
