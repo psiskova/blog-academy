@@ -1309,3 +1309,7 @@ span.reply-link.pull-right {
 .top_separator {
     border-top: 1px solid #bbbbbb;
 }
+
+.management_select {
+    padding: 5px 0;
+}

@@ -43,7 +43,7 @@
                         <tr>
                             <td class="border_right table_manage_td col-xs-6">{{ $user->fullname }}</td>
                             <td class="col-xs-6 table_manage_button">
-                                {!! Form::select('role', [\App\Models\User::STUDENT_ROLE => 'Žiak', \App\Models\User::TEACHER_ROLE => 'Učiteľ', \App\Models\User::ADMIN_ROLE => 'Administrátor'], $user->role, ['id' => $user->id, 'class' => 'center-block']) !!}
+                                {!! Form::select('role', [\App\Models\User::STUDENT_ROLE => 'Žiak', \App\Models\User::TEACHER_ROLE => 'Učiteľ', \App\Models\User::ADMIN_ROLE => 'Administrátor'], $user->role, ['id' => $user->id, 'class' => 'center-block management_select']) !!}
                             </td>
                         </tr>
                     @endforeach
