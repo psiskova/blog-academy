@@ -22,7 +22,7 @@
                         {!! Form::open(['url' => '/auth/register', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Meno</label>
+                            <label class="col-md-4 control-label">Meno <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše meno (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Priezvisko</label>
+                            <label class="col-md-4 control-label">Priezvisko <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše priezvisko (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="surname" value="{{ old('surname') }}">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
+                            <label class="col-md-4 control-label">E-Mail <i class="ion-help-circled" rel="tooltip" title="E-mail pod ktorým sa budete prihlasovať (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Heslo</label>
+                            <label class="col-md-4 control-label">Heslo <i class="ion-help-circled" rel="tooltip" title="Heslo s minimálnou dĺžkou 6 (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Zopakujte heslo</label>
+                            <label class="col-md-4 control-label">Zopakujte heslo <i class="ion-help-circled" rel="tooltip" title="Heslá sa musia zhodovať (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password_confirmation">

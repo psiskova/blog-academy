@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Meno</label>
+                            <label class="col-md-4 control-label">Meno  <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše nové meno (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name"
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Priezvisko</label>
+                            <label class="col-md-4 control-label">Priezvisko  <i class="ion-help-circled" rel="tooltip" title="Zadajte Vaše nové priezvisko (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="surname"
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
+                            <label class="col-md-4 control-label">E-Mail  <i class="ion-help-circled" rel="tooltip" title="Nový prihlasovací e-mail (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email"

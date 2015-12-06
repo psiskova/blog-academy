@@ -8,9 +8,9 @@
     {!! HTML::style('css/star-rating.min.css') !!}
     <div class="container-fluid row text-justify container_content">
         <div class="col-md-3 col-md-push-7 col-md-offset-1 right_col">
-            <div class="right_col_profile right_col_profile_top mobile_profile">
+            <div id="movable-bounding" class="right_col_profile right_col_profile_top mobile_profile">
                 <div class="pencil"></div>
-                <div class="text-center">
+                <div id="movable-profile" class="text-center">
                     {!! HTML::profilePicture($user, 120, 120) !!}
                     <h4>{{ $user->fullname }}</h4>
 

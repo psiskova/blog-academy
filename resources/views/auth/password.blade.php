@@ -28,7 +28,7 @@
                         {!! Form::open(['url' => '/password/email', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
+                            <label class="col-md-4 control-label">E-Mail <i class="ion-help-circled" rel="tooltip" title="Prihlasovací e-mail na obnovenie hesla (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Odoslať odkaz na obnovu hesla.
+                                    Odoslať odkaz na obnovu hesla
                                 </button>
                             </div>
                         </div>

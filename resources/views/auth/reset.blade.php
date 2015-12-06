@@ -24,7 +24,7 @@
                         {!! Form::hidden('token', $token) !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
+                            <label class="col-md-4 control-label">E-Mail  <i class="ion-help-circled" rel="tooltip" title="Prihlasovací e-mail (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Heslo</label>
+                            <label class="col-md-4 control-label">Heslo  <i class="ion-help-circled" rel="tooltip" title="Prihlasovacie heslo (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 {!! Form::password('password', ['class' => 'form-control']) !!}
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Zopakujte heslo</label>
+                            <label class="col-md-4 control-label">Zopakujte heslo  <i class="ion-help-circled" rel="tooltip" title="Zhodné prihlasovacie heslo (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}

@@ -24,7 +24,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
+                            <label class="col-md-4 control-label">E-Mail <i class="ion-help-circled" rel="tooltip" title="Prihlasovací e-mail (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Heslo</label>
+                            <label class="col-md-4 control-label">Heslo <i class="ion-help-circled" rel="tooltip" title="Prihlasovacie heslo (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">

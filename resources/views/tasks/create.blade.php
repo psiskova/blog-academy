@@ -55,7 +55,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Názov zadania</label>
+                            <label class="col-md-4 control-label">Názov zadania  <i class="ion-help-circled" rel="tooltip" title="Názov nového zadania pre vybraný predmet (povinné pole)"></i></label>
 
                             <div class="col-md-6">
                                 <input type="name" class="form-control" name="name" value="{{ old('name') }}">

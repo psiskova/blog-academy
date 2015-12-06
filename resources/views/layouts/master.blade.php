@@ -257,6 +257,7 @@
 {!! HTML::script('js/laroute.js') !!}
 <script src="{{ elixir('js/bootstrap-typeahead.min.js') }}"></script>
 <script src="{{ elixir('js/mobile-more-dropdown.js') }}"></script>
+<script src="{{ elixir('js/movableprofile.js') }}"></script>
 <script>
     $(document).ready(function () {
         $.ajaxSetup({

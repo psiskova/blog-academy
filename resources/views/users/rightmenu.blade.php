@@ -1,6 +1,6 @@
-<div class="right_col_profile right_col_profile_bottom mobile_profile">
+<div id="movable-bounding" class="right_col_profile right_col_profile_bottom mobile_profile">
     <div class="pencil"></div>
-    <div class="text-center">
+    <div id="movable-profile" class="text-center">
         {!! HTML::profilePicture($user, 120, 120) !!}
         <h4>{{ $user->fullname }}</h4>
         <p>{{ $user->email }}</p>
@@ -23,4 +23,5 @@
             <p>{!! link_to_action('UserController@getProfile', "Publikované články (" . $user->countPublishedArticles() . ')' , ['user_id' => $article->user->slug]) !!}</p>
         @endif
     </div>
+
 </div>

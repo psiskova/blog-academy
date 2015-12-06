@@ -1273,6 +1273,11 @@ button.btn.btn-primary {
     font-style: initial !important;
 }
 
+.star-rating.rating-sm.rating-active {
+    border-bottom: 1px solid #2EAFAF;
+    padding-bottom: 8px;
+}
+
 .divider {
     border-left: 1px solid rgb(46, 175, 175);
     margin-bottom: 10px;

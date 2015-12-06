@@ -47,14 +47,14 @@
 
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Názov predmetu</label>
+                        <label class="col-md-4 control-label">Názov predmetu  <i class="ion-help-circled" rel="tooltip" title="Názov nového predmetu (povinné pole)"></i></label>
                         <div class="col-md-6">
                             <input type="name" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Rok</label>
+                        <label class="col-md-4 control-label">Rok  <i class="ion-help-circled" rel="tooltip" title="Rok predmetu musí obsahovať len čísla (povinné pole)"></i></label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="year">
