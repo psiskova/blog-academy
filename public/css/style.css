@@ -917,7 +917,6 @@ button.btn.btn-primary {
 
     .inner-addon .icon {
         position: absolute;
-        pointer-events: none;
     }
 
     .left-addon .icon {
@@ -975,15 +974,10 @@ button.btn.btn-primary {
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
-        display: -moz-flex;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-direction: normal;
         -webkit-box-orient: horizontal;
-        -webkit-flex-direction: horizontal;
-        -moz-flex-direction: horizontal;
-        -ms-flex-direction: horizontal;
-        flex-direction: horizontal;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         -webkit-justify-content: center;
