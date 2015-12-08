@@ -16,12 +16,12 @@
                         {{ $article->updated_at }}
                         <div class="divider hidden-xs hidden-sm"></div>
                         <div class="hidden-xs hidden-sm">
-                            <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
+                            <input type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
                                      data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
                         </div>
                     </span>
                     <div class="hidden-md hidden-lg">
-                        <input id="input-id-avg" type="number" class="rating" min=0 max=5 step=1 readonly
+                        <input type="number" class="rating" min=0 max=5 step=1 readonly
                                data-size="xs"
                                data-show-Caption="false" data-show-Clear="false"
                                value="{{ round($article->average_rating) }}">
