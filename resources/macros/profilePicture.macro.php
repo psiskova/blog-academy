@@ -16,5 +16,5 @@ HTML::macro('profilePicture', function ($user, $width, $height, array $attribute
         $height .= 'px';
     }
 
-    return '<img ' . $params . ' onerror="this.src=\'' . asset('img/no_profile_pic.png') . '\'" src="' . action('UserController@getProfileImage', ['id' => $user->profileimage]) . '"style="height: ' . $height . '; width: ' . $width . '">';
+    return '<img ' . $params . ' onerror="this.src=\'' . asset('img/no_profile_pic.png') . '\'" src="' . action('UserController@getProfileImage', ['id' => $user->profileimage]) . '" style="height: ' . $height . '; width: ' . $width . '" alt="' . $user->fullname . '">';
 });
