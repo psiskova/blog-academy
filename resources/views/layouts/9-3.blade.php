@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container-fluid row text-justify container_content">
+    <div class="container-fluid row container_content">
         <div class="col-md-7 right-column left_col">
             @yield('left')
         </div>

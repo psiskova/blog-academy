@@ -1304,3 +1304,12 @@ span.reply-link.pull-right {
 .management_select {
     padding: 5px 0;
 }
+
+section {
+    padding-top: 15px!important;
+}
+
+article p, article ul li {
+    line-height: 180%;
+}
+
