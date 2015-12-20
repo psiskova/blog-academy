@@ -35,21 +35,25 @@
             <div class="row">
                 <h1>Blokovanie používateľov</h1>
                 <table class="center_elements table_block table-striped col-xs-12">
-                    <tr class="row">
-                        <th class="border_right col-xs-4">Meno a priezvisko</th>
-                        <th class="border_right col-xs-4 text-center">Zablokovať</th>
-                        <th class="col-xs-4 text-center">Odblokovať</th>
-                    </tr>
-                    @foreach($users as $user)
-                        {!! Form::open(['url' => action('UserController@postBlock'), 'method' => 'post']) !!}
+                    <thead>
                         <tr class="row">
-                            <td class="border_right col-xs-4 table_block_td">{{ $user->fullname }}</td>
-                            <td class="border_right col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok', $user->ban == 0) !!}</td>
-                            <td class="col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove', $user->ban == 1) !!}</td>
-                            {!! Form::hidden('id', $user->id) !!}
+                            <th class="border_right col-xs-4">Meno a priezvisko</th>
+                            <th class="border_right col-xs-4 text-center">Zablokovať</th>
+                            <th class="col-xs-4 text-center">Odblokovať</th>
                         </tr>
-                        {!! Form::close() !!}
-                    @endforeach
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            {!! Form::open(['url' => action('UserController@postBlock'), 'method' => 'post']) !!}
+                            <tr class="row">
+                                <td class="border_right col-xs-4 table_block_td">{{ $user->fullname }}</td>
+                                <td class="border_right col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 0, 'btn-success center-block'. ($user->ban == 0 ? ' disabled' : ''), 'glyphicon-ok', $user->ban == 0) !!}</td>
+                                <td class="col-xs-4 table_block_button">{!! Form::submitWithIcon('ban', 1, 'btn-danger center-block' . ($user->ban == 1 ? ' disabled' : ''), 'glyphicon-remove', $user->ban == 1) !!}</td>
+                                {!! Form::hidden('id', $user->id) !!}
+                            </tr>
+                            {!! Form::close() !!}
+                        @endforeach
+                    </tbody>
                 </table>
                 <div class="text-center fix1">
                     {!! $users->render() !!}
