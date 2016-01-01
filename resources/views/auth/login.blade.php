@@ -11,7 +11,8 @@
 
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
-                                <strong>Ooops!</strong> Jeden zo vstupov nie je správny.<br><br>
+                                <strong>Ooops!</strong>
+                                <div class="bad-input">Jeden zo vstupov nie je správny.</div>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>

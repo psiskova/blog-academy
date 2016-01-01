@@ -142,11 +142,12 @@ html {
 .top_user_2 {
     background-image: url('/img/topuser_background2.png');
     width: 90%;
-    margin: auto;
+    margin: 10px auto auto;
 }
 
 .top_user_3 {
     background-image: url('/img/topuser_background3.png');
+    margin: 10px auto auto;
 }
 
 .center_elements {
@@ -1343,4 +1344,8 @@ article p, article ul li {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
     color: #454444;
+}
+
+.bad-input{
+    margin-top: 10px;
 }

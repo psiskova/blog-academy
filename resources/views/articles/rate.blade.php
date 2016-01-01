@@ -51,8 +51,6 @@
             <label for="summernote" class="control-label">Text hodnotenia</label>
 
             <div>
-                <br>
-
                 <div id="summernote">{!! old('text') !!}</div>
             </div>
         </div>

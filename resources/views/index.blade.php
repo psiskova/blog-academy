@@ -13,7 +13,7 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <div class="article-info">
+                <d class="article-info">
                     <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
                     <div class="divider"></div>
                     {{$article->updated_at}}
@@ -24,7 +24,7 @@
                                data-show-Caption="false" data-show-Clear="false"
                                value="{{ round($article->average_rating) }}">
                     </div>
-                </div>
+                </d>
                 <div class="hidden-md hidden-lg">
                     <input type="number" class="rating" min=0 max=5 step=1 readonly
                            data-size="xs"
@@ -60,7 +60,7 @@
                         {!! HTML::profilePicture($topUser->user, 120, 120) !!}
                         <span class="top-user-name">{!! link_to_action('UserController@getProfile', $topUser->user->fullname, ['user_id' => $topUser->user->slug])!!}</span>
                         <span class="top-user-count">{{ trans_choice('articles.count', $topUser->user->countPublishedArticles(), ['count' => $topUser->user->countPublishedArticles()]) }}</span>
-                    </div><br>
+                    </div>
                 @endforeach
             </div>
             <div id="tab2" class="tab-pane fade">
@@ -76,7 +76,7 @@
                                    data-show-Caption="false" data-show-Clear="false"
                                    value="{{ round($bestUser->average_rating) }}">
                         </span>
-                    </div><br>
+                    </div>
                 @endforeach
             </div>
         </div>
