@@ -37,33 +37,35 @@
             <div class="row">
                 <h1>Správa predmetu</h1>
                 <table class="center_elements table_courses_view table-striped col-xs-12">
-                    @foreach($participants as $participant)
-                        <tr class="row">
-                            <td class="border_right col-xs-6">{{ $participant->user->fullname }}</td>
-                            @if($participant->state == \App\Models\Participant::ACCEPTED)
-                                <td class="col-xs-6 text-center table_courses_view_td">
-                                    Prihlásený
-                                </td>
-                            @endif
-                            @if($participant->state == \App\Models\Participant::REJECTED)
-                                <td class="col-xs-6 text-center table_courses_view_td">
-                                    Odmietnutý
-                                </td>
-                            @endif
-                            @if($participant->state == \App\Models\Participant::PENDING)
-                                <td class="col-xs-6 text-center table_courses_view_button">
-                                    <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
-                                            data-value="{{  \App\Models\Participant::ACCEPTED }}">
-                                        Potvrdiť
-                                    </button>
-                                    <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
-                                            data-value="{{  \App\Models\Participant::REJECTED }}">
-                                        Odmietnuť
-                                    </button>
-                                </td>
-                            @endif
-                        </tr>
-                    @endforeach
+                    <tbody>
+                        @foreach($participants as $participant)
+                            <tr class="row">
+                                <td class="border_right col-xs-6">{{ $participant->user->fullname }}</td>
+                                @if($participant->state == \App\Models\Participant::ACCEPTED)
+                                    <td class="col-xs-6 text-center table_courses_view_td">
+                                        Prihlásený
+                                    </td>
+                                @endif
+                                @if($participant->state == \App\Models\Participant::REJECTED)
+                                    <td class="col-xs-6 text-center table_courses_view_td">
+                                        Odmietnutý
+                                    </td>
+                                @endif
+                                @if($participant->state == \App\Models\Participant::PENDING)
+                                    <td class="col-xs-6 text-center table_courses_view_button">
+                                        <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                                data-value="{{  \App\Models\Participant::ACCEPTED }}">
+                                            Potvrdiť
+                                        </button>
+                                        <button type="button" class="btn btn-default" data-user="{{ $participant->user_id }}"
+                                                data-value="{{  \App\Models\Participant::REJECTED }}">
+                                            Odmietnuť
+                                        </button>
+                                    </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
                 <div class="text-center">
                     {!! gettype($participants) != 'array' ? $participants->render() : '' !!}

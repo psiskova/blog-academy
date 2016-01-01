@@ -35,18 +35,22 @@
             <div class="row">
                 <h1>Správa používateľských rolí</h1>
                 <table class="center_elements table_manage table-striped col-xs-12">
-                    <tr>
-                        <th class="border_right col-xs-6">Meno a priezvisko</th>
-                        <th class="col-xs-6 text-center">Používateľská rola</th>
-                    </tr>
-                    @foreach($users as $user)
+                    <thead>
                         <tr>
-                            <td class="border_right table_manage_td col-xs-6">{{ $user->fullname }}</td>
-                            <td class="col-xs-6 table_manage_button">
-                                {!! Form::select('role', [\App\Models\User::STUDENT_ROLE => 'Žiak', \App\Models\User::TEACHER_ROLE => 'Učiteľ', \App\Models\User::ADMIN_ROLE => 'Administrátor'], $user->role, ['id' => $user->id, 'class' => 'center-block management_select']) !!}
-                            </td>
+                            <th class="border_right col-xs-6">Meno a priezvisko</th>
+                            <th class="col-xs-6 text-center">Používateľská rola</th>
                         </tr>
-                    @endforeach
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td class="border_right table_manage_td col-xs-6">{{ $user->fullname }}</td>
+                                <td class="col-xs-6 table_manage_button">
+                                    {!! Form::select('role', [\App\Models\User::STUDENT_ROLE => 'Žiak', \App\Models\User::TEACHER_ROLE => 'Učiteľ', \App\Models\User::ADMIN_ROLE => 'Administrátor'], $user->role, ['id' => $user->id, 'class' => 'center-block management_select']) !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
                 <div class="text-center fix1">
                     {!! $users->render() !!}
