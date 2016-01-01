@@ -59,10 +59,10 @@
             </div>
 
             <div class="skuska pull-right {{ Auth::check() ? '' : 'symmetric-space' }}">
-                <div class="mobile-icon-profile hidden-md hidden-lg right-padding-search-fix">
+                <div class="mobile-icon-profile hidden-md hidden-lg right-padding-search-fix" role="search">
                     <!-- MOBILE SEARCH FORM -->
 
-                    {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header '.(Auth::check() ? 'right-form-pm-fix' : 'right-padding-form-fix'), 'role'=>'search']) !!}
+                    {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header '.(Auth::check() ? 'right-form-pm-fix' : 'right-padding-form-fix')]) !!}
                     <div class="form-group search-form-group row">
 
                         <div class="inner-addon left-addon">
