@@ -13,7 +13,7 @@
         @foreach($articles as $article)
             <div class="articles_list">
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                <span class="article-info">
+                <div class="article-info">
                     <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
                     <div class="divider"></div>
                     {{$article->updated_at}}
@@ -24,7 +24,7 @@
                                data-show-Caption="false" data-show-Clear="false"
                                value="{{ round($article->average_rating) }}">
                     </div>
-                </span>
+                </div>
                 <div class="hidden-md hidden-lg">
                     <input type="number" class="rating" min=0 max=5 step=1 readonly
                            data-size="xs"
