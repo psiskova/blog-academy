@@ -1306,10 +1306,13 @@ span.reply-link.pull-right {
 }
 
 section {
-    padding-top: 15px!important;
+    padding-top: 15px !important;
 }
 
 article p, article ul li {
     line-height: 180%;
 }
 
+.red {
+    color: red;
+}
