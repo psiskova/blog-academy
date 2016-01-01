@@ -128,6 +128,7 @@ html {
     width: 100%;
     height: 235px;
     padding-top: 2em;
+    margin-bottom: 10px !important;
 }
 
 .top_user_1 img, .top_user_2 img, .top_user_3 img {
@@ -142,12 +143,12 @@ html {
 .top_user_2 {
     background-image: url('/img/topuser_background2.png');
     width: 90%;
-    margin: 10px auto auto;
+    margin: auto;
 }
 
 .top_user_3 {
     background-image: url('/img/topuser_background3.png');
-    margin: 10px auto auto;
+    margin: auto;
 }
 
 .center_elements {
@@ -1346,6 +1347,6 @@ article p, article ul li {
     color: #454444;
 }
 
-.bad-input{
+.bad-input {
     margin-top: 10px;
 }
