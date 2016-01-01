@@ -1,11 +1,14 @@
 @extends('layouts/9-3')
 
+@section('header')
+    {!! HTML::style('css/star-rating.min.css') !!}
+@stop
+
 @section('scripts')
     <script src="{{ elixir('js/star-rating.min.js') }}"></script>
 @stop
 
 @section('left')
-    {!! HTML::style('css/star-rating.min.css') !!}
     <div class="row">
         <h1>Hodnotenie</h1>
 

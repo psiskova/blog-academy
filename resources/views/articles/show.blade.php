@@ -1,12 +1,15 @@
 @extends('layouts.9-3')
 
+@section('header')
+    {!! HTML::style('css/star-rating.min.css') !!}
+@stop
+
 @section('scripts')
     <script src="{{ elixir('js/star-rating.min.js') }}"></script>
     <script src="{{ elixir('js/article.show.js') }}"></script>
 @stop
 
 @section('left')
-    {!! HTML::style('css/star-rating.min.css') !!}
     <article class="row">
         <header>
             <h2>{{ $article->title }}</h2>

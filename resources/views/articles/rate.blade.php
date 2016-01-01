@@ -1,5 +1,11 @@
 @extends('layouts.9-3')
 
+@section('header')
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    {!! HTML::style('css/summernote.css') !!}
+    {!! HTML::style('css/star-rating.min.css') !!}
+@stop
+
 @section('scripts')
     <script src="{{ elixir('js/summernote.min.js') }}"></script>
     <script src="{{ elixir('js/bootstrap-tagsinput.min.js') }}"></script>
@@ -8,11 +14,6 @@
 @stop
 
 @section('left')
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-    {!! HTML::style('css/summernote.css') !!}
-    {!! HTML::style('css/star-rating.min.css') !!}
-
-
     <div class="row">
 
         <h3>{{ $article->title }}</h3>
