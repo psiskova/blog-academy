@@ -41,8 +41,8 @@
             <div class="{{ Auth::check() ? 'col-xs-1 col-sm-2' : 'col-xs-3 col-sm-3' }} col-md-6">
                 <a href="{!! url('/') !!}" id="ba-logo"></a>
             </div>
-            <div class="col-md-6 hidden-xs hidden-sm">
-                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header', 'role'=>'search']) !!}
+            <div class="col-md-6 hidden-xs hidden-sm" role="search">
+                {!! Form::open(['url' => '/', 'method' => 'get', 'class'=>'navbar-form navbar-right search-form-header']) !!}
                 <div class="form-group search-form-group row">
                     <div class="input-group">
                         <input type="text" name="search" class="form-control search-input-mod typeahead"
