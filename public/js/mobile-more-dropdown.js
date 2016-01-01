@@ -27,7 +27,6 @@ $(document).ready(function () {
     });
 
     $(window).on('click', function (e) {
-        console.log(e.target);
         if (!$(e.target).hasClass('more-tab') && !$(e.target).closest('.more-dropdown-menu').length) {
             if ($('.more-dropdown-menu').is(':visible')) {
                 toggleDropdown();

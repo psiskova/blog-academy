@@ -15,7 +15,9 @@ class RoleMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next, $role) {
-        if (!$request->user()->hasRole($role)) {
+        $logged = \Auth::check();
+
+        if ($logged && !$request->user()->hasRole($role)) {
 
             flash()->error('Nemáte oprávnenie na vykonanie akcie');
             return redirect('/');

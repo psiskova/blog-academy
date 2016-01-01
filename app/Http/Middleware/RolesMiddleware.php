@@ -15,8 +15,10 @@ class RolesMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next, $roles) {
+        $logged = \Auth::check();
+
         foreach (str_split($roles) as $role) {
-            if ($request->user()->hasRole($role)) {
+            if ($logged && $request->user()->hasRole($role)) {
 
                 return $next($request);
             }

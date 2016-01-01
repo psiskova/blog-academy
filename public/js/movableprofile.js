@@ -1,9 +1,8 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
     var isMobile = window.matchMedia("only screen and (max-width: 991px)");
     var boundingElement = $('.right_col');
     var profileElement = $('#movable-bounding');
-    console.log(profileElement);
 
     var isAble = ((boundingElement.length > 0) && (profileElement.length > 0));
     if (!isAble) return;
@@ -44,28 +43,23 @@ $( document ).ready(function() {
 
 
     // Resize checker
-    $( window ).resize(function() {
+    $(window).resize(function () {
         isMobile = window.matchMedia("only screen and (max-width: 991px)");
         if (isMobile) {
             resetPosition();
             // Mobile fix reset position
             profileElement.css('width', 'auto');
         }
-        //console.log(isMobile);
     });
 
-
-
     // Scroll function
-    $(document).on('scroll',function(){
+    $(document).on('scroll', function () {
         if (!isMobile.matches) {
             // Check if profileElement is out of window
             boundingtop = boundingElement.offset().top - $(window).scrollTop();
             boundingleft = boundingElement.offset().left;
 
             estimateMove();
-
-
         }
     });
 

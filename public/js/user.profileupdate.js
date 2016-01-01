@@ -31,7 +31,6 @@ $(document).ready(function () {
     $('[name=image]').on('change', function () {
 
         if (this.files && this.files[0]) {
-            console.log(this.files[0].size / 1024 > 2048);
             if (this.files[0].size / 1024 > 2048) {
                 $('.image-error').removeClass('hidden');
                 $('#error-message').text('Súbor je príliš veľký. Maximálna veľkost 2048kB');

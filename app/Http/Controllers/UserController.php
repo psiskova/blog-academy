@@ -146,7 +146,10 @@ class UserController extends Controller {
         }
     }
 
-    public function getGrading($id) {
+    public function getGrading($id = null) {
+        if (!$id && Auth::check()) {
+            $id = Auth::user()->slug;
+        }
         $user = User::findBySlugOrIdOrFail($id);
         $course = $user->course;
         if ($course) {
@@ -240,10 +243,10 @@ class UserController extends Controller {
     public function getProfileImage($id = null) {
         $filePath = storage_path() . '/' . $id;
 
-       if(File::exists($filePath)){
+        if (File::exists($filePath)) {
 
-           return response()->download($filePath);
-       }
+            return response()->download($filePath);
+        }
 
         \App::abort(404);
     }
