@@ -343,17 +343,22 @@ img.discussion-profile {
     width: 70px;
     height: 70px;
     padding: 0;
+
 }
 
 .discussion-main {
+    /*
     border: 1px solid rgba(0, 0, 0, 0.05);
     background-color: rgba(0, 0, 0, 0.01);
     padding: 0.5em;
     margin-top: 1em;
+    */
+    padding: 0;
 }
 
+
 .discussion-main:last-of-type {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .discussion-main .row {
@@ -363,9 +368,44 @@ img.discussion-profile {
 
 .discussion-commentary {
     border: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 0.5em;
-    margin-bottom: 2em;
+    background-color: rgba(0, 0, 0, 0.02);
+    /* padding: 0.5em; */
+    /*margin-bottom: 2em;*/
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+.discussion-commentary.row {
+    margin-top: 0;
+}
+
+.col-xs-12.discussion-bottom {
+    padding-bottom: 1em;
+}
+
+.commentary-new-level {
+    padding-left: 1em;
+    border-right: none;
+}
+
+.discussion-right  p{
+    text-align: left;
+}
+
+.commentary-new-level .discussion-commentary {
+    border-right: none;
+}
+
+.col-md-7.right-column.left_col > .row > .commentary-new-level > .discussion-commentary {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.discussion-main + .discussion-main {
+    margin-top: 1em;
+}
+
+.col-md-7.right-column.left_col > .row > .commentary-new-level {
+    padding-left: 0;
     margin-top: 1em;
 }
 

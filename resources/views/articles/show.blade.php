@@ -16,7 +16,7 @@
             <div class="top_separator"></div>
             <div class="article-info">
                 <p>{!! link_to_action('UserController@getProfile', $article->user->fullname, ['user_id' => $article->user->slug])!!}</p>
-                <div class="divider"></div>{{ $article->updated_at }}
+                <div class="divider"></div> <date>{{ $article->updated_at }}</date>
                 <div class="divider hidden-xs hidden-sm"></div>
                 <div class="hidden-xs hidden-sm">
                     <input type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
@@ -88,7 +88,7 @@
         @endif
 
         @forelse($discussions as $discussion)
-            {!! HTML::discussion($discussion, $article->id) !!}
+            {!! HTML::discussion($discussion, $article->id, 1) !!}
         @empty
             @if(Auth::check()) Žiadny diskusný príspevok. Buďte prvý!@endif
         @endforelse

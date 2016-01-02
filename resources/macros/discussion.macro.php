@@ -1,8 +1,8 @@
 <?php
 
-HTML::macro('discussion', function ($discussion, $article_id) {
+HTML::macro('discussion', function ($discussion, $article_id, $level) {
 
-    $result = '<div class="discussion-main col-xs-12">
+    $result = '<div class="discussion-main col-xs-12 ' . (($level < 5) ? 'commentary-new-level' : 'x') . '">
                 <div class="discussion-commentary row">
                     <div class="col-xs-3">' . HTML::profilePicture($discussion->user, '100%', '100%', ['class' => 'discussion-profile col-xs-3']) . '</div>
                     <div class="col-xs-9 discussion-right">
@@ -27,7 +27,7 @@ HTML::macro('discussion', function ($discussion, $article_id) {
     }
     $children = \App\Models\Discussion::where('parent', '=', $discussion->id)->orderBy('created_at', 'ASC')->get();
     foreach ($children as $child) {
-        $result .= HTML::discussion($child, $article_id);
+        $result .= HTML::discussion($child, $article_id, $level + 1);
     }
     $result .= '</div>
             </div>';

@@ -21,6 +21,13 @@
                 <div id="tab1" class="tab-pane fade in active">
                     @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                         <table class="center_elements table-striped table_not_grading_teacher col-xs-12">
+                            <caption>Tabuľka neohodnotených článkov pre predmet {{ Auth::user()->course }} </caption>
+                            <thead>
+                            <tr>
+                                <th class="border_right col-xs-6">Názov článku</th>
+                                <th class="col-xs-6 text-center">Hodnotenie</th>
+                            </tr>
+                            </thead>
                             <tbody>
                                 @foreach($unratedArticles as $unratedArticle)
                                     <tr class="row">
@@ -38,6 +45,12 @@
                         </table>
                     @else
                         <table class="center_elements table-striped table_not_grading_student col-xs-12">
+                            <caption>Tabuľka neohodnotených článkov pre predmet {{ Auth::user()->course }} </caption>
+                            <thead>
+                                <tr>
+                                    <th class="col-xs-12">Názov článku</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 @foreach($unratedArticles as $unratedArticle)
                                     <tr class="row">
@@ -51,6 +64,13 @@
                 <div id="tab2" class="tab-pane fade">
                     @if(Auth::user()->hasRole(\App\Models\User::TEACHER_ROLE))
                         <table class="center_elements table-striped table_grades col-xs-12">
+                            <caption>Celkové hodnotenie žiakov</caption>
+                            <thead>
+                                <tr>
+                                    <th class="border_right col-xs-6">Meno a priezvisko</th>
+                                    <th class="col-xs-6 text-center">Hodnotenie</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 @foreach($ratedArticles as $ratedArticle)
                                     <tr class="row">
@@ -68,6 +88,13 @@
                         </table>
                     @else
                         <table class="center_elements table-striped table_grades col-xs-12">
+                            <caption>Tabuľka ohodnotených článkov s hodnotením pre predmet {{ Auth::user()->course }} </caption>
+                            <thead>
+                                <tr>
+                                    <th class="border_right col-xs-6">Názov článku</th>
+                                    <th class="col-xs-6 text-center">Hodnotenie</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 @foreach($ratedArticles as $ratedArticle)
                                     <tr class="row">

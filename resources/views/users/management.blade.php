@@ -38,6 +38,7 @@
             <div class="row">
                 <h1>Správa používateľských rolí</h1>
                 <table class="center_elements table_manage table-striped col-xs-12">
+                    <caption>Tabuľka na správu používateľov</caption>
                     <thead>
                         <tr>
                             <th class="border_right col-xs-6">Meno a priezvisko</th>
