@@ -155,13 +155,8 @@ class UserController extends Controller {
         $course = $user->course;
 
         if ($course) {
-            try {
-                $course_id = $course->id;
-            } catch (Exception $e) {
-                \Flash::error('Nemáte vybratý žiadny predmet!');
 
-                return redirect('/');
-            }
+            $course_id = $course->id;
 
             if ($user->hasRole(User::STUDENT_ROLE)) {
 
