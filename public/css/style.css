@@ -1406,3 +1406,15 @@ article p, article ul li {
 .font-large {
     font-size: large;
 }
+
+.main_q{
+    height: 300px;
+    position: relative;
+}
+
+.main_quote {
+    color: #803A76;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%)
+}
