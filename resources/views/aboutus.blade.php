@@ -5,7 +5,8 @@
         <div class="col-md-8 col-md-offset-2 push container_content">
             <h1>O nás</h1>
             <div class="text-center">
-                <p class="font-large">Sme blogerská komunita pozostávajúca z učiteľov a žiakov Gymnázia FMFI Mlynská dolina</p>
+                <p class="font-large">Sme blogerská komunita pozostávajúca z učiteľov a žiakov Gymnázia FMFI Mlynská
+                    dolina</p>
                 <img src="https://web-school.in/wp-content/uploads/2015/03/SMS.gif" class="center-block"
                      style="width: 50%" alt="School">
                 <div class="row bordered">
@@ -23,7 +24,7 @@
                 <div class="row">
                     @foreach($users as $user)
                         <div class="col-md-4">
-                            {!! HTML::profilePicture($user, 125,125, ['class' => 'img-circle']) !!}
+                            {!! HTML::profilePicture($user, 125, 125, ['class' => 'img-circle']) !!}
                             <h3>{{ $user->fullname }}</h3>
                         </div>
                     @endforeach

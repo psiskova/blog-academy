@@ -15,8 +15,7 @@
                 <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
                 <div class="article-info">
                     <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
-                    <div class="divider"></div>
-                    {{$article->updated_at}}
+                    <div class="divider"></div> <time datetime="{{ Carbon\Carbon::createFromFormat('d.m.Y',$article->updated_at)->format('Y-m-d') }}">{{$article->updated_at}}</time>
                     <div class="divider hidden-sm hidden-xs"></div>
                     <div class="hidden-sm hidden-xs">
                         <input type="number" class="rating" min=0 max=5 step=1 readonly

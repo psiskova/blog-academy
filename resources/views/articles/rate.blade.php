@@ -22,7 +22,7 @@
                 <div class="article-info">
                     <p>{!! link_to_action('UserController@getProfile', $article->user->fullname , ['user_id' => $article->user->slug]) !!}</p>
                     <div class="divider"></div>
-                    <date>{{$article->updated_at}}</date>
+                    <time datetime="{{ Carbon\Carbon::createFromFormat('d.m.Y',$article->updated_at)->format('Y-m-d') }}">{{ $article->updated_at }}</time>
                     <div class="divider hidden-sm hidden-xs"></div>
                     <div class="hidden-sm hidden-xs">
                         <input type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
