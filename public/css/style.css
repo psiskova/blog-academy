@@ -1393,3 +1393,16 @@ article p, article ul li {
 .img-circle {
     border-radius: 50% !important;
 }
+
+.bordered {
+    border-top: 1px solid #20B7C9;
+    border-bottom: 1px solid #20B7C9;
+    margin-top: 15px;
+    padding: 15px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.font-large {
+    font-size: large;
+}
