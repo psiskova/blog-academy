@@ -56,6 +56,7 @@ Route::get('/', function () {
     });
 
     $bestUsers = $bestUsers->slice(0, 3);
+
     return view('index', [
         'articles' => $articles,
         'topUsers' => $topUsers,
@@ -65,14 +66,26 @@ Route::get('/', function () {
 });
 
 Route::get('/about-us', function () {
-    return view('aboutus');
+    $users = User::where('role', '=', User::TEACHER_ROLE)->get();
+    $articlesCount = Article::published()->count();
+    $usersCount = User::count();
+    $commentsCount = \App\Models\Discussion::count();
+
+    return view('aboutus', [
+        'users' => $users,
+        'articlesCount' => $articlesCount,
+        'usersCount' => $usersCount,
+        'commentsCount' => $commentsCount
+    ]);
 });
 
 Route::get('/faq', function () {
+
     return view('faq');
 });
 
 Route::get('/rules', function () {
+
     return view('rules');
 });
 

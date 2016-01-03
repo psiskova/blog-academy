@@ -356,7 +356,6 @@ img.discussion-profile {
     padding: 0;
 }
 
-
 .discussion-main:last-of-type {
     margin-bottom: 1em;
 }
@@ -388,7 +387,7 @@ img.discussion-profile {
     border-right: none;
 }
 
-.discussion-right  p{
+.discussion-right p {
     text-align: left;
 }
 
@@ -1389,4 +1388,8 @@ article p, article ul li {
 
 .bad-input {
     margin-top: 10px;
+}
+
+.img-circle {
+    border-radius: 50% !important;
 }
