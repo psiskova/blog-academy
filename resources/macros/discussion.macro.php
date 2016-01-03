@@ -6,7 +6,7 @@ HTML::macro('discussion', function ($discussion, $article_id, $level) {
                 <div class="discussion-commentary row">
                     <div class="col-xs-3">' . HTML::profilePicture($discussion->user, '100%', '100%', ['class' => 'discussion-profile col-xs-3']) . '</div>
                     <div class="col-xs-9 discussion-right">
-                        <span class="discussion-author-info">' . link_to_action('UserController@getProfile', $discussion->user->fullname, ['user_id' => $discussion->user->slug]) . ' <a name="date" class="discussion-date"> ' . $discussion->created_at . ' </a></span>
+                        <span class="discussion-author-info">' . link_to_action('UserController@getProfile', $discussion->user->fullname, ['user_id' => $discussion->user->slug]) . ' <a class="discussion-date"> ' . $discussion->created_at . ' </a></span>
                         <p>' . $discussion->text . '</p>
                     </div>';
     if (Auth::check()) {
