@@ -151,7 +151,15 @@ class UserController extends Controller {
             $id = Auth::user()->slug;
         }
         $user = User::findBySlugOrIdOrFail($id);
-        $course = $user->course;
+
+        try {
+            $course = $user->course;
+        } catch (Exception $e) {
+            \Flash::error('Nemáte vybratý žiadny predmet!');
+
+            return redirect('/');
+        }
+
         if ($course) {
             $course_id = $course->id;
 
