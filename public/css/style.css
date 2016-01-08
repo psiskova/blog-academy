@@ -870,6 +870,11 @@ button.btn.btn-primary {
         padding-right: 15px;
     }
 
+    .discussion-main.col-xs-12.commentary-new-level .discussion-commentary.row {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
     .col-md-3.col-md-offset-1.right_col {
         padding-left: 0;
         padding-right: 0;
