@@ -29,14 +29,7 @@
                     </div>
                 </div>
                 <h2>Naši učitelia</h2>
-                <div class="row">
-                    @foreach($users as $user)
-                        <div class="col-md-4">
-                            {!! HTML::profilePicture($user, 125, 125, ['class' => 'img-circle']) !!}
-                            <h3>{{ $user->fullname }}</h3>
-                        </div>
-                    @endforeach
-                </div>
+                {!! HTML::profileGrid($users) !!}
             </div>
         </div>
     </div>
