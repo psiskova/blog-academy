@@ -13,26 +13,29 @@
         <h1>Publikované články</h1>
         @forelse($articles as $article)
             <div class="articles_list">
-                <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
-                    <div class="article-info">
-                        <p>{{ $article->user->fullname }}</p>
-                        <div class="divider"></div>
-                        {{ $article->updated_at }}
-                        <div class="divider hidden-xs hidden-sm"></div>
-                        <div class="hidden-xs hidden-sm">
-                            <input type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
-                                     data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
-                        </div>
-                    </div>
-                    <div class="hidden-md hidden-lg">
-                        <input type="number" class="rating" min=0 max=5 step=1 readonly
-                               data-size="xs"
-                               data-show-Caption="false" data-show-Clear="false"
-                               value="{{ round($article->average_rating) }}">
-                    </div>
-                <p>{!! HTML::tags($article) !!}</p>
-                {{ str_limit(strip_tags($article->text), 200) }}
-            </div>
+                <article>
+                    <header>
+                        <h3>{!! link_to_action('ArticleController@getShow', $article->title, ['id' => $article->slug]) !!}</h3>
+                            <div class="article-info">
+                                <p>{{ $article->user->fullname }}</p>
+                                <div class="divider"></div>
+                                {{ $article->updated_at }}
+                                <div class="divider hidden-xs hidden-sm"></div>
+                                <div class="hidden-xs hidden-sm">
+                                    <input type="number" class="rating" min=0 max=5 step=1 readonly data-size="xs"
+                                             data-show-Caption="false" data-show-Clear="false" value="{{ round($article->average_rating) }}">
+                                </div>
+                            </div>
+                            <div class="hidden-md hidden-lg">
+                                <input type="number" class="rating" min=0 max=5 step=1 readonly
+                                       data-size="xs"
+                                       data-show-Caption="false" data-show-Clear="false"
+                                       value="{{ round($article->average_rating) }}">
+                            </div>
+                        <p>{!! HTML::tags($article) !!}</p>
+                    </header>
+                    {{ str_limit(strip_tags($article->text), 200) }}
+                </article>
         @empty
             <p>Nemáte žiadne publikované články</p>
         @endforelse
