@@ -1149,6 +1149,10 @@ button.btn.btn-primary {
         margin-bottom: 10px;
     }
 
+    .main_quote{
+        border-width: 0px;
+    }
+
 }
 
 @media (max-width: 767px) {
