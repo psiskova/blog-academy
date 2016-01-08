@@ -378,6 +378,10 @@ img.discussion-profile {
     margin-top: 0;
 }
 
+.discussion-main.col-xs-12.commentary-new-level .discussion-commentary.row p {
+    margin-bottom: 0.7em;
+}
+
 .col-xs-12.discussion-bottom {
     padding-bottom: 1em;
 }
