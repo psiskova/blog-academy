@@ -7,7 +7,7 @@
             <div class="text-center">
                 <p class="font-large">Sme blogerská komunita pozostávajúca z učiteľov a žiakov Gymnázia FMFI Mlynská dolina. </p>
                 <div class="row">
-                <img src="public/img/school.jpg" alt="Fotka budovy skoly" class="center-block col-md-7 hidden-xs" height="300">
+                <img src="public/img/school.jpg" alt="Fotka budovy skoly" class="center-block col-md-7 img-aboutus" height="300">
                     <div class="main_q col-md-5 center-block text-center">
                         <blockquote class="main_quote font-large">
                             <p>Keď nevieš - naučíme Ťa!</p>

@@ -1437,10 +1437,11 @@ section {
     margin-right: auto;
 }
 
-article img {
+article img, .img-aboutus {
     max-width: 100%;
 }
 
 .tagy {
     line-height: 180%;
 }
+
