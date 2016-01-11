@@ -15,7 +15,7 @@
         <div class="side_tabs col-sx-12 side_tabs_grading">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#tab1">Neohodnotené</a></li>
-                <li><a data-toggle="tab" href="#tab2">Celkové hodnotenie</a></li>
+                <li><a data-toggle="tab" href="#tab2">Hodnotenie článkov</a></li>
             </ul>
             <div class="tab-content">
                 <div id="tab1" class="tab-pane fade in active">
