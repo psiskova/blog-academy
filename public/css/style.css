@@ -1149,7 +1149,7 @@ button.btn.btn-primary {
         margin-bottom: 10px;
     }
 
-    .main_quote{
+    .main_quote {
         border-width: 0px;
     }
 
@@ -1398,6 +1398,7 @@ section {
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
+    margin-right: -22px;
 }
 
 .faq .panel-heading [data-toggle="collapse"].collapsed:after {
@@ -1407,6 +1408,7 @@ section {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
     color: #454444;
+    margin-right: -22px;
 }
 
 .bad-input {
@@ -1445,3 +1447,6 @@ article img, .img-aboutus {
     line-height: 180%;
 }
 
+.faq .panel-heading {
+    padding-right: 37px;
+}
