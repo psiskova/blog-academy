@@ -161,6 +161,10 @@ html {
     background-color: lightgrey;
 }
 
+thead tr.row{
+    padding: 15px 10px;
+}
+
 .border_right {
     border-right: 1px solid darkgrey;
 }
