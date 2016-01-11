@@ -48,7 +48,7 @@
             <p class="tagy">{!! HTML::tags($article) !!}</p>
         </header>
 
-        {!! $article->text !!}
+        <div class="article-content">{!! $article->text !!}</div>
     </article>
     <div class="row">
         @if(Auth::check())

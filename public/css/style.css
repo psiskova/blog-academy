@@ -1373,7 +1373,7 @@ section {
     padding-top: 15px !important;
 }
 
-article p, article ul li {
+.article-content p, article ul li {
     line-height: 180%;
 }
 

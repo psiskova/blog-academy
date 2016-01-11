@@ -38,7 +38,7 @@
                 <p>{!! HTML::tags($article) !!}</p>
             </header>
 
-            <p>{!! $article->text !!}</p>
+            <div class="article-content">{!! $article->text !!}</div>
         </article>
 
         <h1> Ohodnotiť článok </h1>
