@@ -83,13 +83,16 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 -10px 180px -10px;
+    border-width: 1px;
+    border-style: solid;
     -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#9a9a9a), to(rgba(0, 0, 0, 0))) 1 100%;
     -webkit-border-image: -webkit-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
     -moz-border-image: -moz-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
     -o-border-image: -o-linear-gradient(bottom, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
     border-image: linear-gradient(to top, #9a9a9a, rgba(0, 0, 0, 0)) 1 100%;
-    border: 1px solid;
-    border-bottom-color: #9a9a9a;
+    border-bottom: 1px solid #9a9a9a;
+    /*border: 1px solid;
+    border-bottom-color: #9a9a9a;*/
 }
 
 .side_tabs_top:before, .side_tabs:after {
