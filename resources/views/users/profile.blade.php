@@ -62,7 +62,7 @@
                                    data-show-Caption="false" data-show-Clear="false"
                                    value="{{ round($article->average_rating) }}">
                         </div>
-                        <p>{!! HTML::tags($article) !!}</p>
+                        <p class="tagy">{!! HTML::tags($article) !!}</p>
                         {{ str_limit(strip_tags($article->text), 200) }}
                     </div>
                 @empty

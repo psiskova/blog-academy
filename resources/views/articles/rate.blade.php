@@ -35,7 +35,7 @@
                            data-show-Caption="false" data-show-Clear="false"
                            value="{{ round($article->average_rating) }}">
                 </div>
-                <p>{!! HTML::tags($article) !!}</p>
+                <p class="tagy">{!! HTML::tags($article) !!}</p>
             </header>
 
             <div class="article-content">{!! $article->text !!}</div>
